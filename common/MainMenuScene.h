@@ -1,24 +1,23 @@
-
 #ifndef __SantaGnomes__MainMenuScene__
 #define __SantaGnomes__MainMenuScene__
 
 #include "cocos2d.h"
 
-class MainMenuScene : cocos2d::Scene {
-
-private:
-   typedef cocos2d::Scene super;
-
-protected:
+class MainMenuScene : public cocos2d::Scene {
 
 public:
-   MainMenuScene();
+    MainMenuScene();
+    
+    ~MainMenuScene();
+    
+    static Scene* createScene();
+    
+    bool init();
+    
+protected:
 
-   ~MainMenuScene();
-
-   static MainMenuScene* create();
-   
-   bool init();
-
+private:
+    
 };
+
 #endif /* defined(__SantaGnomes__MainMenuScene__) */

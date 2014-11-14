@@ -7,16 +7,6 @@ GameScene::GameScene(){}
 
 GameScene::~GameScene() {}
 
-//GameScene* GameScene::create() {
-//
-//   return nullptr;
-//}
-
-bool GameScene::init()
-{
-   return false;
-}
-
 Scene* GameScene::createScene()
 {
     // 'scene' is an autorelease object
@@ -31,5 +21,16 @@ Scene* GameScene::createScene()
     // return the scene
     return scene;
 }
+
+GameScene* GameScene::create() {
+
+   return nullptr;
+}
+
+bool GameScene::init()
+{
+   return false;
+}
+
 
 

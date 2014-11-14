@@ -1,10 +1,9 @@
-
 #ifndef __SantaGnomes__GameScene__
 #define __SantaGnomes__GameScene__
 
 #include "cocos2d.h"
 
-class GameScene : Layer {
+class GameScene : public cocos2d::Layer {
 
 public:
     GameScene();
@@ -13,16 +12,14 @@ public:
     
     static cocos2d::Scene* createScene();
     
-    
-    //static GameScene* create();
+    static GameScene* create();
     
     bool init();
     
 protected:
 
 private:
-    typedef Layer super;
     
-
 };
+
 #endif /* defined(__SantaGnomes__GameScene__) */

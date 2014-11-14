@@ -66,8 +66,9 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		E0CC7F901A107FEE00A591A7 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0CC7F8E1A107FEE00A591A7 /* MainMenuScene.cpp */; };
-		E0CC7F931A1080D400A591A7 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0CC7F911A1080D400A591A7 /* GameScene.cpp */; };
+		E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DC1A15502B005A9FD0 /* MainMenu.cpp */; };
+		E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */; };
+		E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460E21A1550B8005A9FD0 /* GameScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,10 +159,12 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		E0CC7F8E1A107FEE00A591A7 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
-		E0CC7F8F1A107FEE00A591A7 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
-		E0CC7F911A1080D400A591A7 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
-		E0CC7F921A1080D400A591A7 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		E09460DC1A15502B005A9FD0 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
+		E09460DD1A15502B005A9FD0 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
+		E09460E01A155093005A9FD0 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		E09460E21A1550B8005A9FD0 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		E09460E31A1550B8005A9FD0 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,16 +349,25 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		E09460DB1A15500E005A9FD0 /* menus */ = {
+			isa = PBXGroup;
+			children = (
+				E09460DC1A15502B005A9FD0 /* MainMenu.cpp */,
+				E09460DD1A15502B005A9FD0 /* MainMenu.h */,
+			);
+			path = menus;
+			sourceTree = "<group>";
+		};
 		E0CC7F8A1A107EE300A591A7 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E09460DB1A15500E005A9FD0 /* menus */,
 				E0CC7F8B1A107EE300A591A7 /* controls */,
 				E0CC7F8C1A107EE300A591A7 /* core */,
-				E0CC7F8D1A107EE300A591A7 /* menus */,
-				E0CC7F8E1A107FEE00A591A7 /* MainMenuScene.cpp */,
-				E0CC7F8F1A107FEE00A591A7 /* MainMenuScene.h */,
-				E0CC7F911A1080D400A591A7 /* GameScene.cpp */,
-				E0CC7F921A1080D400A591A7 /* GameScene.h */,
+				E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */,
+				E09460E01A155093005A9FD0 /* MainMenuScene.h */,
+				E09460E21A1550B8005A9FD0 /* GameScene.cpp */,
+				E09460E31A1550B8005A9FD0 /* GameScene.h */,
 			);
 			name = common;
 			path = ../common;
@@ -373,13 +385,6 @@
 			children = (
 			);
 			path = core;
-			sourceTree = "<group>";
-		};
-		E0CC7F8D1A107EE300A591A7 /* menus */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = menus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,12 +534,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				E0CC7F931A1080D400A591A7 /* GameScene.cpp in Sources */,
-				E0CC7F901A107FEE00A591A7 /* MainMenuScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */,
+				E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
