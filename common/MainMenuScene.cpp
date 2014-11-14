@@ -13,19 +13,17 @@ Scene* MainMenuScene::createScene() {
     // 'scene' is an autorelease object
     auto mainMenuScene = Scene::create();
     
-    // 'layer' is an autorelease object
-    auto layer = MainMenu::create();
-    
-    // add layer as a child to scene
-    mainMenuScene->addChild(layer);
-    
     // return the scene
     return mainMenuScene;
 }
 
 bool MainMenuScene::init()
 {
-   return false;
+    Menu* pMenu = MainMenu::create();
+    pMenu->setPosition(Point::ZERO);
+    this->addChild(pMenu, 1);
+
+   return true;
 }
 
 
