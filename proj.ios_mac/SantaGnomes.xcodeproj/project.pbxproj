@@ -66,6 +66,14 @@
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
+		E02DA5E51A279A5600696BDA /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5E31A279A5600696BDA /* GameController.cpp */; };
+		E02DA5E81A279DDD00696BDA /* GameModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5E61A279DDD00696BDA /* GameModel.cpp */; };
+		E02DA5EE1A279EBB00696BDA /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5EC1A279EBB00696BDA /* GameState.cpp */; };
+		E02DA5F11A27A1A200696BDA /* PlayerData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5EF1A27A1A200696BDA /* PlayerData.cpp */; };
+		E02DA5F41A27A51F00696BDA /* TouchController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5F21A27A51F00696BDA /* TouchController.cpp */; };
+		E02DA5F91A27A5EF00696BDA /* LevelDataProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5F71A27A5EF00696BDA /* LevelDataProvider.cpp */; };
+		E02DA5FC1A27A61900696BDA /* StateDataProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5FA1A27A61900696BDA /* StateDataProvider.cpp */; };
+		E02DA5FF1A27A63100696BDA /* PlayerDataProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5FD1A27A63100696BDA /* PlayerDataProvider.cpp */; };
 		E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DC1A15502B005A9FD0 /* MainMenu.cpp */; };
 		E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */; };
 		E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460E21A1550B8005A9FD0 /* GameScene.cpp */; };
@@ -159,6 +167,22 @@
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		E02DA5E31A279A5600696BDA /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
+		E02DA5E41A279A5600696BDA /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		E02DA5E61A279DDD00696BDA /* GameModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameModel.cpp; sourceTree = "<group>"; };
+		E02DA5E71A279DDD00696BDA /* GameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameModel.h; sourceTree = "<group>"; };
+		E02DA5EC1A279EBB00696BDA /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		E02DA5ED1A279EBB00696BDA /* GameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameState.h; sourceTree = "<group>"; };
+		E02DA5EF1A27A1A200696BDA /* PlayerData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerData.cpp; sourceTree = "<group>"; };
+		E02DA5F01A27A1A200696BDA /* PlayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerData.h; sourceTree = "<group>"; };
+		E02DA5F21A27A51F00696BDA /* TouchController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchController.cpp; sourceTree = "<group>"; };
+		E02DA5F31A27A51F00696BDA /* TouchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchController.h; sourceTree = "<group>"; };
+		E02DA5F71A27A5EF00696BDA /* LevelDataProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelDataProvider.cpp; sourceTree = "<group>"; };
+		E02DA5F81A27A5EF00696BDA /* LevelDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelDataProvider.h; sourceTree = "<group>"; };
+		E02DA5FA1A27A61900696BDA /* StateDataProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateDataProvider.cpp; sourceTree = "<group>"; };
+		E02DA5FB1A27A61900696BDA /* StateDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateDataProvider.h; sourceTree = "<group>"; };
+		E02DA5FD1A27A63100696BDA /* PlayerDataProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerDataProvider.cpp; sourceTree = "<group>"; };
+		E02DA5FE1A27A63100696BDA /* PlayerDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDataProvider.h; sourceTree = "<group>"; };
 		E09460DC1A15502B005A9FD0 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		E09460DD1A15502B005A9FD0 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
@@ -349,6 +373,19 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		E02DA5F61A27A5B700696BDA /* util */ = {
+			isa = PBXGroup;
+			children = (
+				E02DA5F71A27A5EF00696BDA /* LevelDataProvider.cpp */,
+				E02DA5F81A27A5EF00696BDA /* LevelDataProvider.h */,
+				E02DA5FA1A27A61900696BDA /* StateDataProvider.cpp */,
+				E02DA5FB1A27A61900696BDA /* StateDataProvider.h */,
+				E02DA5FD1A27A63100696BDA /* PlayerDataProvider.cpp */,
+				E02DA5FE1A27A63100696BDA /* PlayerDataProvider.h */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
 		E09460DB1A15500E005A9FD0 /* menus */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,6 +398,7 @@
 		E0CC7F8A1A107EE300A591A7 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E02DA5F61A27A5B700696BDA /* util */,
 				E09460DB1A15500E005A9FD0 /* menus */,
 				E0CC7F8B1A107EE300A591A7 /* controls */,
 				E0CC7F8C1A107EE300A591A7 /* core */,
@@ -383,6 +421,16 @@
 		E0CC7F8C1A107EE300A591A7 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				E02DA5E31A279A5600696BDA /* GameController.cpp */,
+				E02DA5E41A279A5600696BDA /* GameController.h */,
+				E02DA5E61A279DDD00696BDA /* GameModel.cpp */,
+				E02DA5E71A279DDD00696BDA /* GameModel.h */,
+				E02DA5EC1A279EBB00696BDA /* GameState.cpp */,
+				E02DA5ED1A279EBB00696BDA /* GameState.h */,
+				E02DA5EF1A27A1A200696BDA /* PlayerData.cpp */,
+				E02DA5F01A27A1A200696BDA /* PlayerData.h */,
+				E02DA5F21A27A51F00696BDA /* TouchController.cpp */,
+				E02DA5F31A27A51F00696BDA /* TouchController.h */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -533,14 +581,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02DA5FC1A27A61900696BDA /* StateDataProvider.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */,
+				E02DA5F11A27A1A200696BDA /* PlayerData.cpp in Sources */,
+				E02DA5EE1A279EBB00696BDA /* GameState.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				E02DA5E51A279A5600696BDA /* GameController.cpp in Sources */,
+				E02DA5F41A27A51F00696BDA /* TouchController.cpp in Sources */,
+				E02DA5FF1A27A63100696BDA /* PlayerDataProvider.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */,
+				E02DA5F91A27A5EF00696BDA /* LevelDataProvider.cpp in Sources */,
 				E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */,
+				E02DA5E81A279DDD00696BDA /* GameModel.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,7 +630,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Valery Bartashevich (X9MQAT7BDM)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -595,6 +651,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "41c310d9-ddf2-49f2-ba25-5d0bb34bfdc8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -606,7 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Valery Bartashevich (X9MQAT7BDM)";
 				COMPRESS_PNG_FILES = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -625,6 +682,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "41c310d9-ddf2-49f2-ba25-5d0bb34bfdc8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -693,6 +751,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Valery Bartashevich (X9MQAT7BDM)";
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -715,6 +774,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "41c310d9-ddf2-49f2-ba25-5d0bb34bfdc8";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -724,6 +784,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Valery Bartashevich (X9MQAT7BDM)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -744,6 +805,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "41c310d9-ddf2-49f2-ba25-5d0bb34bfdc8";
 				SDKROOT = macosx;
 				VALIDATE_PRODUCT = YES;
 			};

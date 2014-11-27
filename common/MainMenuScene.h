@@ -3,14 +3,16 @@
 
 #include "cocos2d.h"
 
-class MainMenuScene : public cocos2d::Scene {
+class MainMenuScene : public cocos2d::Layer {
 
 public:
     MainMenuScene();
     
     ~MainMenuScene();
     
-    static Scene* createScene();
+    static cocos2d::Scene* createScene();
+    
+    static MainMenuScene* create();
     
     bool init();
     

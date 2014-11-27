@@ -10,7 +10,10 @@ MainMenu::~MainMenu() {}
 
 MainMenu* MainMenu::create() {
 
-   return Menu::create();
+    MainMenu* pRet = new MainMenu();
+    pRet->init();
+    return pRet;
+    
 }
 
 bool MainMenu::init()
@@ -23,8 +26,8 @@ bool MainMenu::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();	
 	
-	Point beginPos = Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 50);
-	float step = 60.0f;
+	Point beginPos = Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 250);
+    float step = 100.0f;
 
 /*	
 	cocos2d::MenuItem* pMenuItem = cocos2d::MenuItemImage::create(
@@ -32,18 +35,21 @@ bool MainMenu::init()
                                             "CloseSelected.png",
                                             this,
                                             menu_selector(MainMenu::menuCallback));
-*/											
-	    MenuItemFont *pItem = MenuItemFont::create("Play", menu_selector(MainMenu::menuCallback, this));
-        pItem->setTag(0);
-        pItem->setPosition(Point(beginPos.x, beginPos.y - 0 * step));
-        pMenu->addChild(pItem);										
+ 
+*/
+    
+    
+    MenuItemFont *pItem = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenu::menuCallback,this));
+    pItem->setTag(0);
+    pItem->setPosition(Point(beginPos.x, beginPos.y - 0 * step));
+    this->addChild(pItem);
 
-	    *pItem = MenuItemFont::create("Close", menu_selector(MainMenu::menuCallback, this));
-        pItem->setTag(1);
-        pItem->setPosition(Point(beginPos.x, beginPos.y - 1 * step));
-        pMenu->addChild(pItem);	
+    pItem = MenuItemFont::create("Close", CC_CALLBACK_1(MainMenu::menuCallback, this));
+    pItem->setTag(1);
+    pItem->setPosition(Point(beginPos.x, beginPos.y - 1 * step));
+    this->addChild(pItem);
 
-	return true
+    return true;
 }
 
 
@@ -53,8 +59,8 @@ void MainMenu::menuCallback(Ref* pSender)
     Scene* newScene = NULL;
     switch (pItem->getTag()) {
     case 0:
-        newScene = GameScene::scene();
-        break;
+            newScene = GameScene::createScene();
+            break;
     case 1:
         Director::getInstance()->end();
 

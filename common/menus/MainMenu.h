@@ -15,6 +15,8 @@ public:
     bool init();
     
 protected:
+    
+    void menuCallback(cocos2d::Ref* pSender);
 
 private:
     
