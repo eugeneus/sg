@@ -11,10 +11,30 @@ MainMenuScene::~MainMenuScene() {}
 Scene* MainMenuScene::createScene() {
     
     // 'scene' is an autorelease object
-    auto mainMenuScene = Scene::create();
+    auto pMainMenuScene = Scene::create();
     
+    auto pLayer = MainMenuScene::create();
+    //pMainMenuScene->init();
     // return the scene
-    return mainMenuScene;
+    pMainMenuScene->addChild(pLayer);
+    return pMainMenuScene;
+}
+
+MainMenuScene* MainMenuScene::create()
+{
+    MainMenuScene *pRet = new MainMenuScene();
+    
+    if (pRet && pRet->init()) {
+        return pRet;
+    }
+    else{
+        
+        delete pRet;
+        pRet = nullptr;
+        return pRet;
+    }
+    
+    
 }
 
 bool MainMenuScene::init()

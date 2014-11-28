@@ -34,8 +34,8 @@ bool MainMenu::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();	
 	
-	Point beginPos = Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 50);
-	float step = 60.0f;
+	Point beginPos = Point(origin.x + visibleSize.width / 2, origin.y + visibleSize.height - 250);
+    float step = 100.0f;
 
 /*	
 	cocos2d::MenuItem* pMenuItem = cocos2d::MenuItemImage::create(
