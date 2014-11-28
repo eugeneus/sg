@@ -10,7 +10,18 @@ MainMenu::~MainMenu() {}
 
 MainMenu* MainMenu::create() {
 
-   return Menu::create();
+    MainMenu *ret = new MainMenu();
+    if (ret && ret->init())
+    {
+        ret->autorelease();
+        return ret;
+    }
+    else
+    {
+        CC_SAFE_DELETE(ret);
+        return nullptr;
+    }
+
 }
 
 bool MainMenu::init()
@@ -33,17 +44,17 @@ bool MainMenu::init()
                                             this,
                                             menu_selector(MainMenu::menuCallback));
 */											
-	    MenuItemFont *pItem = MenuItemFont::create("Play", menu_selector(MainMenu::menuCallback, this));
+	    MenuItemFont *pItem = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenu::menuCallback, this));
         pItem->setTag(0);
         pItem->setPosition(Point(beginPos.x, beginPos.y - 0 * step));
-        pMenu->addChild(pItem);										
+        this->addChild(pItem);
 
-	    *pItem = MenuItemFont::create("Close", menu_selector(MainMenu::menuCallback, this));
+    pItem = MenuItemFont::create("Close", CC_CALLBACK_1(MainMenu::menuCallback, this));//menu_selector(MainMenu::menuCallback, this));
         pItem->setTag(1);
         pItem->setPosition(Point(beginPos.x, beginPos.y - 1 * step));
-        pMenu->addChild(pItem);	
+        this->addChild(pItem);
 
-	return true
+    return true;
 }
 
 
@@ -53,7 +64,7 @@ void MainMenu::menuCallback(Ref* pSender)
     Scene* newScene = NULL;
     switch (pItem->getTag()) {
     case 0:
-        newScene = GameScene::scene();
+        newScene = GameScene::createScene();
         break;
     case 1:
         Director::getInstance()->end();
