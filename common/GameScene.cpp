@@ -23,15 +23,15 @@ Scene* GameScene::createScene()
     return scene;
 }
 
-GameScene* GameScene::create() {
-
-   GameScene *pRet = new GameScene();
-
+GameScene* GameScene::create()
+{
+    GameScene *pRet = new GameScene();
+    
     if (pRet && pRet->init()) {
         return pRet;
     }
     else{
-
+        
         delete pRet;
         pRet = nullptr;
         return pRet;
@@ -40,12 +40,8 @@ GameScene* GameScene::create() {
 
 bool GameScene::init()
 {
-    Sprite *bg = Sprite::createWithSpriteFrameName("bg_level.png");
-    bg->setAnchorPoint(Vec2(0,0));
-    bg->setPosition(Vec2(0,0));
-    this->addChild(bg, -1001);
-    
-    return true;
+    _theGameController = GameController::create(this);
+   return true;
 }
 
 
