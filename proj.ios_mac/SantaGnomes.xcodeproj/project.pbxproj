@@ -59,6 +59,13 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		AA95AF531A2E67F1009EFEDC /* level_960x640.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA95AF511A2E67F1009EFEDC /* level_960x640.plist */; };
+		AA95AF541A2E67F1009EFEDC /* level_960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = AA95AF521A2E67F1009EFEDC /* level_960x640.png */; };
+		AA95AF581A2E685C009EFEDC /* ResourcesManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA95AF561A2E685C009EFEDC /* ResourcesManager.cpp */; };
+		AA95AF5B1A2E6F72009EFEDC /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA95AF591A2E6F72009EFEDC /* LoadingScene.cpp */; };
+		AAE0B01F1A29453C00019985 /* loading_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B01D1A29453C00019985 /* loading_bg.png */; };
+		AAE0B0201A29453C00019985 /* menu_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B01E1A29453C00019985 /* menu_bg.png */; };
+		AAE0B0221A29459000019985 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE0B0211A29459000019985 /* Images.xcassets */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -160,6 +167,15 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		AA95AF511A2E67F1009EFEDC /* level_960x640.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_960x640.plist; sourceTree = "<group>"; };
+		AA95AF521A2E67F1009EFEDC /* level_960x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_960x640.png; sourceTree = "<group>"; };
+		AA95AF561A2E685C009EFEDC /* ResourcesManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourcesManager.cpp; sourceTree = "<group>"; };
+		AA95AF571A2E685C009EFEDC /* ResourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesManager.h; sourceTree = "<group>"; };
+		AA95AF591A2E6F72009EFEDC /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
+		AA95AF5A1A2E6F72009EFEDC /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
+		AAE0B01D1A29453C00019985 /* loading_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loading_bg.png; path = ../loading_bg.png; sourceTree = "<group>"; };
+		AAE0B01E1A29453C00019985 /* menu_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_bg.png; path = ../menu_bg.png; sourceTree = "<group>"; };
+		AAE0B0211A29459000019985 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "SantaGnomes iOS/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -304,6 +320,11 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AA95AF511A2E67F1009EFEDC /* level_960x640.plist */,
+				AA95AF521A2E67F1009EFEDC /* level_960x640.png */,
+				AAE0B0211A29459000019985 /* Images.xcassets */,
+				AAE0B01D1A29453C00019985 /* loading_bg.png */,
+				AAE0B01E1A29453C00019985 /* menu_bg.png */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -373,9 +394,19 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		AA95AF551A2E685C009EFEDC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA95AF561A2E685C009EFEDC /* ResourcesManager.cpp */,
+				AA95AF571A2E685C009EFEDC /* ResourcesManager.h */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		E02DA5F61A27A5B700696BDA /* util */ = {
 			isa = PBXGroup;
 			children = (
+				AA95AF551A2E685C009EFEDC /* UI */,
 				E02DA5F71A27A5EF00696BDA /* LevelDataProvider.cpp */,
 				E02DA5F81A27A5EF00696BDA /* LevelDataProvider.h */,
 				E02DA5FA1A27A61900696BDA /* StateDataProvider.cpp */,
@@ -406,6 +437,8 @@
 				E09460E01A155093005A9FD0 /* MainMenuScene.h */,
 				E09460E21A1550B8005A9FD0 /* GameScene.cpp */,
 				E09460E31A1550B8005A9FD0 /* GameScene.h */,
+				AA95AF591A2E6F72009EFEDC /* LoadingScene.cpp */,
+				AA95AF5A1A2E6F72009EFEDC /* LoadingScene.h */,
 			);
 			name = common;
 			path = ../common;
@@ -538,15 +571,18 @@
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				AAE0B0221A29459000019985 /* Images.xcassets in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				AA95AF541A2E67F1009EFEDC /* level_960x640.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
+				AA95AF531A2E67F1009EFEDC /* level_960x640.plist in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
@@ -558,6 +594,8 @@
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
+				AAE0B0201A29453C00019985 /* menu_bg.png in Resources */,
+				AAE0B01F1A29453C00019985 /* loading_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,9 +630,11 @@
 				E02DA5F41A27A51F00696BDA /* TouchController.cpp in Sources */,
 				E02DA5FF1A27A63100696BDA /* PlayerDataProvider.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				AA95AF581A2E685C009EFEDC /* ResourcesManager.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */,
 				E02DA5F91A27A5EF00696BDA /* LevelDataProvider.cpp in Sources */,
+				AA95AF5B1A2E6F72009EFEDC /* LoadingScene.cpp in Sources */,
 				E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */,
 				E02DA5E81A279DDD00696BDA /* GameModel.cpp in Sources */,
 			);

@@ -24,12 +24,27 @@ Scene* GameScene::createScene()
 
 GameScene* GameScene::create() {
 
-   return nullptr;
+   GameScene *pRet = new GameScene();
+
+    if (pRet && pRet->init()) {
+        return pRet;
+    }
+    else{
+
+        delete pRet;
+        pRet = nullptr;
+        return pRet;
+    }
 }
 
 bool GameScene::init()
 {
-   return false;
+    Sprite *bg = Sprite::createWithSpriteFrameName("bg_level.png");
+    bg->setAnchorPoint(Vec2(0,0));
+    bg->setPosition(Vec2(0,0));
+    this->addChild(bg, -1001);
+    
+    return true;
 }
 
 

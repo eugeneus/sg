@@ -1,6 +1,8 @@
 #include "AppDelegate.h"
 #include "HelloWorldScene.h"
 #include "MainMenuScene.h"
+#include "LoadingScene.h"
+#include "ResourcesManager.h"
 
 USING_NS_CC;
 
@@ -38,8 +40,13 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
 
+    
+    auto screenSize = glview->getFrameSize();
+    ResourcesManager *res = ResourcesManager::getInstance();
+    res->setScreenSize(screenSize);
+    
     // create a scene. it's an autorelease object
-    auto scene = MainMenuScene::createScene();
+    auto scene = LoadingScene::createScene();//MainMenuScene::createScene();
 
     // run
     director->runWithScene(scene);

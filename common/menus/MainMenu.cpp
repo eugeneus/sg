@@ -22,6 +22,10 @@ MainMenu* MainMenu::create() {
         return nullptr;
     }
 
+    MainMenu* pRet = new MainMenu();
+    pRet->init();
+    return pRet;
+    
 }
 
 bool MainMenu::init()
@@ -43,16 +47,25 @@ bool MainMenu::init()
                                             "CloseSelected.png",
                                             this,
                                             menu_selector(MainMenu::menuCallback));
-*/											
-	    MenuItemFont *pItem = MenuItemFont::create("Play", CC_CALLBACK_1(MainMenu::menuCallback, this));
-        pItem->setTag(0);
-        pItem->setPosition(Point(beginPos.x, beginPos.y - 0 * step));
-        this->addChild(pItem);
+ 
+*/
+    int i =0;
+    
+    MenuItemFont *pItem = MenuItemFont::create("Continue", CC_CALLBACK_1(MainMenu::menuCallback,this));
+    pItem->setTag(0);
+    pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
+    this->addChild(pItem);
 
-    pItem = MenuItemFont::create("Close", CC_CALLBACK_1(MainMenu::menuCallback, this));//menu_selector(MainMenu::menuCallback, this));
-        pItem->setTag(1);
-        pItem->setPosition(Point(beginPos.x, beginPos.y - 1 * step));
-        this->addChild(pItem);
+
+    pItem = MenuItemFont::create("Select", CC_CALLBACK_1(MainMenu::menuCallback,this));
+    pItem->setTag(2);
+    pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
+    this->addChild(pItem);
+    
+    pItem = MenuItemFont::create("Close", CC_CALLBACK_1(MainMenu::menuCallback, this));
+    pItem->setTag(1);
+    pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
+    this->addChild(pItem);
 
     return true;
 }
@@ -64,8 +77,8 @@ void MainMenu::menuCallback(Ref* pSender)
     Scene* newScene = NULL;
     switch (pItem->getTag()) {
     case 0:
-        newScene = GameScene::createScene();
-        break;
+            newScene = GameScene::createScene();
+            break;
     case 1:
         Director::getInstance()->end();
 
