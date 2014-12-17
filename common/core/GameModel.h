@@ -19,6 +19,7 @@ public:
     
     void loadLevel(cocos2d::Layer* aLayer, int aLevel);
     
+	// calculates base points, sizes and scales, based on current screen size
     void arrange();
     
 protected:
@@ -45,6 +46,7 @@ protected:
     cocos2d::Size _gnomeStartPosOffset;
     float _gnomeScaleFactor;
     
+	Point _sceneCenter;
 
 private:
     
