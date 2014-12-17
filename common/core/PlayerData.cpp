@@ -3,18 +3,25 @@
 
 USING_NS_CC;
 
-PlayerData::PlayerData(){}
+PlayerData::PlayerData():
+_currentLevel(1),
+_points(1)
+{}
 
 PlayerData::~PlayerData() {}
 
 PlayerData* PlayerData::create() {
+    
+    PlayerData* pRet = new PlayerData();
+    pRet->init();
 
-   return nullptr;
+   return pRet;
 }
 
 bool PlayerData::init()
 {
-   return false;
+   // call Player Data Provider to read stored values
+   return true;
 }
 
 

@@ -9,11 +9,11 @@
 
 #include "cocos2d.h"
 
-#include "GameModel.h"
-#include "PlayerData.h"
-#include "GameState.h"
-
-#include "TouchController.h"
+class PlayerData;
+class GameState;
+class TouchController;
+class GameModel;
+class GameObjectBase;
 
 class GameController : public cocos2d::Node {
 
@@ -22,11 +22,15 @@ public:
     
     ~GameController();
     
-    static GameController* create(cocos2d::Layer aLayer);
+    static GameController* create(cocos2d::Layer* aLayer);
     
-    bool init(cocos2d::Layer aLayer);
+    bool init(cocos2d::Layer* aLayer);
     
 protected:
+    
+    PlayerData* _playerData;
+    GameModel* _theModel;
+    TouchController* _touchCtl;
 
 private:
     
