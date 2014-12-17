@@ -1,6 +1,8 @@
 
 #include "GameModel.h"
 
+#include "GameObjectBase.h"
+
 USING_NS_CC;
 
 GameModel::GameModel(){}
@@ -74,14 +76,15 @@ void GameModel::arrange()
 	// 0.234375 - 150
 	// x = 150 * 0.1 / 0.234375
 	// 0.4266666666666667
-void GameModel::scaleGameObject(Node* aNode) // GameObjectBase
+
+void GameModel::scaleGameObject(GameObjectBase* aGameObject)
 {
 	auto dirs = Director::getInstance();
 	Size visibleSize = dirs->getVisibleSize();
 	float maxScreenDimention = visibleSize.width >= visibleSize.height ? visibleSize.width : visibleSize.height;
 	
-    float sizeFactor = 0.0;//aNode->getSizeFactor();
-	Size  actualSize = aNode->getContentSize();
+    float sizeFactor = aGameObject->getRelativeSizeFactor();
+	Size  actualSize = aGameObject->getContentSize();
 	float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
 	
 	
@@ -91,7 +94,7 @@ void GameModel::scaleGameObject(Node* aNode) // GameObjectBase
 	
 	float effectiveScale = effectiveDim / maxDimention;
 	
-	aNode->setScale(effectiveScale);
+	aGameObject->setScale(effectiveScale);
 
 }
 

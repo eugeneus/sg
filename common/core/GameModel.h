@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include "LevelDataProvider.h"
 
+class GameObjectBase;
+
 class GameModel : public cocos2d::Node {
 
 public:
@@ -22,7 +24,7 @@ public:
 	// calculates base points, sizes and scales, based on current screen size
     void arrange();
     
-    void scaleGameObject(Node* aNode);
+    void scaleGameObject(GameObjectBase* aGameObject);
     
 protected:
     

@@ -5,6 +5,8 @@
 #include "GameState.h"
 #include "TouchController.h"
 
+#include "GameObjectBase.h"
+
 
 USING_NS_CC;
 

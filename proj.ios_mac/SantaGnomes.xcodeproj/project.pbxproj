@@ -77,6 +77,7 @@
 		E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DC1A15502B005A9FD0 /* MainMenu.cpp */; };
 		E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */; };
 		E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460E21A1550B8005A9FD0 /* GameScene.cpp */; };
+		E0FD398B1A41F99400C98623 /* GameObjectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0FD39891A41F99400C98623 /* GameObjectBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +190,8 @@
 		E09460E01A155093005A9FD0 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		E09460E21A1550B8005A9FD0 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		E09460E31A1550B8005A9FD0 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		E0FD39891A41F99400C98623 /* GameObjectBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectBase.cpp; sourceTree = "<group>"; };
+		E0FD398A1A41F99400C98623 /* GameObjectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectBase.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +401,7 @@
 		E0CC7F8A1A107EE300A591A7 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				E0FD39881A41F95E00C98623 /* GameObjects */,
 				E02DA5F61A27A5B700696BDA /* util */,
 				E09460DB1A15500E005A9FD0 /* menus */,
 				E0CC7F8B1A107EE300A591A7 /* controls */,
@@ -433,6 +437,15 @@
 				E02DA5F31A27A51F00696BDA /* TouchController.h */,
 			);
 			path = core;
+			sourceTree = "<group>";
+		};
+		E0FD39881A41F95E00C98623 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				E0FD39891A41F99400C98623 /* GameObjectBase.cpp */,
+				E0FD398A1A41F99400C98623 /* GameObjectBase.h */,
+			);
+			path = GameObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E02DA5FC1A27A61900696BDA /* StateDataProvider.cpp in Sources */,
+				E0FD398B1A41F99400C98623 /* GameObjectBase.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */,
 				E02DA5F11A27A1A200696BDA /* PlayerData.cpp in Sources */,

@@ -13,6 +13,7 @@ class PlayerData;
 class GameState;
 class TouchController;
 class GameModel;
+class GameObjectBase;
 
 class GameController : public cocos2d::Node {
 
