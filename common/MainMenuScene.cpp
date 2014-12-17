@@ -39,9 +39,9 @@ MainMenuScene* MainMenuScene::create()
 
 bool MainMenuScene::init()
 {
-    Menu* pMenu = MainMenu::create();
-    pMenu->setPosition(Point::ZERO);
-    this->addChild(pMenu, 1);
+//    Menu* pMenu = MainMenu::create();
+//    pMenu->setPosition(Point::ZERO);
+//    this->addChild(pMenu, 1);
 
    return true;
 }

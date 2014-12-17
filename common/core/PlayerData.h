@@ -27,7 +27,17 @@ public:
     
     bool init();
     
+    int getCurrentLevel();
+    void setLevel(int aNextLevel);
+    int getPoints();
+    int setPoints(int aNewPointsValue);
+    
 protected:
+    
+    int _currentLevel;
+    int _points; // earned points till now
+    // int _heals
+    // int _attempts
 
 private:
     
