@@ -22,6 +22,8 @@ public:
 	// calculates base points, sizes and scales, based on current screen size
     void arrange();
     
+    void scaleGameObject(Node* aNode);
+    
 protected:
     
     // we are going to use centered positioning
@@ -46,7 +48,7 @@ protected:
     cocos2d::Size _gnomeStartPosOffset;
     float _gnomeScaleFactor;
     
-	Point _sceneCenter;
+    cocos2d::Point _sceneCenter;
 
 private:
     

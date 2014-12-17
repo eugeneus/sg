@@ -80,7 +80,7 @@ void GameModel::scaleGameObject(Node* aNode) // GameObjectBase
 	Size visibleSize = dirs->getVisibleSize();
 	float maxScreenDimention = visibleSize.width >= visibleSize.height ? visibleSize.width : visibleSize.height;
 	
-	float sizeFactor = aNode->getSizeFactor();
+    float sizeFactor = 0.0;//aNode->getSizeFactor();
 	Size  actualSize = aNode->getContentSize();
 	float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
 	
