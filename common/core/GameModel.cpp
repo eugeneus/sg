@@ -2,6 +2,7 @@
 #include "GameModel.h"
 
 #include "GameObjectBase.h"
+#include "Heap.h"
 
 USING_NS_CC;
 
@@ -31,28 +32,42 @@ static GameModel* create(cocos2d::Layer* aLayer, int aLevel)
 
 bool GameModel::init(cocos2d::Layer* aLayer)
 {
+	this->clearLayer(aLayer);
+	
     this->loadLevel(aLayer, 1);
-   return true;
+	
+	this->arrange();
+
+    return true;
 }
 
 void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 {
-	// 1. loads all sprites images as is
-    Sprite* background = Sprite::create("bg.jpg");
-    aLayer->addChild(background);
+
+	// 1. loads all sprites images as is, with relative factors
+    _background = Sprite::create("bg.jpg");
+    aLayer->addChild(_background);
 	
-	// 2. arrange sprites size according current screen
-	this->arrange();
-    
-    background->setPosition(_sceneCenter);
+	_heap = Heap::create("bg_floor", Point(0.0, 0.0), 1.0);
+	aLayer->addChild(_heap);
+	
 }
 
+void GameModel::clearLayer(cocos2d::Layer aLayer)
+{
+	// loop through all layer children;
+
+}
+
+// arranges actual positions/sizes for all visible objects
 void GameModel::arrange()
 {
-	auto dirs = Director::getInstance();
-	Size visibleSize = dirs->getVisibleSize();
-	
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	_sceneCenter = Point(visibleSize.width/2.0f, visibleSize.height/2.0f);
+	
+    _background->setPosition(_sceneCenter);
+    
+	this->arrangeGameObjectForLayer(_heap, visibleSize, _sceneCenter);
 
 }
 
@@ -79,7 +94,7 @@ void GameModel::arrange()
 	// 0.234375 - 150
 	// x = 150 * 0.1 / 0.234375
 	// 0.4266666666666667
-
+// deprecated
 void GameModel::scaleGameObject(GameObjectBase* aGameObject)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -95,6 +110,31 @@ void GameModel::scaleGameObject(GameObjectBase* aGameObject)
 	float effectiveScale = effectiveDim / maxDimention; // recalc scale
 	
 	aGameObject->setScale(effectiveScale);
+	
+	
+
+}
+
+void GameModel::arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter)
+{
+	float maxScreenDimention = aLayerSize.width >= aLayerSize.height ? aLayerSize.width : aLayerSize.height;
+	
+    float sizeFactor = aGameObject->getRelativeSizeFactor();
+	Size  actualSize = aGameObject->getContentSize();
+	float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
+	
+	float actualSizeFactor =  maxDimention /  maxScreenDimention;
+	
+	float effectiveDim = (maxDimention * sizeFactor) / actualSizeFactor; //recalc size
+	float effectiveScale = effectiveDim / maxDimention; // recalc scale
+	
+	aGameObject->setScale(effectiveScale);
+	
+	cocos2d::Point actualPosition;
+	actualPosition.x = aLayerCenter.x + aLayerCenter.x * aGameObject->getRelativePosition().x;
+	actualPosition.y = aLayerCenter.y + aLayerCenter.y * aGameObject->getRelativePosition().y;
+	
+	aGameObject->setPosition(actualPosition);
 
 }
 

@@ -7,14 +7,31 @@ GameObjectBase::GameObjectBase(){}
 
 GameObjectBase::~GameObjectBase() {}
 
-GameObjectBase* GameObjectBase::create() {
-
-   return nullptr;
-}
-
-bool GameObjectBase::init()
+GameObjectBase* GameObjectBase::create(const std::string aFileName, cocos2d::Point aRelativePos, float aRelativeSizeFactor)
 {
-   return false;
+	GameObjectBase* pRet = new GameObjectBase();
+
+    if (!pRet->init(aFileName, aRelativePos, aRelativeSizeFactor))
+    {
+		delete pRet;
+		pRet = nullptr;
+    }
+
+    return pRet;
+
+}
+    
+bool GameObjectBase::init(const std::string aFileName, cocos2d::Point aRelativePos, float aRelativeSizeFactor)
+{
+		
+		if(!this->initWithFileName(aFileName)){ // initWithSpriteFrameName
+			return false; 
+		}
+		
+	_relativePosition =  aRelativePos;
+	_relativePosition =  aRelativeSizeFactor;
+
+	return true;
 }
 
 cocos2d::Point GameObjectBase::getRelativePosition()

@@ -5,6 +5,7 @@
 #include "LevelDataProvider.h"
 
 class GameObjectBase;
+class Heap;
 
 class GameModel : public cocos2d::Node {
 
@@ -19,19 +20,22 @@ public:
     
     bool init(cocos2d::Layer* aLayer);
     
+	void clearLayer(cocos2d::Layer aLayer);
+	
     void loadLevel(cocos2d::Layer* aLayer, int aLevel);
     
 	// calculates base points, sizes and scales, based on current screen size
     void arrange();
     
-    void scaleGameObject(GameObjectBase* aGameObject);
+    void scaleGameObject(GameObjectBase* aGameObject); // deprecated
+	
+	void arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter);
     
 protected:
     
     // we are going to use centered positioning
     // in order to minimize multiresolution support impact
     // so, positon offset is a ofset of pos relative to center of current screen (visible)
-    cocos2d::Size _heapPosOffset;
     
     // in order to minimize multiresolution support
     // we are going to leverage special scale factor.
@@ -43,7 +47,6 @@ protected:
     // load sprite as is
     // curretnSF = max(sprite->getContentSize()) / max(director::screen::size())
     // actual scale factor = 1 + (currentSF - desidnedSF);
-    float _heapScaleFactor;//
     
     cocos2d::Size linePosOffet;
     
@@ -52,6 +55,10 @@ protected:
     
     cocos2d::Point _sceneCenter;
 
+	// visible game objects
+	cocos2d::Sprite* _background;
+	Heap* _heap;
+	
 private:
     
 };

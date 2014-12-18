@@ -10,9 +10,9 @@ public:
     
     ~GameObjectBase();
     
-    static GameObjectBase* create();
+    static GameObjectBase* create(const std::string aFileName, cocos2d::Point aRelativePos, float aRelativeSizeFactor);
     
-    bool init();
+    bool init(const std::string aFileName, cocos2d::Point aRelativePos, float aRelativeSizeFactor);
     
     // used for objects which have static position
     // or some king of static start/end point
@@ -25,9 +25,9 @@ public:
     
 protected:
     
-    cocos2d::Point _relativePosition;
+    cocos2d::Point _relativePosition; // percent of half screen size
     
-    float _relativeSizeFactor;
+    float _relativeSizeFactor; // percent of max screen dimension
 
 private:
     
