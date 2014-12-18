@@ -20,7 +20,7 @@ public:
     
     bool init(cocos2d::Layer* aLayer);
     
-	void clearLayer(cocos2d::Layer aLayer);
+	void clearLayer(cocos2d::Layer* aLayer);
 	
     void loadLevel(cocos2d::Layer* aLayer, int aLevel);
     

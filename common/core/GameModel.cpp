@@ -53,7 +53,7 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 	
 }
 
-void GameModel::clearLayer(cocos2d::Layer aLayer)
+void GameModel::clearLayer(cocos2d::Layer* aLayer)
 {
 	// loop through all layer children;
 
@@ -67,7 +67,7 @@ void GameModel::arrange()
 	
     _background->setPosition(_sceneCenter);
     
-	this->arrangeGameObjectForLayer(_heap, visibleSize, _sceneCenter);
+	this->arrangeGameObjectForLayer((GameObjectBase*)_heap, visibleSize, _sceneCenter);
 
 }
 

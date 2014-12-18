@@ -2,17 +2,16 @@
 #define __SantaGnomes__Heap__
 
 #include "cocos2d.h"
+#include "GameObjectBase.h"
 
-class Heap : public cocos2d::GameObjectBase {
+class Heap : public GameObjectBase {
 
 public:
     Heap();
     
     ~Heap();
     
-    static Heap* create();
-    
-    bool init();
+    static Heap* create(const std::string aFileName, cocos2d::Point aRelativePos, float aRelativeSizeFactor);
     
 protected:
 

@@ -24,12 +24,12 @@ GameObjectBase* GameObjectBase::create(const std::string aFileName, cocos2d::Poi
 bool GameObjectBase::init(const std::string aFileName, cocos2d::Point aRelativePos, float aRelativeSizeFactor)
 {
 		
-		if(!this->initWithFileName(aFileName)){ // initWithSpriteFrameName
+		if(!initWithFile(aFileName)){ // initWithSpriteFrameName
 			return false; 
 		}
 		
-	_relativePosition =  aRelativePos;
-	_relativePosition =  aRelativeSizeFactor;
+	_relativePosition = aRelativePos;
+    _relativePosition.set(&aRelativeSizeFactor); // = aRelativeSizeFactor;
 
 	return true;
 }
