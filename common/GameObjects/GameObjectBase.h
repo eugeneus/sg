@@ -17,9 +17,11 @@ public:
     // used for objects which have static position
     // or some king of static start/end point
     cocos2d::Point getRelativePosition();
+    void setRelativePosition(cocos2d::Point aPosition);
     
     // used for all game objects which are displayed on game scene
     float getRelativeSizeFactor();
+    void setRelativeSizeFactor(float aFactor);
     
 protected:
     

@@ -31,15 +31,20 @@ static GameModel* create(cocos2d::Layer* aLayer, int aLevel)
 
 bool GameModel::init(cocos2d::Layer* aLayer)
 {
-   return false;
+    this->loadLevel(aLayer, 1);
+   return true;
 }
 
 void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 {
-	// 1. loads all sprites images as is 
+	// 1. loads all sprites images as is
+    Sprite* background = Sprite::create("bg.jpg");
+    aLayer->addChild(background);
 	
 	// 2. arrange sprites size according current screen
 	this->arrange();
+    
+    background->setPosition(_sceneCenter);
 }
 
 void GameModel::arrange()
@@ -48,8 +53,6 @@ void GameModel::arrange()
 	Size visibleSize = dirs->getVisibleSize();
 	
 	_sceneCenter = Point(visibleSize.width/2.0f, visibleSize.height/2.0f);
-	
-	
 
 }
 
@@ -79,20 +82,17 @@ void GameModel::arrange()
 
 void GameModel::scaleGameObject(GameObjectBase* aGameObject)
 {
-	auto dirs = Director::getInstance();
-	Size visibleSize = dirs->getVisibleSize();
+	Size visibleSize = Director::getInstance()->getVisibleSize();
 	float maxScreenDimention = visibleSize.width >= visibleSize.height ? visibleSize.width : visibleSize.height;
 	
     float sizeFactor = aGameObject->getRelativeSizeFactor();
 	Size  actualSize = aGameObject->getContentSize();
 	float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
 	
-	
 	float actualSizeFactor =  maxDimention /  maxScreenDimention;
 	
-	float effectiveDim = (maxDimention * sizeFactor) / actualSizeFactor;
-	
-	float effectiveScale = effectiveDim / maxDimention;
+	float effectiveDim = (maxDimention * sizeFactor) / actualSizeFactor; //recalc size
+	float effectiveScale = effectiveDim / maxDimention; // recalc scale
 	
 	aGameObject->setScale(effectiveScale);
 

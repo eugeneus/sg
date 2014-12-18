@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+#include "GameController.h"
+
 class GameScene : public cocos2d::Layer {
 
 public:
@@ -17,6 +19,8 @@ public:
     bool init();
     
 protected:
+    
+    GameController* _theGameController;
 
 private:
     

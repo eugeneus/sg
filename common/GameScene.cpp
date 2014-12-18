@@ -1,6 +1,7 @@
 
 #include "GameScene.h"
 
+
 USING_NS_CC;
 
 GameScene::GameScene(){}
@@ -22,14 +23,25 @@ Scene* GameScene::createScene()
     return scene;
 }
 
-GameScene* GameScene::create() {
-
-   return nullptr;
+GameScene* GameScene::create()
+{
+    GameScene *pRet = new GameScene();
+    
+    if (pRet && pRet->init()) {
+        return pRet;
+    }
+    else{
+        
+        delete pRet;
+        pRet = nullptr;
+        return pRet;
+    }
 }
 
 bool GameScene::init()
 {
-   return false;
+    _theGameController = GameController::create(this);
+   return true;
 }
 
 
