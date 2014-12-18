@@ -29,7 +29,7 @@ bool GameObjectBase::init(const std::string aFileName, cocos2d::Point aRelativeP
 		}
 		
 	_relativePosition = aRelativePos;
-    _relativePosition.set(&aRelativeSizeFactor); // = aRelativeSizeFactor;
+    _relativeSizeFactor = aRelativeSizeFactor;
 
 	return true;
 }

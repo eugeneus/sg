@@ -48,7 +48,7 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     _background = Sprite::create("bg.jpg");
     aLayer->addChild(_background);
 	
-	_heap = Heap::create("bg_floor", Point(0.0, 0.0), 1.0);
+	_heap = Heap::create("bg_floor.png", Point(0.0, -0.16), 0.48);
 	aLayer->addChild(_heap);
 	
 }
@@ -77,62 +77,24 @@ void GameModel::arrange()
     // this percent of full visible current screen which should be used
     // for given sprite to arrange actual content size.
     // mostly this factor is defined (hardcoded) on design stage
-    // usage:
-    // get actual screen size
-    // load sprite as is
-    // curretnSF = max(sprite->getContentSize()) / max(director::screen::size())
-    // actual scale factor = 1 + (currentSF - desidnedSF);
-	
-	// sizeFactor = 0.1
-	// width = 150
-	// screen = 640
-	// actualFactor = 0.234375
-	// effectiveFactor = 1-0.134375 = 0.865625
-	// effectiveWidth = 150 * 0.865625 = 129.84375
-	// check: 129.84375/640 = 
-	// 0.1 - x
-	// 0.234375 - 150
-	// x = 150 * 0.1 / 0.234375
-	// 0.4266666666666667
-// deprecated
-void GameModel::scaleGameObject(GameObjectBase* aGameObject)
-{
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	float maxScreenDimention = visibleSize.width >= visibleSize.height ? visibleSize.width : visibleSize.height;
-	
-    float sizeFactor = aGameObject->getRelativeSizeFactor();
-	Size  actualSize = aGameObject->getContentSize();
-	float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
-	
-	float actualSizeFactor =  maxDimention /  maxScreenDimention;
-	
-	float effectiveDim = (maxDimention * sizeFactor) / actualSizeFactor; //recalc size
-	float effectiveScale = effectiveDim / maxDimention; // recalc scale
-	
-	aGameObject->setScale(effectiveScale);
-	
-	
-
-}
-
 void GameModel::arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter)
 {
 	float maxScreenDimention = aLayerSize.width >= aLayerSize.height ? aLayerSize.width : aLayerSize.height;
 	
-    float sizeFactor = aGameObject->getRelativeSizeFactor();
 	Size  actualSize = aGameObject->getContentSize();
 	float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
+
+    float sizeFactor = aGameObject->getRelativeSizeFactor();
 	
-	float actualSizeFactor =  maxDimention /  maxScreenDimention;
+    float actualScale = (maxScreenDimention * sizeFactor) / maxDimention;
 	
-	float effectiveDim = (maxDimention * sizeFactor) / actualSizeFactor; //recalc size
-	float effectiveScale = effectiveDim / maxDimention; // recalc scale
-	
-	aGameObject->setScale(effectiveScale);
+	aGameObject->setScale(actualScale);
 	
 	cocos2d::Point actualPosition;
-	actualPosition.x = aLayerCenter.x + aLayerCenter.x * aGameObject->getRelativePosition().x;
-	actualPosition.y = aLayerCenter.y + aLayerCenter.y * aGameObject->getRelativePosition().y;
+	actualPosition.x = aLayerCenter.x + aLayerSize.width * aGameObject->getRelativePosition().x;
+    float  rp = aGameObject->getRelativePosition().y;
+    float offset = aLayerSize.height * rp;
+    actualPosition.y = aLayerCenter.y + offset;
 	
 	aGameObject->setPosition(actualPosition);
 

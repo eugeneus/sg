@@ -27,7 +27,7 @@ public:
 	// calculates base points, sizes and scales, based on current screen size
     void arrange();
     
-    void scaleGameObject(GameObjectBase* aGameObject); // deprecated
+   // void scaleGameObject(GameObjectBase* aGameObject); // deprecated
 	
 	void arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter);
     
