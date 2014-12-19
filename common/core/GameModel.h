@@ -56,8 +56,9 @@ protected:
     cocos2d::Point _sceneCenter;
 
 	// visible game objects
-	cocos2d::Sprite* _background;
+	GameObjectBase* _background;
 	Heap* _heap;
+    GameObjectBase* _gnome;
 	
 private:
     

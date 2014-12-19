@@ -45,11 +45,14 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 {
 
 	// 1. loads all sprites images as is, with relative factors
-    _background = Sprite::create("bg.jpg");
+    _background = GameObjectBase::create("bg.jpg",Point(0.0, 0.0), 1.0);
     aLayer->addChild(_background);
 	
 	_heap = Heap::create("bg_floor.png", Point(0.0, -0.16), 0.48);
 	aLayer->addChild(_heap);
+    
+    _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
+    aLayer->addChild(_gnome);
 	
 }
 
@@ -67,7 +70,9 @@ void GameModel::arrange()
 	
     _background->setPosition(_sceneCenter);
     
+    this->arrangeGameObjectForLayer(_background, visibleSize, _sceneCenter);
 	this->arrangeGameObjectForLayer((GameObjectBase*)_heap, visibleSize, _sceneCenter);
+    this->arrangeGameObjectForLayer(_gnome, visibleSize, _sceneCenter);
 
 }
 
