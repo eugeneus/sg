@@ -77,12 +77,12 @@ void LoadingScene::preloadData() {
 void LoadingScene::loadingCallBack(cocos2d::Texture2D *texture)
 {
     numberOfLoadedRes++;
-    if (numberOfLoadedRes == 3)
+    if (numberOfLoadedRes == 2)
     {
         spin->stopAllActions();
         spin->removeFromParentAndCleanup(true);
-        
-        Director::getInstance()->replaceScene(MainMenuScene::createScene());
+
+        Director::getInstance()->replaceScene(TransitionFlipX::create(2, MainMenuScene::createScene()));
         
         //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(pszPlist);
         //SpriteBatchNode *spriteBatch = SpriteBatchNode::create(fileImage);
