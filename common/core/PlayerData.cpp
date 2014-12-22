@@ -7,8 +7,7 @@ USING_NS_CC;
 static PlayerData *s_sharedPlayerData = nullptr;
 
 PlayerData::PlayerData():
-_currentLevel(1),
-_points(1)
+_currentLevel(1)
 {}
 
 
@@ -17,7 +16,7 @@ PlayerData* PlayerData::getInstance()
     if (!s_sharedPlayerData)
     {
         s_sharedPlayerData = new (std::nothrow) PlayerData();
-        CCASSERT(s_SharedDirector, "FATAL: Not enough memory");
+        CCASSERT(s_sharedPlayerData, "FATAL: Not enough memory");
         s_sharedPlayerData->init();
     }
 
@@ -41,9 +40,9 @@ bool PlayerData::init()
 }
 
 int PlayerData::getCurrentLevel()
-(
+{
 	return _currentLevel;
-)
+}
 
 void PlayerData::setLevel(int aNextLevel)
 {

@@ -37,7 +37,7 @@ bool GameModel::init(cocos2d::Layer* aLayer)
 {
 	this->clearLayer(aLayer);
 	
-	int levelToLoad = PlayerData::sharedInstance()->getCurrentLevel();
+	int levelToLoad = PlayerData::getInstance()->getCurrentLevel();
 	
     this->loadLevel(aLayer, levelToLoad);
 	
