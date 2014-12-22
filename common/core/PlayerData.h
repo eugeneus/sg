@@ -19,6 +19,9 @@
 class PlayerData : public cocos2d::Node {
 
 public:
+
+	static PlayerData* getInstance();
+	
     PlayerData();
     
     ~PlayerData();
@@ -35,9 +38,10 @@ public:
 protected:
     
     int _currentLevel;
-    int _points; // earned points till now
-    // int _heals
-    // int _attempts
+   
+   // total achevenebts information
+   
+   // by level acievements information
 
 private:
     

@@ -1,6 +1,9 @@
 
 #include "GameModel.h"
 
+#include "PlayerData.h"
+#include "LevelDataProvider.h"
+
 #include "GameObjectBase.h"
 #include "Heap.h"
 
@@ -34,7 +37,9 @@ bool GameModel::init(cocos2d::Layer* aLayer)
 {
 	this->clearLayer(aLayer);
 	
-    this->loadLevel(aLayer, 1);
+	int levelToLoad = PlayerData::sharedInstance()->getCurrentLevel();
+	
+    this->loadLevel(aLayer, levelToLoad);
 	
 	this->arrange();
 
