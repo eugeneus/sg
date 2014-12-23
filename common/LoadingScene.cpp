@@ -54,9 +54,6 @@ bool LoadingScene::init()
     this->addChild(spin, 1001);
     spin->runAction(RepeatForever::create(RotateBy::create(1.0f, 20)));
     
-    this->preloadData();
-    
-    
     return true;
 }
 
@@ -74,6 +71,12 @@ void LoadingScene::preloadData() {
     Director::getInstance()->getTextureCache()->addImageAsync(fileImage, CC_CALLBACK_1(LoadingScene::loadingCallBack, this));
 }
 
+void LoadingScene::onEnter() {
+    super::onEnter();
+    
+    this->preloadData();
+}
+
 void LoadingScene::loadingCallBack(cocos2d::Texture2D *texture)
 {
     numberOfLoadedRes++;
@@ -82,11 +85,6 @@ void LoadingScene::loadingCallBack(cocos2d::Texture2D *texture)
         spin->stopAllActions();
         spin->removeFromParentAndCleanup(true);
 
-        Director::getInstance()->replaceScene(TransitionFlipX::create(2, MainMenuScene::createScene()));
-        
-        //SpriteFrameCache::getInstance()->addSpriteFramesWithFile(pszPlist);
-        //SpriteBatchNode *spriteBatch = SpriteBatchNode::create(fileImage);
-        //this->addChild(spriteBatch);
-        
+        Director::getInstance()->replaceScene(MainMenuScene::createScene());
     }
 }

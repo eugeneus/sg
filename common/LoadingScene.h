@@ -18,10 +18,11 @@ public:
     bool init();
     
 protected:
-    
+    typedef cocos2d::Layer super;
     void preloadData();
     
     void loadingCallBack(cocos2d::Texture2D *texture);
+    virtual void onEnter();
     
 private:
     cocos2d::Sprite *spin;
