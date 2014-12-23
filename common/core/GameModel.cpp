@@ -6,6 +6,7 @@
 
 #include "GameObjectBase.h"
 #include "Heap.h"
+#include "FlashLights.h"
 
 USING_NS_CC;
 
@@ -55,6 +56,9 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 	
 	_heap = Heap::create("bg_floor.png", Point(0.0, -0.16), 0.48);
 	aLayer->addChild(_heap);
+    
+    FlashLights *topLights = FlashLights::create("top_lights_0%i.png", 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
+    aLayer->addChild(topLights);
     
     _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
     aLayer->addChild(_gnome);
