@@ -54,7 +54,6 @@ protected:
     
 	// tossingActor
     std::vector<int> _tossingActorList; // list of IDs of carrier actors which should appear on the Level
-    std::vector<cocos2d::Point> _tossingActorPositionList; // list relative position for given tossing Actor
     // carrierActor
     std::vector<int> _carrierActorList; // list of IDs of carrier actors which should appear on the Level
     // walkingActor
@@ -78,9 +77,6 @@ protected:
 	
 	cocos2d::Point _christmasTreePos;
 	cocos2d::Size  _christmasTreeSz;
-	
-	cocos2d::Point _productHeapPos;
-	cocos2d::Size  _productHeapSz;
 	
 	cocos2d::Point _carpetPos;
 	cocos2d::Size  _carpetSz;
