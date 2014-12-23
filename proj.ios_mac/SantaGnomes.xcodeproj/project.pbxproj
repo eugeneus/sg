@@ -62,6 +62,10 @@
 		AA090DED1A4996FC000D8559 /* pause_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AA090DEC1A4996FC000D8559 /* pause_bg.png */; };
 		AA090DF01A499B11000D8559 /* FlashLights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DEE1A499B11000D8559 /* FlashLights.cpp */; };
 		AA090DF31A49AA83000D8559 /* FlachLightsModeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DF11A49AA83000D8559 /* FlachLightsModeFactory.cpp */; };
+		AA090DF61A49C13D000D8559 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DF41A49C13D000D8559 /* PauseMenu.cpp */; };
+		AA090E001A49C2D2000D8559 /* PopupControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DFC1A49C2D2000D8559 /* PopupControl.cpp */; };
+		AA090E041A49C384000D8559 /* PopupRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090E021A49C384000D8559 /* PopupRenderer.cpp */; };
+		AA090E071A49D088000D8559 /* PausePopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090E051A49D088000D8559 /* PausePopup.cpp */; };
 		AA95AF531A2E67F1009EFEDC /* level_960x640.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA95AF511A2E67F1009EFEDC /* level_960x640.plist */; };
 		AA95AF541A2E67F1009EFEDC /* level_960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = AA95AF521A2E67F1009EFEDC /* level_960x640.png */; };
 		AA95AF581A2E685C009EFEDC /* ResourcesManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA95AF561A2E685C009EFEDC /* ResourcesManager.cpp */; };
@@ -179,6 +183,16 @@
 		AA090DEF1A499B11000D8559 /* FlashLights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashLights.h; sourceTree = "<group>"; };
 		AA090DF11A49AA83000D8559 /* FlachLightsModeFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlachLightsModeFactory.cpp; sourceTree = "<group>"; };
 		AA090DF21A49AA83000D8559 /* FlachLightsModeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlachLightsModeFactory.h; sourceTree = "<group>"; };
+		AA090DF41A49C13D000D8559 /* PauseMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseMenu.cpp; sourceTree = "<group>"; };
+		AA090DF51A49C13D000D8559 /* PauseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseMenu.h; sourceTree = "<group>"; };
+		AA090DFC1A49C2D2000D8559 /* PopupControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopupControl.cpp; sourceTree = "<group>"; };
+		AA090DFD1A49C2D2000D8559 /* PopupControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupControl.h; sourceTree = "<group>"; };
+		AA090E021A49C384000D8559 /* PopupRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopupRenderer.cpp; sourceTree = "<group>"; };
+		AA090E031A49C384000D8559 /* PopupRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupRenderer.h; sourceTree = "<group>"; };
+		AA090E051A49D088000D8559 /* PausePopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PausePopup.cpp; sourceTree = "<group>"; };
+		AA090E061A49D088000D8559 /* PausePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausePopup.h; sourceTree = "<group>"; };
+		AA090E091A49D9FA000D8559 /* PausePopupCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausePopupCallback.h; sourceTree = "<group>"; };
+		AA090E0C1A49DAC3000D8559 /* PopupCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupCallback.h; sourceTree = "<group>"; };
 		AA95AF511A2E67F1009EFEDC /* level_960x640.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level_960x640.plist; sourceTree = "<group>"; };
 		AA95AF521A2E67F1009EFEDC /* level_960x640.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_960x640.png; sourceTree = "<group>"; };
 		AA95AF561A2E685C009EFEDC /* ResourcesManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourcesManager.cpp; sourceTree = "<group>"; };
@@ -412,6 +426,28 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		AA090DF71A49C260000D8559 /* component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		AA090DFB1A49C2D2000D8559 /* control */ = {
+			isa = PBXGroup;
+			children = (
+				AA090DFC1A49C2D2000D8559 /* PopupControl.cpp */,
+				AA090DFD1A49C2D2000D8559 /* PopupControl.h */,
+				AA090E021A49C384000D8559 /* PopupRenderer.cpp */,
+				AA090E031A49C384000D8559 /* PopupRenderer.h */,
+				AA090E0C1A49DAC3000D8559 /* PopupCallback.h */,
+				AA090E051A49D088000D8559 /* PausePopup.cpp */,
+				AA090E061A49D088000D8559 /* PausePopup.h */,
+				AA090E091A49D9FA000D8559 /* PausePopupCallback.h */,
+			);
+			path = control;
+			sourceTree = "<group>";
+		};
 		AA95AF551A2E685C009EFEDC /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +476,8 @@
 			children = (
 				E09460DC1A15502B005A9FD0 /* MainMenu.cpp */,
 				E09460DD1A15502B005A9FD0 /* MainMenu.h */,
+				AA090DF41A49C13D000D8559 /* PauseMenu.cpp */,
+				AA090DF51A49C13D000D8559 /* PauseMenu.h */,
 			);
 			path = menus;
 			sourceTree = "<group>";
@@ -447,10 +485,11 @@
 		E0CC7F8A1A107EE300A591A7 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				AA090DFB1A49C2D2000D8559 /* control */,
+				AA090DF71A49C260000D8559 /* component */,
 				E0FD39881A41F95E00C98623 /* GameObjects */,
 				E02DA5F61A27A5B700696BDA /* util */,
 				E09460DB1A15500E005A9FD0 /* menus */,
-				E0CC7F8B1A107EE300A591A7 /* controls */,
 				E0CC7F8C1A107EE300A591A7 /* core */,
 				E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */,
 				E09460E01A155093005A9FD0 /* MainMenuScene.h */,
@@ -461,13 +500,6 @@
 			);
 			name = common;
 			path = ../common;
-			sourceTree = "<group>";
-		};
-		E0CC7F8B1A107EE300A591A7 /* controls */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = controls;
 			sourceTree = "<group>";
 		};
 		E0CC7F8C1A107EE300A591A7 /* core */ = {
@@ -672,12 +704,14 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */,
 				E02DA5F11A27A1A200696BDA /* PlayerData.cpp in Sources */,
+				AA090E041A49C384000D8559 /* PopupRenderer.cpp in Sources */,
 				E02DA5EE1A279EBB00696BDA /* GameState.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				E02DA5E51A279A5600696BDA /* GameController.cpp in Sources */,
 				AA090DF31A49AA83000D8559 /* FlachLightsModeFactory.cpp in Sources */,
 				E01284351A42A56100190502 /* Heap.cpp in Sources */,
+				AA090DF61A49C13D000D8559 /* PauseMenu.cpp in Sources */,
 				E02DA5F41A27A51F00696BDA /* TouchController.cpp in Sources */,
 				E02DA5FF1A27A63100696BDA /* PlayerDataProvider.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -688,6 +722,8 @@
 				AA95AF5B1A2E6F72009EFEDC /* LoadingScene.cpp in Sources */,
 				E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */,
 				E02DA5E81A279DDD00696BDA /* GameModel.cpp in Sources */,
+				AA090E071A49D088000D8559 /* PausePopup.cpp in Sources */,
+				AA090E001A49C2D2000D8559 /* PopupControl.cpp in Sources */,
 				AA090DF01A499B11000D8559 /* FlashLights.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

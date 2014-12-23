@@ -59,9 +59,12 @@ protected:
 	GameObjectBase* _background;
 	Heap* _heap;
     GameObjectBase* _gnome;
+    
+    cocos2d::Menu* _btnsHolder;
 	
 private:
-    
+    void addButton(const std::string normalFN, const std::string selectedFN, const cocos2d::ccMenuCallback& callback, cocos2d::Vec2 position, cocos2d::Vec2 anchor);
+
 };
 
 #endif /* defined(__SantaGnomes__GameModel__) */
