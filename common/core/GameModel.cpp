@@ -61,6 +61,9 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     FlashLights *topLights = FlashLights::create("top_lights_0%i.png", 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
     aLayer->addChild(topLights);
     
+    FlashLights *treeLights = FlashLights::create("tree_lights_0%i.png", 3, 2.0f, Point(180, 400), 1.0);
+    aLayer->addChild(treeLights);
+    
     _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
     aLayer->addChild(_gnome);
 	

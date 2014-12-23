@@ -51,8 +51,13 @@ bool GameScene::init()
    return true;
 }
 
-void GameScene::pauseGame() {}
-void GameScene::resumeGame() {}
+void GameScene::pauseGame() {
+
+}
+
+void GameScene::resumeGame() {
+
+}
 
 void GameScene::onPauseCliked(cocos2d::Ref *pSender) {
     CCLOG("pause");
