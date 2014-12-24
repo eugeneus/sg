@@ -4,6 +4,7 @@
 
 #include "PlayerData.h"
 #include "LevelDataProvider.h"
+#include "ActorFactory.h"
 
 #include "GameObjectBase.h"
 #include "Heap.h"
@@ -39,6 +40,7 @@ bool GameModel::init(cocos2d::Layer* aLayer)
 {
 	this->clearLayer(aLayer);
 	
+
 	int levelToLoad = PlayerData::getInstance()->getCurrentLevel();
 	
     this->loadLevel(aLayer, levelToLoad);
@@ -50,7 +52,8 @@ bool GameModel::init(cocos2d::Layer* aLayer)
 
 void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 {
-
+    LevelDataProvider* levelData = LevelDataProvider::create(aLevel);
+    
 	// 1. loads all sprites images as is, with relative factors
     _background = GameObjectBase::create("bg.jpg",Point(0.0, 0.0), 1.0);
     aLayer->addChild(_background);
@@ -60,12 +63,19 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     
     FlashLights *topLights = FlashLights::create("top_lights_0%i.png", 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
     aLayer->addChild(topLights);
+
     
     FlashLights *treeLights = FlashLights::create("tree_lights_0%i.png", 3, 2.0f, Point(180, 400), 1.0);
     aLayer->addChild(treeLights);
     
     _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
     aLayer->addChild(_gnome);
+    
+    ActorFactory* actorFactory = ActorFactory::create();
+    
+    
+    delete actorFactory;
+    delete levelData;
 	
     _btnsHolder = Menu::create();
     _btnsHolder->setPosition(Vec2(0, 0));
