@@ -17,16 +17,16 @@ struct GiftDesc{
     int giftsPerLevel;  // how may times given gift should appears on the level
 };
 
-class LevelDataProvider : public cocos2d::Node {
+class LevelDataProvider : public cocos2d::Ref {
 
 public:
     LevelDataProvider();
     
     ~LevelDataProvider();
     
-    static LevelDataProvider* create();
+    static LevelDataProvider* create(int aLeveID);
     
-    bool init();
+    bool init(int aLeveID);
     
 protected:
 
