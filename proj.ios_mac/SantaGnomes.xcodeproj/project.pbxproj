@@ -114,9 +114,8 @@
 		E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */; };
 		E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460E21A1550B8005A9FD0 /* GameScene.cpp */; };
 		E0A4E90D1A49EAEB005FCEFD /* ActorFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0A4E90B1A49EAEB005FCEFD /* ActorFactory.cpp */; };
-		E0A4E9101A49F499005FCEFD /* Actors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0A4E90F1A49F499005FCEFD /* Actors.plist */; };
 		E0A4E9121A4A0E36005FCEFD /* Level.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0A4E9111A4A0E36005FCEFD /* Level.plist */; };
-		E0A4E9141A4A0E53005FCEFD /* Level_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0A4E9131A4A0E53005FCEFD /* Level_1.plist */; };
+		E0BE9D4B1A4B3C420078489E /* PlistHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0BE9D491A4B3C420078489E /* PlistHelper.cpp */; };
 		E0FD398B1A41F99400C98623 /* GameObjectBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E0FD39891A41F99400C98623 /* GameObjectBase.cpp */; };
 		E0FD39901A421B7900C98623 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E0FD398D1A421B7900C98623 /* bg.jpg */; };
 		E0FD39911A421B7900C98623 /* bg_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = E0FD398E1A421B7900C98623 /* bg_floor.png */; };
@@ -286,6 +285,8 @@
 		E0A4E90F1A49F499005FCEFD /* Actors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Actors.plist; sourceTree = "<group>"; };
 		E0A4E9111A4A0E36005FCEFD /* Level.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level.plist; sourceTree = "<group>"; };
 		E0A4E9131A4A0E53005FCEFD /* Level_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level_1.plist; sourceTree = "<group>"; };
+		E0BE9D491A4B3C420078489E /* PlistHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlistHelper.cpp; sourceTree = "<group>"; };
+		E0BE9D4A1A4B3C420078489E /* PlistHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistHelper.h; sourceTree = "<group>"; };
 		E0FD39891A41F99400C98623 /* GameObjectBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectBase.cpp; sourceTree = "<group>"; };
 		E0FD398A1A41F99400C98623 /* GameObjectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectBase.h; sourceTree = "<group>"; };
 		E0FD398D1A421B7900C98623 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
@@ -536,6 +537,8 @@
 				E02DA5FE1A27A63100696BDA /* PlayerDataProvider.h */,
 				E0A4E90B1A49EAEB005FCEFD /* ActorFactory.cpp */,
 				E0A4E90C1A49EAEB005FCEFD /* ActorFactory.h */,
+				E0BE9D491A4B3C420078489E /* PlistHelper.cpp */,
+				E0BE9D4A1A4B3C420078489E /* PlistHelper.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA02F0311A4B0C8700A2DD41 /* ShopPopup.cpp in Sources */,
+				E0BE9D4B1A4B3C420078489E /* PlistHelper.cpp in Sources */,
 				E02DA5FC1A27A61900696BDA /* StateDataProvider.cpp in Sources */,
 				E0FD398B1A41F99400C98623 /* GameObjectBase.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
