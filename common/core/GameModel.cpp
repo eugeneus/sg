@@ -1,5 +1,6 @@
 
 #include "GameModel.h"
+#include "GameScene.h"
 
 #include "PlayerData.h"
 #include "LevelDataProvider.h"
@@ -64,10 +65,9 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     aLayer->addChild(topLights);
 
     
-    //levelData->get gnomes ids
-    // loop over array
-    // call ActorFactory no get gnome
-    //instead of bellow
+    FlashLights *treeLights = FlashLights::create("tree_lights_0%i.png", 3, 2.0f, Point(180, 400), 1.0);
+    aLayer->addChild(treeLights);
+    
     _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
     aLayer->addChild(_gnome);
     
@@ -77,6 +77,23 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     delete actorFactory;
     delete levelData;
 	
+    _btnsHolder = Menu::create();
+    _btnsHolder->setPosition(Vec2(0, 0));
+    //_btnsHolder->setContentSize(aLayer->getContentSize());
+    aLayer->addChild(_btnsHolder);
+    
+    this->addButton("btn_pause.png", "btn_pause_sel.png", CC_CALLBACK_1(GameScene::onPauseCliked, (GameScene *)aLayer), Vec2(0, _background->getContentSize().height), Vec2(0, 1));
+    
+}
+
+void GameModel::addButton(const std::string normalFN, const std::string selectedFN, const ccMenuCallback& callback, Vec2 position, Vec2 anchor) {
+    MenuItem *btn = MenuItemSprite::create(
+                        Sprite::createWithSpriteFrameName(normalFN),
+                        Sprite::createWithSpriteFrameName(selectedFN),
+                        callback);
+    btn->setPosition(position);
+    btn->setAnchorPoint(anchor);
+    _btnsHolder->addChild(btn);
 }
 
 void GameModel::clearLayer(cocos2d::Layer* aLayer)

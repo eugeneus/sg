@@ -43,7 +43,7 @@ void FlachLightsModeFactory::runStepByStepAction(Sprite *target, float delay, co
     
     Animation *animation = FlachLightsModeFactory::createFrameAnimation(frameMask, frameCount, delay);
     
-    auto fadeIn = FadeTo::create(delay/4, 127);
+    auto fadeIn = FadeTo::create(delay/4, 0);
     auto wait = DelayTime::create(3* delay/4);
     auto fadeOut = FadeTo::create(delay/4, 255);
     
