@@ -8,16 +8,16 @@
 class PausePopup : public PopupRenderer {
     
 public:
-    static PausePopup *create();
+    static PausePopup *create(PausePopupCallback *_callback);
     
     void onResumeClicked(cocos2d::Ref *pSender);
     void onReplayClicked(cocos2d::Ref *pSender);
     void onSoundClicked(cocos2d::Ref *pSender);
     void onMainMenuClicked(cocos2d::Ref *pSender);
     
-    void initButtons(cocos2d::Layer *pTarget, PopupCallback* callback);
+    void initButtons(cocos2d::Layer *pTarget);
 protected:
-    bool init();
+    bool init(PausePopupCallback *_callback);
     PausePopup();
     ~PausePopup();
     
@@ -25,7 +25,7 @@ protected:
     cocos2d::Sprite* createContentBg();
 
 private:
-
+    PausePopupCallback *_callback;
 };
 
 #endif /* defined(__SantaGnomes__PausePopup__) */

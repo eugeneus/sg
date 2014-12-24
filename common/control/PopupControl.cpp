@@ -26,7 +26,7 @@ bool PopupControl::init() {
     return true;
 }
 
-void PopupControl::showPopup(PopupRenderer *pRenderer, cocos2d::Layer *pTarget, PopupCallback *callback) {
+void PopupControl::showPopup(PopupRenderer *pRenderer, cocos2d::Layer *pTarget) {
     _renderer = pRenderer;
     _target = pTarget;
     
@@ -37,8 +37,8 @@ void PopupControl::showPopup(PopupRenderer *pRenderer, cocos2d::Layer *pTarget, 
         Vec2 targetPoint = contentBg->getPosition();
         contentBg->setPosition(Vec2(targetPoint.x, targetPoint.y + 5000));
         
-        _renderer->setCallback(callback);
-        _renderer->initButtons(_target, callback);
+     //   _renderer->setCallback(callback);
+        _renderer->initButtons(_target);
         
         contentBg->runAction(Sequence::create(MoveTo::create(0.3, targetPoint), JumpTo::create(0.50, targetPoint, -120, 5), NULL));
     }

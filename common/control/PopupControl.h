@@ -4,14 +4,13 @@
 #define __SantaGnomes__PopupControl__
 
 #include "PopupRenderer.h"
-#include "PopupCallback.h"
 
 class PopupControl {
     
 public:
     static PopupControl *create();
     
-    void showPopup(PopupRenderer *pRenderer, cocos2d::Layer *pTarget, PopupCallback *callback);
+    void showPopup(PopupRenderer *pRenderer, cocos2d::Layer *pTarget);
     void hidePopup();
     void removePopup();
     

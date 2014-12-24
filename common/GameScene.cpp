@@ -63,7 +63,7 @@ void GameScene::onPauseCliked(cocos2d::Ref *pSender) {
     CCLOG("pause");
     
     pauseGame();
-    _popupController->showPopup(PausePopup::create(), this, this);
+    _popupController->showPopup(PausePopup::create(this), this);
 }
 
 #pragma mark - Pause popup callback
@@ -96,4 +96,14 @@ void GameScene::pauseCallbackMainMenu() {
     _popupController->hidePopup();
     
     Director::getInstance()->replaceScene(MainMenuScene::createScene());
+}
+
+#pragma mark - Pause popup callback
+
+void GameScene::shopCallbackPaymentComplete() {
+
+}
+
+void GameScene::shopCallbackResume() {
+
 }

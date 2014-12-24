@@ -7,11 +7,11 @@ PausePopup::PausePopup(){}
 
 PausePopup::~PausePopup() {}
 
-PausePopup* PausePopup::create() {
+PausePopup* PausePopup::create(PausePopupCallback *callback) {
     
     PausePopup* pRet = new PausePopup();
     
-    if (!pRet->init())
+    if (!pRet->init(callback))
     {
         delete pRet;
         pRet = nullptr;
@@ -21,17 +21,20 @@ PausePopup* PausePopup::create() {
     
 }
 
-bool PausePopup::init() {
+bool PausePopup::init(PausePopupCallback *callback) {
+
     
     if (!PopupRenderer::init()) {
         
         return false;
     }
     
+    _callback = callback;
+    
     return true;
 }
 
-void PausePopup::initButtons(cocos2d::Layer *pTarget, PopupCallback *callback) {
+void PausePopup::initButtons(cocos2d::Layer *pTarget) {
     this->addButton("btn_resume.png", "btn_resume_sel.png", CC_CALLBACK_1(PausePopup::onResumeClicked, this), Vec2(-175, 110));
     this->addButton("btn_replay.png", "btn_replay_sel.png", CC_CALLBACK_1(PausePopup::onReplayClicked, this), Vec2(-340, -40));
     this->addButton("btn_sound.png", "btn_sound_sel.png", CC_CALLBACK_1(PausePopup::onSoundClicked, this), Vec2(-10, -40));
@@ -47,21 +50,17 @@ cocos2d::Sprite* PausePopup::createContentBg() {
 }
 
 void PausePopup::onResumeClicked(cocos2d::Ref *pSender) {
-    PausePopupCallback *callback = (PausePopupCallback *) getCallback();
-    callback->pauseCallbackResume();
+    _callback->pauseCallbackResume();
 }
 
 void PausePopup::onReplayClicked(cocos2d::Ref *pSender) {
-    PausePopupCallback *callback = (PausePopupCallback *) getCallback();
-    callback->pauseCallbackReplay();
+    _callback->pauseCallbackReplay();
 }
 
 void PausePopup::onSoundClicked(cocos2d::Ref *pSender) {
-    PausePopupCallback *callback = (PausePopupCallback *) getCallback();
-    callback->pauseCallbackSound(true);
+    _callback->pauseCallbackSound(true);
 }
 
 void PausePopup::onMainMenuClicked(cocos2d::Ref *pSender) {
-    PausePopupCallback *callback = (PausePopupCallback *) getCallback();
-    callback->pauseCallbackMainMenu();
+    _callback->pauseCallbackMainMenu();
 }

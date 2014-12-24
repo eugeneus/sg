@@ -45,11 +45,3 @@ void PopupRenderer::addButton(const std::string btnFN, const std::string btnSelF
 cocos2d::Sprite *PopupRenderer::getContentBg() {
     return _contentBg;
 }
-
-PopupCallback *PopupRenderer::getCallback() {
-    return _callback;
-}
-
-void PopupRenderer::setCallback(PopupCallback *callback) {
-    _callback = callback;
-}

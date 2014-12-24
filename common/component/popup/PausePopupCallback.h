@@ -2,9 +2,7 @@
 #ifndef __SantaGnomes__PausePopupCallback__
 #define __SantaGnomes__PausePopupCallback__
 
-#include "PopupCallback.h"
-
-class PausePopupCallback : public PopupCallback {
+class PausePopupCallback {
     
 public:
     virtual void pauseCallbackResume() = 0;

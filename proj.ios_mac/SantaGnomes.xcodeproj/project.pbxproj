@@ -59,13 +59,14 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		AA02F0301A4B0C8700A2DD41 /* PausePopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA02F02A1A4B0C8700A2DD41 /* PausePopup.cpp */; };
+		AA02F0311A4B0C8700A2DD41 /* ShopPopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA02F02D1A4B0C8700A2DD41 /* ShopPopup.cpp */; };
 		AA090DED1A4996FC000D8559 /* pause_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AA090DEC1A4996FC000D8559 /* pause_bg.png */; };
 		AA090DF01A499B11000D8559 /* FlashLights.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DEE1A499B11000D8559 /* FlashLights.cpp */; };
 		AA090DF31A49AA83000D8559 /* FlachLightsModeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DF11A49AA83000D8559 /* FlachLightsModeFactory.cpp */; };
 		AA090DF61A49C13D000D8559 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DF41A49C13D000D8559 /* PauseMenu.cpp */; };
 		AA090E001A49C2D2000D8559 /* PopupControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090DFC1A49C2D2000D8559 /* PopupControl.cpp */; };
 		AA090E041A49C384000D8559 /* PopupRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090E021A49C384000D8559 /* PopupRenderer.cpp */; };
-		AA090E071A49D088000D8559 /* PausePopup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090E051A49D088000D8559 /* PausePopup.cpp */; };
 		AA090E261A49FC90000D8559 /* btn_main_menu_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = AA090E111A49FC90000D8559 /* btn_main_menu_sel.png */; };
 		AA090E271A49FC90000D8559 /* btn_main_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = AA090E121A49FC90000D8559 /* btn_main_menu.png */; };
 		AA090E281A49FC90000D8559 /* btn_pause_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = AA090E131A49FC90000D8559 /* btn_pause_sel.png */; };
@@ -199,6 +200,12 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		AA02F02A1A4B0C8700A2DD41 /* PausePopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PausePopup.cpp; sourceTree = "<group>"; };
+		AA02F02B1A4B0C8700A2DD41 /* PausePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausePopup.h; sourceTree = "<group>"; };
+		AA02F02C1A4B0C8700A2DD41 /* PausePopupCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausePopupCallback.h; sourceTree = "<group>"; };
+		AA02F02D1A4B0C8700A2DD41 /* ShopPopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopPopup.cpp; sourceTree = "<group>"; };
+		AA02F02E1A4B0C8700A2DD41 /* ShopPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopPopup.h; sourceTree = "<group>"; };
+		AA02F02F1A4B0C8700A2DD41 /* ShopPopupCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopPopupCallback.h; sourceTree = "<group>"; };
 		AA090DEC1A4996FC000D8559 /* pause_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_bg.png; sourceTree = "<group>"; };
 		AA090DEE1A499B11000D8559 /* FlashLights.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlashLights.cpp; sourceTree = "<group>"; };
 		AA090DEF1A499B11000D8559 /* FlashLights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashLights.h; sourceTree = "<group>"; };
@@ -210,10 +217,6 @@
 		AA090DFD1A49C2D2000D8559 /* PopupControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupControl.h; sourceTree = "<group>"; };
 		AA090E021A49C384000D8559 /* PopupRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PopupRenderer.cpp; sourceTree = "<group>"; };
 		AA090E031A49C384000D8559 /* PopupRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupRenderer.h; sourceTree = "<group>"; };
-		AA090E051A49D088000D8559 /* PausePopup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PausePopup.cpp; sourceTree = "<group>"; };
-		AA090E061A49D088000D8559 /* PausePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausePopup.h; sourceTree = "<group>"; };
-		AA090E091A49D9FA000D8559 /* PausePopupCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausePopupCallback.h; sourceTree = "<group>"; };
-		AA090E0C1A49DAC3000D8559 /* PopupCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupCallback.h; sourceTree = "<group>"; };
 		AA090E111A49FC90000D8559 /* btn_main_menu_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_main_menu_sel.png; sourceTree = "<group>"; };
 		AA090E121A49FC90000D8559 /* btn_main_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_main_menu.png; sourceTree = "<group>"; };
 		AA090E131A49FC90000D8559 /* btn_pause_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_pause_sel.png; sourceTree = "<group>"; };
@@ -468,9 +471,23 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		AA02F0291A4B0C8700A2DD41 /* popup */ = {
+			isa = PBXGroup;
+			children = (
+				AA02F02A1A4B0C8700A2DD41 /* PausePopup.cpp */,
+				AA02F02B1A4B0C8700A2DD41 /* PausePopup.h */,
+				AA02F02C1A4B0C8700A2DD41 /* PausePopupCallback.h */,
+				AA02F02D1A4B0C8700A2DD41 /* ShopPopup.cpp */,
+				AA02F02E1A4B0C8700A2DD41 /* ShopPopup.h */,
+				AA02F02F1A4B0C8700A2DD41 /* ShopPopupCallback.h */,
+			);
+			path = popup;
+			sourceTree = "<group>";
+		};
 		AA090DF71A49C260000D8559 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				AA02F0291A4B0C8700A2DD41 /* popup */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -482,10 +499,6 @@
 				AA090DFD1A49C2D2000D8559 /* PopupControl.h */,
 				AA090E021A49C384000D8559 /* PopupRenderer.cpp */,
 				AA090E031A49C384000D8559 /* PopupRenderer.h */,
-				AA090E0C1A49DAC3000D8559 /* PopupCallback.h */,
-				AA090E051A49D088000D8559 /* PausePopup.cpp */,
-				AA090E061A49D088000D8559 /* PausePopup.h */,
-				AA090E091A49D9FA000D8559 /* PausePopupCallback.h */,
 			);
 			path = control;
 			sourceTree = "<group>";
@@ -783,6 +796,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA02F0311A4B0C8700A2DD41 /* ShopPopup.cpp in Sources */,
 				E02DA5FC1A27A61900696BDA /* StateDataProvider.cpp in Sources */,
 				E0FD398B1A41F99400C98623 /* GameObjectBase.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
@@ -806,7 +820,7 @@
 				AA95AF5B1A2E6F72009EFEDC /* LoadingScene.cpp in Sources */,
 				E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */,
 				E02DA5E81A279DDD00696BDA /* GameModel.cpp in Sources */,
-				AA090E071A49D088000D8559 /* PausePopup.cpp in Sources */,
+				AA02F0301A4B0C8700A2DD41 /* PausePopup.cpp in Sources */,
 				AA090E001A49C2D2000D8559 /* PopupControl.cpp in Sources */,
 				AA090DF01A499B11000D8559 /* FlashLights.cpp in Sources */,
 			);

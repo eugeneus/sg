@@ -6,8 +6,9 @@
 #include "GameController.h"
 #include "PausePopupCallback.h"
 #include "PopupControl.h"
+#include "ShopPopupCallback.h"
 
-class GameScene : public cocos2d::Layer, public PausePopupCallback {
+class GameScene : public cocos2d::Layer, public PausePopupCallback, public ShopPopupCallback {
 
 public:
     GameScene();
@@ -31,6 +32,11 @@ public:
     void pauseCallbackReplay();
     void pauseCallbackSound(bool isOff);
     void pauseCallbackMainMenu();
+    
+#pragma mark - Pause popup callback
+    
+    void shopCallbackPaymentComplete();
+    void shopCallbackResume();
     
 protected:
     
