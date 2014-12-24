@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>LevelName</key>
+	<string>Default</string>
+	<key>LevelID</key>
+	<integer>0</integer>
+	<key>BackgroundImageName</key>
+	<string>bg.png</string>
+	<key>TossingActors</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>CarrierActors</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>GiftList</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>RandomProductList</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>ProductHeapSize</key>
+	<integer>0</integer>
+	<key>ProductHeapPos</key>
+	<dict>
+		<key>y</key>
+		<integer>0</integer>
+		<key>x</key>
+		<integer>0</integer>
+	</dict>
+	<key>TossingPos</key>
+	<array>
+		<dict>
+			<key>y</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>y</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>y</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>WalkingLinePos</key>
+	<array>
+		<dict>
+			<key>y</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>y</key>
+			<integer>0</integer>
+			<key>x</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>WalkingSpeed</key>
+	<integer>0</integer>
+	<key>TossingSpeed</key>
+	<integer>0</integer>
+	<key>TossingFrequency</key>
+	<integer>0</integer>
+	<key>New item</key>
+	<string></string>
+	<key>New item - 2</key>
+	<string></string>
+	<key>New item - 6</key>
+	<string></string>
+	<key>New item - 7</key>
+	<string></string>
+</dict>
 </plist>

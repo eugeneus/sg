@@ -93,6 +93,12 @@ protected:
     std::vector<int> _giftBoxList; // list of Boxes we going to use on the level (appearance of box)
     
     // game play definition
+    
+    int _walkingSpeed; //spped of carriers, eccential parameter for game
+    int _tossingSpeed; // base speed for fallen products
+    
+    int _tossingFreq; // tosses per sec
+    
 	
 	int _requiredGifts; // how much gifts should be collected
 	                    // probably we need aray by gifts types
@@ -100,7 +106,7 @@ protected:
 	
 	int _avialableBonuses;
 	
-	int _gameSpeed;
+	
 	
 	
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
