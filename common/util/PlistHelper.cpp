@@ -19,7 +19,8 @@ PlistHelper* PlistHelper::create(std::string aFileName) {
 
 bool PlistHelper::init(std::string aFileName)
 {
-   return true;
+    _data = FileUtils::getInstance()->getValueMapFromFile(aFileName);
+    return true;
 }
 
 bool PlistHelper::updateButeValue(char& aValue, std::string aKey,cocos2d::ValueMap* aSource)
@@ -34,7 +35,7 @@ bool PlistHelper::updateButeValue(char& aValue, std::string aKey,cocos2d::ValueM
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asByte();
     }
     else{
@@ -56,7 +57,7 @@ bool PlistHelper::updateIntValue(int& aValue, std::string aKey,cocos2d::ValueMap
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asInt();
     }
     else{
@@ -78,7 +79,7 @@ bool PlistHelper::updateFloatValue(float& aValue, std::string aKey,cocos2d::Valu
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asFloat();
     }
     else{
@@ -100,7 +101,7 @@ bool PlistHelper::updateDoubleValue(double& aValue, std::string aKey,cocos2d::Va
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asDouble();
     }
     else{
@@ -122,7 +123,7 @@ bool PlistHelper::updateBoolValue(bool& aValue, std::string aKey,cocos2d::ValueM
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asBool();
     }
     else{
@@ -132,7 +133,7 @@ bool PlistHelper::updateBoolValue(bool& aValue, std::string aKey,cocos2d::ValueM
     return retVal;
 }
 
-bool PlistHelper::updateStringValue(std::string aValue, std::string aKey,cocos2d::ValueMap* aSource)
+bool PlistHelper::updateStringValue(std::string& aValue, std::string aKey,cocos2d::ValueMap* aSource)
 {
     bool retVal  = true;
     ValueMap* src = nullptr;
@@ -144,7 +145,7 @@ bool PlistHelper::updateStringValue(std::string aValue, std::string aKey,cocos2d
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asString();
     }
     else{
@@ -154,7 +155,7 @@ bool PlistHelper::updateStringValue(std::string aValue, std::string aKey,cocos2d
     return retVal;
 }
 
-bool PlistHelper::updateVectorValue(cocos2d::ValueVector aValue, std::string aKey,cocos2d::ValueMap* aSource)
+bool PlistHelper::updateValueVectorValue(cocos2d::ValueVector& aValue, std::string aKey,cocos2d::ValueMap* aSource)
 {
     bool retVal  = true;
     ValueMap* src = nullptr;
@@ -166,7 +167,7 @@ bool PlistHelper::updateVectorValue(cocos2d::ValueVector aValue, std::string aKe
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asValueVector();
     }
     else{
@@ -176,7 +177,7 @@ bool PlistHelper::updateVectorValue(cocos2d::ValueVector aValue, std::string aKe
     return retVal;
 }
 
-bool PlistHelper::updateValueMapValue(cocos2d::ValueMap aValue, std::string aKey,cocos2d::ValueMap* aSource)
+bool PlistHelper::updateValueMapValue(cocos2d::ValueMap& aValue, std::string aKey,cocos2d::ValueMap* aSource)
 {
     bool retVal  = true;
     ValueMap* src = nullptr;
@@ -188,7 +189,7 @@ bool PlistHelper::updateValueMapValue(cocos2d::ValueMap aValue, std::string aKey
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asValueMap();
     }
     else{
@@ -210,7 +211,7 @@ bool PlistHelper::updateIntKeyMapValue(cocos2d::ValueMapIntKey aValue, std::stri
         src = &_data;
     }
     
-    if (aSource->count(aKey)) {
+    if (src->count(aKey)) {
         aValue  = src->at(aKey).asIntKeyMap();
     }
     else{

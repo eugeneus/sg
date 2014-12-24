@@ -14,8 +14,6 @@ public:
     
     bool init(std::string aFileName);
     
-    
-    
     bool updateButeValue(char& aValue, std::string aKey,cocos2d::ValueMap* aSource);
     
     bool updateIntValue(int& aValue, std::string aKey,cocos2d::ValueMap* aSource);
@@ -26,11 +24,11 @@ public:
     
     bool updateBoolValue(bool& aValue, std::string aKey,cocos2d::ValueMap* aSource);
     
-    bool updateStringValue(std::string aValue, std::string aKey,cocos2d::ValueMap* aSource);
+    bool updateStringValue(std::string& aValue, std::string aKey,cocos2d::ValueMap* aSource);
     
-    bool updateVectorValue(cocos2d::ValueVector aValue, std::string aKey,cocos2d::ValueMap* aSource);
+    bool updateValueVectorValue(cocos2d::ValueVector& aValue, std::string aKey,cocos2d::ValueMap* aSource);
     
-    bool updateValueMapValue(cocos2d::ValueMap aValue, std::string aKey,cocos2d::ValueMap* aSource);
+    bool updateValueMapValue(cocos2d::ValueMap& aValue, std::string aKey,cocos2d::ValueMap* aSource);
     
     bool updateIntKeyMapValue(cocos2d::ValueMapIntKey aValue, std::string aKey,cocos2d::ValueMap* aSource);
     

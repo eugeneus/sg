@@ -10,6 +10,8 @@
 
 #include "cocos2d.h"
 
+#include "PlistHelper.h"
+
 // should move to gift factory?
 struct GiftDesc{
     int productsCount; // number of distinct Proudcts in a Gift Box
@@ -17,18 +19,22 @@ struct GiftDesc{
     int giftsPerLevel;  // how may times given gift should appears on the level
 };
 
-class LevelDataProvider : public cocos2d::Ref {
+class LevelDataProvider : public PlistHelper {
 
 public:
     LevelDataProvider();
     
     ~LevelDataProvider();
     
-    static LevelDataProvider* create(int aLeveID);
+    static LevelDataProvider* create(int aLevelID);
     
-    bool init(int aLeveID);
+    //bool init(int aLeveID);
     
 protected:
+    
+    void updateValues();
+    
+    void LoadLevelByID(int aLevelID);
 
 	// identification
 	int _levelID;
