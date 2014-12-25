@@ -110,6 +110,8 @@
 		E02DA5F91A27A5EF00696BDA /* LevelDataProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5F71A27A5EF00696BDA /* LevelDataProvider.cpp */; };
 		E02DA5FC1A27A61900696BDA /* StateDataProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5FA1A27A61900696BDA /* StateDataProvider.cpp */; };
 		E02DA5FF1A27A63100696BDA /* PlayerDataProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E02DA5FD1A27A63100696BDA /* PlayerDataProvider.cpp */; };
+		E03FBA921A4BF47F00715601 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = E03FBA911A4BF47F00715601 /* Products.plist */; };
+		E03FBA981A4BF67E00715601 /* ProductFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E03FBA961A4BF67E00715601 /* ProductFactory.cpp */; };
 		E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DC1A15502B005A9FD0 /* MainMenu.cpp */; };
 		E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */; };
 		E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460E21A1550B8005A9FD0 /* GameScene.cpp */; };
@@ -274,6 +276,9 @@
 		E02DA5FB1A27A61900696BDA /* StateDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateDataProvider.h; sourceTree = "<group>"; };
 		E02DA5FD1A27A63100696BDA /* PlayerDataProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerDataProvider.cpp; sourceTree = "<group>"; };
 		E02DA5FE1A27A63100696BDA /* PlayerDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDataProvider.h; sourceTree = "<group>"; };
+		E03FBA911A4BF47F00715601 /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
+		E03FBA961A4BF67E00715601 /* ProductFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProductFactory.cpp; sourceTree = "<group>"; };
+		E03FBA971A4BF67E00715601 /* ProductFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductFactory.h; sourceTree = "<group>"; };
 		E09460DC1A15502B005A9FD0 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		E09460DD1A15502B005A9FD0 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
@@ -420,6 +425,7 @@
 				E0A4E90F1A49F499005FCEFD /* Actors.plist */,
 				E0A4E9111A4A0E36005FCEFD /* Level.plist */,
 				E0A4E9131A4A0E53005FCEFD /* Level_1.plist */,
+				E03FBA911A4BF47F00715601 /* Products.plist */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -539,6 +545,8 @@
 				E0A4E90C1A49EAEB005FCEFD /* ActorFactory.h */,
 				E0BE9D491A4B3C420078489E /* PlistHelper.cpp */,
 				E0BE9D4A1A4B3C420078489E /* PlistHelper.h */,
+				E03FBA961A4BF67E00715601 /* ProductFactory.cpp */,
+				E03FBA971A4BF67E00715601 /* ProductFactory.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -752,6 +760,7 @@
 				AA090E271A49FC90000D8559 /* btn_main_menu.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
+				E03FBA921A4BF47F00715601 /* Products.plist in Resources */,
 				E0A4E9121A4A0E36005FCEFD /* Level.plist in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				AA95AF541A2E67F1009EFEDC /* level_960x640.png in Resources */,
@@ -834,6 +843,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				AA95AF581A2E685C009EFEDC /* ResourcesManager.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				E03FBA981A4BF67E00715601 /* ProductFactory.cpp in Sources */,
 				E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */,
 				E02DA5F91A27A5EF00696BDA /* LevelDataProvider.cpp in Sources */,
 				E0A4E90D1A49EAEB005FCEFD /* ActorFactory.cpp in Sources */,
