@@ -67,19 +67,32 @@ void LevelDataProvider::updateValues()
             _tossingActorList.push_back(value.asInt());
         }
     }
-    
-
-    
-    
 //    // carrierActor
 //    std::vector<int> _carrierActorList; // list of IDs of carrier actors which should appear on the Level
+    ValueVector carrierActor;
+    if (updateValueVectorValue(carrierActor, "CarrierActors", nullptr)) {
+        for (const Value& value : carrierActor) {
+            _carrierActorList.push_back(value.asInt());
+        }
+    }
 //    // walkingActor
 //    std::vector<int> _walkingActorList; // list of IDs of walking actors which should appear on the Level
 //    
 //    std::vector<int> _randomProductsQueue; // list of ID,s of vatious items which are not a part
-//    
+    ValueVector randomProductList;
+    if (updateValueVectorValue(randomProductList, "RandomProductList", nullptr)) {
+        for (const Value& value : randomProductList) {
+            _randomProductsQueue.push_back(value.asInt());
+        }
+    }
+    
 //    std::vector<int> _giftsQueue;
-//    
+    ValueVector giftList;
+    if (updateValueVectorValue(giftList, "GiftList", nullptr)) {
+        for (const Value& value : giftList) {
+            _giftsQueue.push_back(value.asInt());
+        }
+    }
 //    cocos2d::Point _productHeapPos;
     
     ValueMap val;
@@ -113,10 +126,12 @@ void LevelDataProvider::updateValues()
 //    // game play definition
 //    
 //    int _walkingSpeed; //spped of carriers, eccential parameter for game
+    updateIntValue(_walkingSpeed, "WalkingSpeed", nullptr);
+    
 //    int _tossingSpeed; // base speed for fallen products
-//    
+    updateIntValue(_tossingSpeed, "TossingSpeed", nullptr);
 //    int _tossingFreq; // tosses per sec
-//    
+    updateIntValue(_tossingFreq, "TossingFreq", nullptr);
 //    
 //    int _requiredGifts; // how much gifts should be collected
 //    // probably we need aray by gifts types
