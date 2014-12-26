@@ -32,6 +32,8 @@ bool LevelDataProvider::initWithLevel(int aLevelID)
         this->updateValues();
         this->LoadLevelByID(aLevelID);
     }
+    
+    return ret;
 
 }
 
@@ -102,12 +104,8 @@ void LevelDataProvider::updateValues()
         }
     }
 //    cocos2d::Point _productHeapPos;
-    
-    ValueMap val;
-    if (updateValueMapValue(val, "ProductHeapPos", nullptr)) {
-        _productHeapPos.x = val.at("x").asFloat();
-        _productHeapPos.y = val.at("y").asFloat();
-    }
+   
+    _productHeapPos = getPointByKey("ProductHeapPos");
     
 //    cocos2d::Size  _productHeapSz;
 //    
@@ -124,8 +122,18 @@ void LevelDataProvider::updateValues()
 //    
 //    cocos2d::Point _walkingLineStartPos;
 //    cocos2d::Point _walkingLineEndPos;
-//    
-//    
+  
+    ValueVector walkingLine;
+    //WalkingLinePos
+    //WalkingLinePos
+    
+    if(updateValueVectorValue(walkingLine, "WalkingLinePos", nullptr)){
+        ValueMap position = walkingLine[0].asValueMap();
+        _walkingLineStartPos = getPointFromPointMap(position);
+        position = walkingLine[1].asValueMap();
+        _walkingLineEndPos =getPointFromPointMap(position);
+    }
+//
 //    //std::vector<GiftDesc> _giftsQueue; // list of gifts, determones order fo occurance
 //    
 //    //GiftBox
@@ -151,6 +159,25 @@ void LevelDataProvider::updateValues()
     
     
     
+}
+
+//point map should have 2 keys (x,y)
+cocos2d::Point LevelDataProvider::getPointFromPointMap(cocos2d::ValueMap aPointMap)
+{
+    return Point(aPointMap.at("x").asFloat(),
+                 aPointMap.at("y").asFloat()
+                 );
+}
+
+cocos2d::Point LevelDataProvider::getPointByKey(std::string aKey)
+{
+    cocos2d::Point point = Point(-1.0,-1.0);
+    ValueMap pointMap;
+    if (updateValueMapValue(pointMap, aKey, nullptr)) {
+        point = getPointFromPointMap(pointMap);
+    }
+
+    return point;
 }
 
 //bool LevelDataProvider::init(int aLeveID)
@@ -215,6 +242,17 @@ float LevelDataProvider::getProductHeapSize()
 {
     return _productHeapSz;
 }
+
+cocos2d::Point LevelDataProvider::getWalkingLineStart()
+{
+    return _walkingLineStartPos;
+}
+
+cocos2d::Point LevelDataProvider::getWalkingLineEnd()
+{
+    return _walkingLineEndPos;
+}
+
 
 float LevelDataProvider::getWalkingSpeed()
 {

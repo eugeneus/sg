@@ -37,8 +37,15 @@ public:
     
 protected:
     
+    //
     void loadActors(LevelDataProvider* levelData, cocos2d::Layer* aLayer);
+    
+    //
     GameObjectBase* initNewCarrier();
+    
+    //converts relative coordinates/sizes according to
+    //current screen
+    void arrangeSceneCoordinates(cocos2d::Size aLayerSize);
     
     // we are going to use centered positioning
     // in order to minimize multiresolution support impact
@@ -60,12 +67,14 @@ protected:
     ProductFactory* _productFactory;
 
     
-    cocos2d::Size linePosOffet;
+    //cocos2d::Size linePosOffet;
     
-    cocos2d::Size _gnomeStartPosOffset;
-    float _gnomeScaleFactor;
+    //cocos2d::Size _gnomeStartPosOffset;
+    //float _gnomeScaleFactor;
     
     cocos2d::Point _sceneCenter;
+    cocos2d::Point _walkingLineStart;
+    cocos2d::Point _walkingLineEnd;
 
 	// visible game objects
 	GameObjectBase* _background;

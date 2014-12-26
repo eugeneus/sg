@@ -41,6 +41,9 @@ public:
     
     float getProductHeapSize();
     
+    cocos2d::Point getWalkingLineStart();
+    cocos2d::Point getWalkingLineEnd();
+    
     float getWalkingSpeed();
     
     float getTossingFreq();
@@ -49,6 +52,10 @@ public:
     
     
 protected:
+    
+    cocos2d::Point getPointFromPointMap(cocos2d::ValueMap aPointMap);
+    
+    cocos2d::Point getPointByKey(std::string aKey);
     
     void updateValues();
     

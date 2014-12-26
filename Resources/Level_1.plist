@@ -5,7 +5,7 @@
 	<key>LevelName</key>
 	<string>Default</string>
 	<key>LevelID</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>BackgroundImageName</key>
 	<string>bg.jpg</string>
 	<key>TossingActors</key>
@@ -58,15 +58,15 @@
 	<array>
 		<dict>
 			<key>y</key>
-			<integer>0</integer>
+			<real>-0.35</real>
 			<key>x</key>
-			<integer>0</integer>
+			<real>-0.5</real>
 		</dict>
 		<dict>
 			<key>y</key>
-			<integer>0</integer>
+			<real>-0.35</real>
 			<key>x</key>
-			<integer>0</integer>
+			<real>0.6</real>
 		</dict>
 	</array>
 	<key>WalkingSpeed</key>

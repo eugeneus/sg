@@ -13,9 +13,25 @@
 
 USING_NS_CC;
 
-GameModel::GameModel(){}
+GameModel::GameModel():
+_levelData(nullptr),
+_actorFactory(nullptr),
+_productFactory(nullptr)
+{}
 
-GameModel::~GameModel() {}
+GameModel::~GameModel()
+{
+    if (_levelData) {
+        delete _levelData;
+    }
+    if (_actorFactory) {
+        delete _actorFactory;
+    }
+    if (_productFactory) {
+        delete _productFactory;
+    }
+
+}
 
 GameModel* GameModel::create(cocos2d::Layer* aLayer) {
 
@@ -141,11 +157,14 @@ void GameModel::arrange()
 	
     _background->setPosition(_sceneCenter);
     
+    this->arrangeSceneCoordinates(visibleSize);
+    
     this->arrangeGameObjectForLayer(_background, visibleSize, _sceneCenter);
 	this->arrangeGameObjectForLayer((GameObjectBase*)_heap, visibleSize, _sceneCenter);
 
     for (GameObjectBase* carrier : _carriers) {
         this->arrangeGameObjectForLayer(carrier, visibleSize, _sceneCenter);
+        carrier->setPosition(_walkingLineStart);
     }
 
 }
@@ -171,13 +190,28 @@ void GameModel::arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::
 	
 	cocos2d::Point actualPosition;
 	actualPosition.x = aLayerCenter.x + aLayerSize.width * aGameObject->getRelativePosition().x;
-    float  rp = aGameObject->getRelativePosition().y;
+    float rp = aGameObject->getRelativePosition().y;
     float offset = aLayerSize.height * rp;
     actualPosition.y = aLayerCenter.y + offset;
 	
 	aGameObject->setPosition(actualPosition);
 
 }
+
+void GameModel::arrangeSceneCoordinates(cocos2d::Size aLayerSize)
+{
+    Point relative = _levelData->getWalkingLineStart();
+    float x = _sceneCenter.x + aLayerSize.width * relative.x;
+    float y = _sceneCenter.y + aLayerSize.height * relative.y;
+    _walkingLineStart = Point(x,y);
+    
+    relative = _levelData->getWalkingLineEnd();
+    x = _sceneCenter.x + aLayerSize.width * relative.x;
+    y = _sceneCenter.y + aLayerSize.height * relative.y;
+    _walkingLineEnd = Point(x,y);
+
+}
+
 
 GameObjectBase* GameModel::initNewCarrier()
 {
@@ -228,6 +262,8 @@ GameObjectBase* GameModel::getNextIdleCarrier()
             nextCarrierGnome = _carriers.at(_lastUsed);
         }
     }
+    
+    nextCarrierGnome->setPosition(_walkingLineStart);
     
     return nextCarrierGnome;
 }

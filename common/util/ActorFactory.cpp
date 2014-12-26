@@ -7,7 +7,10 @@ USING_NS_CC;
 
 ActorFactory::ActorFactory(){}
 
-ActorFactory::~ActorFactory() {}
+ActorFactory::~ActorFactory()
+{
+    _actorsDB.clear();
+}
 
 ActorFactory* ActorFactory::create() {
     

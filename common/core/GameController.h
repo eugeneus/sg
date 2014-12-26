@@ -15,7 +15,7 @@ class TouchController;
 class GameModel;
 class GameObjectBase;
 
-class GameController : public cocos2d::Node {
+class GameController : public cocos2d::Ref {
 
 public:
     GameController();
@@ -26,11 +26,15 @@ public:
     
     bool init(cocos2d::Layer* aLayer);
     
+    void update(float dt);
+    
 protected:
     
     PlayerData* _playerData;
     GameModel* _theModel;
     TouchController* _touchCtl;
+    
+    float _launchCountDown;
 
 private:
     

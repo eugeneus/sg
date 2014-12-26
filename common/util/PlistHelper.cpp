@@ -19,6 +19,10 @@ PlistHelper* PlistHelper::create(std::string aFileName) {
 
 bool PlistHelper::init(std::string aFileName)
 {
+    if (!_data.empty()) {
+        _data.clear();
+    }
+    std::string path = FileUtils::getInstance()->fullPathForFilename(aFileName);
     _data = FileUtils::getInstance()->getValueMapFromFile(aFileName);
     return true;
 }
