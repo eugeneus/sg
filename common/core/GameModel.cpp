@@ -5,6 +5,7 @@
 #include "PlayerData.h"
 #include "LevelDataProvider.h"
 #include "ActorFactory.h"
+#include "ProductFactory.h"
 
 #include "GameObjectBase.h"
 #include "Heap.h"
@@ -40,7 +41,21 @@ bool GameModel::init(cocos2d::Layer* aLayer)
 {
 	this->clearLayer(aLayer);
 	
+    if (_actorFactory) {
+        delete _actorFactory;
+        _actorFactory  = nullptr;
+    }
+    _actorFactory = ActorFactory::create();
+    
+    if (_productFactory) {
+        delete _productFactory;
+        _productFactory  = nullptr;
+    }
+    _productFactory = ProductFactory::create();
 
+    _firstUsed = -1;
+    _lastUsed = -1;
+    
 	int levelToLoad = PlayerData::getInstance()->getCurrentLevel();
 	
     this->loadLevel(aLayer, levelToLoad);
@@ -50,16 +65,40 @@ bool GameModel::init(cocos2d::Layer* aLayer)
     return true;
 }
 
+void GameModel::loadActors(LevelDataProvider* levelData, cocos2d::Layer* aLayer)
+{
+    std::vector<int> carriers  = _levelData->getCarrierActorTypes();
+    
+    GameObjectBase* actor;
+    for(int nType : carriers){
+        actor = _actorFactory->getActorByType(nType);
+        _carriers.push_back(actor);
+        aLayer->addChild(actor);
+     
+    }
+    
+    //_gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
+    //aLayer->addChild(_gnome);
+    
+}
+
 void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 {
-    LevelDataProvider* levelData = LevelDataProvider::create(aLevel);
+    if (_levelData) {
+        delete _levelData;
+        _levelData  = nullptr;
+    }
+    _levelData = LevelDataProvider::create(aLevel);
     
 	// 1. loads all sprites images as is, with relative factors
-    _background = GameObjectBase::create("bg.jpg",Point(0.0, 0.0), 1.0);
+    std::string bkgImg = _levelData->getBackgroundImageName();
+    _background = GameObjectBase::create(bkgImg,Point(0.0, 0.0), 1.0);
     aLayer->addChild(_background);
 	
 	_heap = Heap::create("bg_floor.png", Point(0.0, -0.16), 0.48);
 	aLayer->addChild(_heap);
+    
+    this->loadActors(_levelData, aLayer);
     
     FlashLights *topLights = FlashLights::create("top_lights_0%i.png", 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
     aLayer->addChild(topLights);
@@ -68,15 +107,7 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     FlashLights *treeLights = FlashLights::create("tree_lights_0%i.png", 3, 2.0f, Point(180, 400), 1.0);
     aLayer->addChild(treeLights);
     
-    _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
-    aLayer->addChild(_gnome);
     
-    ActorFactory* actorFactory = ActorFactory::create();
-    
-    
-    delete actorFactory;
-    delete levelData;
-	
     _btnsHolder = Menu::create();
     _btnsHolder->setPosition(Vec2(0, 0));
     //_btnsHolder->setContentSize(aLayer->getContentSize());
@@ -112,7 +143,10 @@ void GameModel::arrange()
     
     this->arrangeGameObjectForLayer(_background, visibleSize, _sceneCenter);
 	this->arrangeGameObjectForLayer((GameObjectBase*)_heap, visibleSize, _sceneCenter);
-    this->arrangeGameObjectForLayer(_gnome, visibleSize, _sceneCenter);
+
+    for (GameObjectBase* carrier : _carriers) {
+        this->arrangeGameObjectForLayer(carrier, visibleSize, _sceneCenter);
+    }
 
 }
 
@@ -144,6 +178,62 @@ void GameModel::arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::
 	aGameObject->setPosition(actualPosition);
 
 }
+
+GameObjectBase* GameModel::initNewCarrier()
+{
+    
+    GameObjectBase* newCarrier = nullptr;
+    
+    // get next id from level data
+    int carrierTypeID = _levelData->getNextCarrierType();
+    // create and return new carrier by actorFactory
+    newCarrier = _actorFactory->getActorByType(carrierTypeID);
+    return newCarrier;
+}
+
+GameObjectBase* GameModel::getNextIdleCarrier()
+{
+    GameObjectBase* nextCarrierGnome = nullptr;
+
+    std::vector<GameObjectBase*>::iterator itCarrier = _carriers.begin();
+    
+    // initials
+    if (_lastUsed == -1) {
+        _firstUsed = 0;
+        _lastUsed = 0;
+        
+        if (_lastUsed >= _carriers.size()) {
+            nextCarrierGnome = this->initNewCarrier();
+            _carriers.push_back(nextCarrierGnome);
+        }
+    }
+    else{ // regular loop
+    
+        _lastUsed++;
+        if (_lastUsed >= _carriers.size()) {
+            _lastUsed = 0; // circuled index
+        }
+        
+        if (_lastUsed == _firstUsed) {
+            // run out of capacity, need more carriers
+            nextCarrierGnome = this->initNewCarrier();
+            if (_lastUsed == 0) {
+                _carriers.push_back(nextCarrierGnome);
+            }
+            else{
+                _carriers.insert(itCarrier+_lastUsed, nextCarrierGnome);
+            }
+        }
+        else{
+            nextCarrierGnome = _carriers.at(_lastUsed);
+        }
+    }
+    
+    return nextCarrierGnome;
+}
+
+
+
 
 
 

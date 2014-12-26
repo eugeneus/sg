@@ -7,7 +7,7 @@
 	<key>LevelID</key>
 	<integer>0</integer>
 	<key>BackgroundImageName</key>
-	<string>bg.png</string>
+	<string>bg.jpg</string>
 	<key>TossingActors</key>
 	<array>
 		<integer>1</integer>
@@ -74,6 +74,8 @@
 	<key>TossingSpeed</key>
 	<integer>0</integer>
 	<key>TossingFrequency</key>
+	<integer>0</integer>
+	<key>CarrierFrequency</key>
 	<integer>0</integer>
 	<key>New item</key>
 	<string></string>

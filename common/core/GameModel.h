@@ -6,6 +6,8 @@
 
 class GameObjectBase;
 class Heap;
+class ActorFactory;
+class ProductFactory;
 
 class GameModel : public cocos2d::Node {
 
@@ -31,7 +33,12 @@ public:
 	
 	void arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter);
     
+    GameObjectBase* getNextIdleCarrier();
+    
 protected:
+    
+    void loadActors(LevelDataProvider* levelData, cocos2d::Layer* aLayer);
+    GameObjectBase* initNewCarrier();
     
     // we are going to use centered positioning
     // in order to minimize multiresolution support impact
@@ -48,6 +55,11 @@ protected:
     // curretnSF = max(sprite->getContentSize()) / max(director::screen::size())
     // actual scale factor = 1 + (currentSF - desidnedSF);
     
+    LevelDataProvider* _levelData;
+    ActorFactory* _actorFactory;
+    ProductFactory* _productFactory;
+
+    
     cocos2d::Size linePosOffet;
     
     cocos2d::Size _gnomeStartPosOffset;
@@ -57,8 +69,17 @@ protected:
 
 	// visible game objects
 	GameObjectBase* _background;
+    
 	Heap* _heap;
-    GameObjectBase* _gnome;
+    //GameObjectBase* _gnome;
+    
+    // carrier support
+    std::vector<GameObjectBase*> _carriers;
+    int _lastUsed;
+    int _firstUsed;
+    //
+    std::vector<GameObjectBase*> _walkers;
+    
     
     cocos2d::Menu* _btnsHolder;
 	

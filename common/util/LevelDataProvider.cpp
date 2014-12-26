@@ -11,17 +11,28 @@ LevelDataProvider* LevelDataProvider::create(int aLevelID) {
 
     LevelDataProvider* pRet = new LevelDataProvider();
     
-    if (!pRet->init("Level.plist"))
+    if (!pRet->initWithLevel(aLevelID))
     {
         delete pRet;
         pRet = nullptr;
     }
-    else{
-        pRet->updateValues();
-        pRet->LoadLevelByID(aLevelID);
-    }
     
    return pRet;
+}
+
+bool LevelDataProvider::initWithLevel(int aLevelID)
+{
+    bool ret = true;
+    if (!init("Level.plist"))
+    {
+        ret = false;
+    }
+    else{
+        this->_lastUsedActorType = 0;
+        this->updateValues();
+        this->LoadLevelByID(aLevelID);
+    }
+
 }
 
 void LevelDataProvider::LoadLevelByID(int aLevelID)
@@ -34,7 +45,7 @@ void LevelDataProvider::LoadLevelByID(int aLevelID)
     fileName += strLevelID;
     fileName += ".plist";
     
-    this->init(fileName);
+    this->init(fileName); // parent's init
     this->updateValues();
 
 }
@@ -49,9 +60,6 @@ void LevelDataProvider::updateValues()
     updateStringValue(_backgroundImageName, "BackgroundImageName", nullptr);
     
     CCLOG("BackgroundImageName = %s",_backgroundImageName.c_str());
-    
-    
-    
 
 //
 //    std::string _chearImageName;
@@ -131,7 +139,9 @@ void LevelDataProvider::updateValues()
 //    int _tossingSpeed; // base speed for fallen products
     updateIntValue(_tossingSpeed, "TossingSpeed", nullptr);
 //    int _tossingFreq; // tosses per sec
-    updateIntValue(_tossingFreq, "TossingFreq", nullptr);
+    updateIntValue(_tossingFreq, "TossingFrequency", nullptr);
+    updateIntValue(_carrierFreq, "CarrierFrequency", nullptr);
+    
 //    
 //    int _requiredGifts; // how much gifts should be collected
 //    // probably we need aray by gifts types
@@ -170,6 +180,56 @@ void LevelDataProvider::updateValues()
 //    
 //    return true;
 //}
+
+
+std::string LevelDataProvider::getBackgroundImageName()
+{
+    return _backgroundImageName;
+}
+
+std::vector<int> LevelDataProvider::getTossingActorTypes()
+{
+    return _tossingActorList;
+}
+
+std::vector<int> LevelDataProvider::getCarrierActorTypes()
+{
+    return _carrierActorList;
+}
+
+int LevelDataProvider::getNextCarrierType()
+{
+    int actorType = _carrierActorList.at(_lastUsedActorType);
+    
+    _lastUsedActorType = (_lastUsedActorType + 1) >= _carrierActorList.size() ? 0 :  _lastUsedActorType++;
+    
+    return actorType;
+}
+
+cocos2d::Point LevelDataProvider::getProductHeapPos()
+{
+    return _productHeapPos;
+}
+
+float LevelDataProvider::getProductHeapSize()
+{
+    return _productHeapSz;
+}
+
+float LevelDataProvider::getWalkingSpeed()
+{
+    return _walkingSpeed;
+}
+
+float LevelDataProvider::getTossingFreq()
+{
+    return _tossingFreq;
+}
+
+float LevelDataProvider::getCarrierFreq()
+{
+    return _carrierFreq;
+}
 
 
 

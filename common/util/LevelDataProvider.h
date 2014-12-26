@@ -28,7 +28,25 @@ public:
     
     static LevelDataProvider* create(int aLevelID);
     
-    //bool init(int aLeveID);
+    bool initWithLevel(int aLevelID);
+    
+    std::string getBackgroundImageName();
+    
+    std::vector<int> getTossingActorTypes();
+    
+    std::vector<int> getCarrierActorTypes();
+    int getNextCarrierType();
+    
+    cocos2d::Point getProductHeapPos();
+    
+    float getProductHeapSize();
+    
+    float getWalkingSpeed();
+    
+    float getTossingFreq();
+    
+    float getCarrierFreq();
+    
     
 protected:
     
@@ -62,6 +80,7 @@ protected:
     std::vector<int> _tossingActorList; // list of IDs of carrier actors which should appear on the Level
     // carrierActor
     std::vector<int> _carrierActorList; // list of IDs of carrier actors which should appear on the Level
+    int _lastUsedActorType;
     // walkingActor
     std::vector<int> _walkingActorList; // list of IDs of walking actors which should appear on the Level
     
@@ -76,16 +95,16 @@ protected:
 	// relative position - percent offset from the center of the screen
 	// relative size - percent of screen size
 	cocos2d::Point _productHeapPos;
-	cocos2d::Size  _productHeapSz;
+    float          _productHeapSz;
 	
 	cocos2d::Point _chearPos;
-	cocos2d::Size  _chearSz;
+	float          _chearSz;
 	
 	cocos2d::Point _christmasTreePos;
 	cocos2d::Size  _christmasTreeSz;
 	
 	cocos2d::Point _carpetPos;
-	cocos2d::Size  _carpetSz;
+	float          _carpetSz;
 	
 	std::vector<cocos2d::Point> _tossingActorPositionList; // list relative position for given tossing Actor
 	
@@ -104,6 +123,7 @@ protected:
     int _tossingSpeed; // base speed for fallen products
     
     int _tossingFreq; // tosses per sec
+    int _carrierFreq;
     
 	
 	int _requiredGifts; // how much gifts should be collected

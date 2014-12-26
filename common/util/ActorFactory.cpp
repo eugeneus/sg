@@ -22,7 +22,9 @@ ActorFactory* ActorFactory::create() {
 
 bool ActorFactory::init()
 {
-    _actorsDB = FileUtils::getInstance()->getValueMapFromFile("Actors.plist");
+    
+    //std::string path = FileUtils::getInstance()->fullPathForFilename("Actors.plist");
+    _actorsDB = FileUtils::getInstance()->getValueMapFromFile("Actors1.plist");
     
    return true;
 }
@@ -30,7 +32,7 @@ bool ActorFactory::init()
 GameObjectBase* ActorFactory::getActorByType(int aTypeID)
 {
     
-    ValueVector actorsArray = _actorsDB.at("Root").asValueVector();
+    ValueVector actorsArray = _actorsDB.at("Array").asValueVector();
     
     ValueMap actorMap = actorsArray.at(aTypeID).asValueMap();
     
@@ -51,7 +53,7 @@ GameObjectBase* ActorFactory::getActorByType(int aTypeID)
     
     ValueMap headMap = actorMap.at("Head").asValueMap();
     ValueMap bodyMap = actorMap.at("Body").asValueMap();
-    ValueMap handsMap = actorMap.at("Hansd").asValueMap();
+    ValueMap handsMap = actorMap.at("Hands").asValueMap();
     ValueMap legsMap = actorMap.at("Legs").asValueMap();
     
     //// under construction

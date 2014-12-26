@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Name</key>
-	<string>Actors Catalog</string>
 	<key>Array</key>
 	<array>
 		<dict>
@@ -15,11 +13,13 @@
 			<string>-0.06</string>
 			<key>PosX</key>
 			<real>0.35</real>
-			<key>SpriteFrameName</key>
+			<key>BaseFrameName</key>
 			<string>gnow.png</string>
+			<key>countFrames</key>
+			<integer>0</integer>
 			<key>Head</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -32,7 +32,7 @@
 			</dict>
 			<key>Body</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -45,7 +45,7 @@
 			</dict>
 			<key>Hands</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -58,7 +58,7 @@
 			</dict>
 			<key>Legs</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -85,7 +85,7 @@
 			<string>gnow.png</string>
 			<key>Head</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -98,7 +98,7 @@
 			</dict>
 			<key>Body</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -111,7 +111,7 @@
 			</dict>
 			<key>Hands</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
@@ -124,7 +124,7 @@
 			</dict>
 			<key>Legs</key>
 			<dict>
-				<key>framesCount</key>
+				<key>countFrames</key>
 				<integer>0</integer>
 				<key>BaseFrameName</key>
 				<string></string>
