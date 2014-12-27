@@ -7,6 +7,7 @@
 #include "PausePopupCallback.h"
 #include "PopupControl.h"
 #include "ShopPopupCallback.h"
+#include "SlidePanel.h"
 
 class GameScene : public cocos2d::Layer, public PausePopupCallback, public ShopPopupCallback {
 
@@ -43,6 +44,8 @@ protected:
     GameController* _theGameController;
     cocos2d::Menu* _btnsHolder;
     PopupControl* _popupController;
+    
+    SlidePanel* _bonusPanel;
 
 private:
     

@@ -5,6 +5,8 @@
 #include "PausePopup.h"
 
 #include "SimpleAudioEngine.h"
+#include "BonusSlidePanelItems.h"
+#include "BonusPanelConfig.h"
 
 USING_NS_CC;
 
@@ -48,6 +50,9 @@ bool GameScene::init()
     _popupController = PopupControl::create();
     _btnsHolder = Menu::create();
     this->addChild(_btnsHolder, 100);
+    
+    _bonusPanel = SlidePanel::create(BonusSlidePanelItems::create(), BonusPanelConfig::create());
+    this->addChild(_bonusPanel, 100);
    return true;
 }
 
