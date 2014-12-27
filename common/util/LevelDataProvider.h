@@ -42,13 +42,14 @@ public:
     float getProductHeapSize();
     
     cocos2d::Point getWalkingLineStart();
+    
     cocos2d::Point getWalkingLineEnd();
     
     float getWalkingSpeed();
     
     float getTossingFreq();
     
-    float getCarrierFreq();
+    float getCarrierPerScreen();
     
     
 protected:
@@ -116,8 +117,8 @@ protected:
 	std::vector<cocos2d::Point> _tossingActorPositionList; // list relative position for given tossing Actor
 	
 	cocos2d::Point _walkingLineStartPos;
+    
 	cocos2d::Point _walkingLineEndPos;
-	
 	
     //std::vector<GiftDesc> _giftsQueue; // list of gifts, determones order fo occurance
 
@@ -130,17 +131,15 @@ protected:
     int _tossingSpeed; // base speed for fallen products
     
     int _tossingFreq; // tosses per sec
-    int _carrierFreq;
-    
 	
 	int _requiredGifts; // how much gifts should be collected
 	                    // probably we need aray by gifts types
 	int _requiredPoints;
 	
 	int _avialableBonuses;
-	
-	
-	
+    
+    float _carrierPerScreen;
+    
 	
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     // list of

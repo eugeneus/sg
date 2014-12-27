@@ -48,7 +48,7 @@ void GameController::update(float dt)
     
     if (_launchCountDown <= 0.0f) {
         
-        _launchCountDown = _theModel->getNextLaunchInterval();
+        _launchCountDown = _theModel->getCarrierIntervalInSec();
         
         WalkingGnome* gnome = _theModel->getNextIdleCarrier();
         int typeId = gnome->getTypeID();

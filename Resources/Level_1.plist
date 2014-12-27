@@ -58,15 +58,15 @@
 	<array>
 		<dict>
 			<key>y</key>
-			<real>-0.35</real>
+			<real>-0.3</real>
 			<key>x</key>
 			<real>-0.5</real>
 		</dict>
 		<dict>
 			<key>y</key>
-			<real>-0.35</real>
+			<real>-0.3</real>
 			<key>x</key>
-			<real>0.6</real>
+			<real>0.5</real>
 		</dict>
 	</array>
 	<key>WalkingSpeed</key>
@@ -75,8 +75,8 @@
 	<integer>11</integer>
 	<key>TossingFrequency</key>
 	<integer>10</integer>
-	<key>CarrierFrequency</key>
-	<integer>1</integer>
+	<key>CarrierPerScreen</key>
+	<integer>3</integer>
 	<key>New item</key>
 	<string></string>
 	<key>New item - 2</key>

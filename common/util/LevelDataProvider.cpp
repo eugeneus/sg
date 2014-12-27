@@ -148,7 +148,9 @@ void LevelDataProvider::updateValues()
     updateIntValue(_tossingSpeed, "TossingSpeed", nullptr);
 //    int _tossingFreq; // tosses per sec
     updateIntValue(_tossingFreq, "TossingFrequency", nullptr);
-    updateIntValue(_carrierFreq, "CarrierFrequency", nullptr);
+    
+    updateFloatValue(_carrierPerScreen, "CarrierPerScreen", nullptr);
+    
     
 //    
 //    int _requiredGifts; // how much gifts should be collected
@@ -264,9 +266,9 @@ float LevelDataProvider::getTossingFreq()
     return _tossingFreq;
 }
 
-float LevelDataProvider::getCarrierFreq()
+float LevelDataProvider::getCarrierPerScreen()
 {
-    return _carrierFreq;
+    return _carrierPerScreen;
 }
 
 

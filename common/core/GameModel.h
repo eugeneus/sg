@@ -38,11 +38,11 @@ public:
     
     bool checkUpdateArrived();
     
-    float getNextLaunchInterval();
-    
     float getWalkDuration();
     
     cocos2d::Point getWalkLineEnd();
+    
+    float getCarrierIntervalInSec();
     
 protected:
     

@@ -304,13 +304,6 @@ bool GameModel::checkUpdateArrived()
     return ret;
 }
 
-float GameModel::getNextLaunchInterval()
-{
-    // some logic to randomy fluctuate
-    // some logic for boost wave.
-    return 1.0/_levelData->getCarrierFreq();
-}
-
 float GameModel::getWalkDuration()
 {
     float durationInSec = 0.0f;
@@ -326,6 +319,11 @@ float GameModel::getWalkDuration()
 cocos2d::Point GameModel::getWalkLineEnd()
 {
     return _walkingLineEnd;
+}
+
+float GameModel::getCarrierIntervalInSec()
+{
+    return getWalkDuration()/_levelData->getCarrierPerScreen();
 }
 
 
