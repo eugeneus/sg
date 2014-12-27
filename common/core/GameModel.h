@@ -5,7 +5,10 @@
 #include "LevelDataProvider.h"
 
 class GameObjectBase;
+class WalkingGnome;
 class Heap;
+class ActorFactory;
+class ProductFactory;
 
 class GameModel : public cocos2d::Node {
 
@@ -31,7 +34,27 @@ public:
 	
 	void arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter);
     
+    WalkingGnome* getNextIdleCarrier();
+    
+    bool checkUpdateArrived();
+    
+    float getWalkDuration();
+    
+    cocos2d::Point getWalkLineEnd();
+    
+    float getCarrierIntervalInSec();
+    
 protected:
+    
+    //
+    void loadActors();
+    
+    //
+    WalkingGnome* initNewCarrier();
+    
+    //converts relative coordinates/sizes according to
+    //current screen
+    void arrangeSceneCoordinates(cocos2d::Size aLayerSize);
     
     // we are going to use centered positioning
     // in order to minimize multiresolution support impact
@@ -48,17 +71,36 @@ protected:
     // curretnSF = max(sprite->getContentSize()) / max(director::screen::size())
     // actual scale factor = 1 + (currentSF - desidnedSF);
     
-    cocos2d::Size linePosOffet;
     
-    cocos2d::Size _gnomeStartPosOffset;
-    float _gnomeScaleFactor;
+    cocos2d::Layer* _gameLayer;
+    
+    LevelDataProvider* _levelData;
+    ActorFactory* _actorFactory;
+    ProductFactory* _productFactory;
+
+    
+    //cocos2d::Size linePosOffet;
+    
+    //cocos2d::Size _gnomeStartPosOffset;
+    //float _gnomeScaleFactor;
     
     cocos2d::Point _sceneCenter;
-
+    cocos2d::Point _walkingLineStart;
+    cocos2d::Point _walkingLineEnd;
+    
 	// visible game objects
 	GameObjectBase* _background;
+    
 	Heap* _heap;
-    GameObjectBase* _gnome;
+    //GameObjectBase* _gnome;
+    
+    // carrier support
+    std::vector<WalkingGnome*> _carriers;
+    int _lastUsed;
+    int _firstUsed;
+    //
+    std::vector<GameObjectBase*> _walkers;
+    
     
     cocos2d::Menu* _btnsHolder;
 	

@@ -10,6 +10,8 @@
 
 #include "cocos2d.h"
 
+#include "PlistHelper.h"
+
 // should move to gift factory?
 struct GiftDesc{
     int productsCount; // number of distinct Proudcts in a Gift Box
@@ -17,18 +19,48 @@ struct GiftDesc{
     int giftsPerLevel;  // how may times given gift should appears on the level
 };
 
-class LevelDataProvider : public cocos2d::Ref {
+class LevelDataProvider : public PlistHelper {
 
 public:
     LevelDataProvider();
     
     ~LevelDataProvider();
     
-    static LevelDataProvider* create(int aLeveID);
+    static LevelDataProvider* create(int aLevelID);
     
-    bool init(int aLeveID);
+    bool initWithLevel(int aLevelID);
+    
+    std::string getBackgroundImageName();
+    
+    std::vector<int> getTossingActorTypes();
+    
+    std::vector<int> getCarrierActorTypes();
+    int getNextCarrierType();
+    
+    cocos2d::Point getProductHeapPos();
+    
+    float getProductHeapSize();
+    
+    cocos2d::Point getWalkingLineStart();
+    
+    cocos2d::Point getWalkingLineEnd();
+    
+    float getWalkingSpeed();
+    
+    float getTossingFreq();
+    
+    float getCarrierPerScreen();
+    
     
 protected:
+    
+    cocos2d::Point getPointFromPointMap(cocos2d::ValueMap aPointMap);
+    
+    cocos2d::Point getPointByKey(std::string aKey);
+    
+    void updateValues();
+    
+    void LoadLevelByID(int aLevelID);
 
 	// identification
 	int _levelID;
@@ -56,6 +88,7 @@ protected:
     std::vector<int> _tossingActorList; // list of IDs of carrier actors which should appear on the Level
     // carrierActor
     std::vector<int> _carrierActorList; // list of IDs of carrier actors which should appear on the Level
+    int _lastUsedActorType;
     // walkingActor
     std::vector<int> _walkingActorList; // list of IDs of walking actors which should appear on the Level
     
@@ -70,22 +103,22 @@ protected:
 	// relative position - percent offset from the center of the screen
 	// relative size - percent of screen size
 	cocos2d::Point _productHeapPos;
-	cocos2d::Size  _productHeapSz;
+    float          _productHeapSz;
 	
 	cocos2d::Point _chearPos;
-	cocos2d::Size  _chearSz;
+	float          _chearSz;
 	
 	cocos2d::Point _christmasTreePos;
 	cocos2d::Size  _christmasTreeSz;
 	
 	cocos2d::Point _carpetPos;
-	cocos2d::Size  _carpetSz;
+	float          _carpetSz;
 	
 	std::vector<cocos2d::Point> _tossingActorPositionList; // list relative position for given tossing Actor
 	
 	cocos2d::Point _walkingLineStartPos;
+    
 	cocos2d::Point _walkingLineEndPos;
-	
 	
     //std::vector<GiftDesc> _giftsQueue; // list of gifts, determones order fo occurance
 
@@ -93,15 +126,20 @@ protected:
     std::vector<int> _giftBoxList; // list of Boxes we going to use on the level (appearance of box)
     
     // game play definition
+    
+    int _walkingSpeed; //spped of carriers, eccential parameter for game
+    int _tossingSpeed; // base speed for fallen products
+    
+    int _tossingFreq; // tosses per sec
 	
 	int _requiredGifts; // how much gifts should be collected
 	                    // probably we need aray by gifts types
 	int _requiredPoints;
 	
 	int _avialableBonuses;
-	
-	int _gameSpeed;
-	
+    
+    float _carrierPerScreen;
+    
 	
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     // list of

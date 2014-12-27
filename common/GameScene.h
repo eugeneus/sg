@@ -27,6 +27,8 @@ public:
     void pauseGame();
     void resumeGame();
     
+    virtual void onEnterTransitionDidFinish();
+    
 #pragma mark - Pause popup callback
     
     void pauseCallbackResume();
@@ -40,6 +42,9 @@ public:
     void shopCallbackResume();
     
 protected:
+    
+    virtual void update(float delta);
+
     
     GameController* _theGameController;
     cocos2d::Menu* _btnsHolder;

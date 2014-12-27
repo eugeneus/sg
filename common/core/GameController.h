@@ -14,8 +14,11 @@ class GameState;
 class TouchController;
 class GameModel;
 class GameObjectBase;
+//class ActorFactory;
+//class ProductFactory;
+class AnimationFactory;
 
-class GameController : public cocos2d::Node {
+class GameController : public cocos2d::Ref {
 
 public:
     GameController();
@@ -26,11 +29,18 @@ public:
     
     bool init(cocos2d::Layer* aLayer);
     
+    void update(float dt);
+    
 protected:
     
     PlayerData* _playerData;
     GameModel* _theModel;
     TouchController* _touchCtl;
+    //ActorFactory* _actorFactory;
+    //ProductFactory* _productFactory;
+    AnimationFactory* _animationFactory;
+    
+    float _launchCountDown;
 
 private:
     

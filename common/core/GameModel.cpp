@@ -5,16 +5,34 @@
 #include "PlayerData.h"
 #include "LevelDataProvider.h"
 #include "ActorFactory.h"
+#include "ProductFactory.h"
 
 #include "GameObjectBase.h"
+#include "WalkingGnome.h"
 #include "Heap.h"
 #include "FlashLights.h"
 
 USING_NS_CC;
 
-GameModel::GameModel(){}
+GameModel::GameModel():
+_levelData(nullptr),
+_actorFactory(nullptr),
+_productFactory(nullptr)
+{}
 
-GameModel::~GameModel() {}
+GameModel::~GameModel()
+{
+    if (_levelData) {
+        delete _levelData;
+    }
+    if (_actorFactory) {
+        delete _actorFactory;
+    }
+    if (_productFactory) {
+        delete _productFactory;
+    }
+
+}
 
 GameModel* GameModel::create(cocos2d::Layer* aLayer) {
 
@@ -40,7 +58,21 @@ bool GameModel::init(cocos2d::Layer* aLayer)
 {
 	this->clearLayer(aLayer);
 	
+    if (_actorFactory) {
+        delete _actorFactory;
+        _actorFactory  = nullptr;
+    }
+    _actorFactory = ActorFactory::create();
+    
+    if (_productFactory) {
+        delete _productFactory;
+        _productFactory  = nullptr;
+    }
+    _productFactory = ProductFactory::create();
 
+    _firstUsed = -1;
+    _lastUsed = -1;
+    
 	int levelToLoad = PlayerData::getInstance()->getCurrentLevel();
 	
     this->loadLevel(aLayer, levelToLoad);
@@ -50,37 +82,55 @@ bool GameModel::init(cocos2d::Layer* aLayer)
     return true;
 }
 
+void GameModel::loadActors()
+{
+    std::vector<int> carriers  = _levelData->getCarrierActorTypes();
+    
+    WalkingGnome* actor;
+    for(int nType : carriers){
+        actor = _actorFactory->getActorByType(nType);
+        _carriers.push_back(actor);
+        _gameLayer->addChild(actor);
+     
+    }
+    
+    //_gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
+    //aLayer->addChild(_gnome);
+    
+}
+
 void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
 {
-    LevelDataProvider* levelData = LevelDataProvider::create(aLevel);
+    
+    _gameLayer = aLayer;
+    if (_levelData) {
+        delete _levelData;
+        _levelData  = nullptr;
+    }
+    _levelData = LevelDataProvider::create(aLevel);
     
 	// 1. loads all sprites images as is, with relative factors
-    _background = GameObjectBase::create("bg.jpg",Point(0.0, 0.0), 1.0);
-    aLayer->addChild(_background);
+    std::string bkgImg = _levelData->getBackgroundImageName();
+    _background = GameObjectBase::create(bkgImg,Point(0.0, 0.0), 1.0);
+    _gameLayer->addChild(_background);
 	
 	_heap = Heap::create("bg_floor.png", Point(0.0, -0.16), 0.48);
-	aLayer->addChild(_heap);
+	_gameLayer->addChild(_heap);
+    
+    this->loadActors();
     
     FlashLights *topLights = FlashLights::create("top_lights_0%i.png", 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
-    aLayer->addChild(topLights);
+    _gameLayer->addChild(topLights);
 
     
     FlashLights *treeLights = FlashLights::create("tree_lights_0%i.png", 3, 2.0f, Point(180, 400), 1.0);
-    aLayer->addChild(treeLights);
-    
-    _gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
-    aLayer->addChild(_gnome);
-    
-    ActorFactory* actorFactory = ActorFactory::create();
+    _gameLayer->addChild(treeLights);
     
     
-    delete actorFactory;
-    delete levelData;
-	
     _btnsHolder = Menu::create();
     _btnsHolder->setPosition(Vec2(0, 0));
     //_btnsHolder->setContentSize(aLayer->getContentSize());
-    aLayer->addChild(_btnsHolder);
+    _gameLayer->addChild(_btnsHolder);
     
     this->addButton("btn_pause.png", "btn_pause_sel.png", CC_CALLBACK_1(GameScene::onPauseCliked, (GameScene *)aLayer), Vec2(0, _background->getContentSize().height), Vec2(0, 1));
     
@@ -110,9 +160,15 @@ void GameModel::arrange()
 	
     _background->setPosition(_sceneCenter);
     
+    this->arrangeSceneCoordinates(visibleSize);
+    
     this->arrangeGameObjectForLayer(_background, visibleSize, _sceneCenter);
 	this->arrangeGameObjectForLayer((GameObjectBase*)_heap, visibleSize, _sceneCenter);
-    this->arrangeGameObjectForLayer(_gnome, visibleSize, _sceneCenter);
+
+    for (WalkingGnome* carrier : _carriers) {
+        this->arrangeGameObjectForLayer((GameObjectBase*)carrier, visibleSize, _sceneCenter);
+        carrier->setPosition(_walkingLineStart);
+    }
 
 }
 
@@ -137,13 +193,141 @@ void GameModel::arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::
 	
 	cocos2d::Point actualPosition;
 	actualPosition.x = aLayerCenter.x + aLayerSize.width * aGameObject->getRelativePosition().x;
-    float  rp = aGameObject->getRelativePosition().y;
+    float rp = aGameObject->getRelativePosition().y;
     float offset = aLayerSize.height * rp;
     actualPosition.y = aLayerCenter.y + offset;
 	
 	aGameObject->setPosition(actualPosition);
 
 }
+
+void GameModel::arrangeSceneCoordinates(cocos2d::Size aLayerSize)
+{
+    Point relative = _levelData->getWalkingLineStart();
+    float x = _sceneCenter.x + aLayerSize.width * relative.x;
+    float y = _sceneCenter.y + aLayerSize.height * relative.y;
+    _walkingLineStart = Point(x,y);
+    
+    relative = _levelData->getWalkingLineEnd();
+    x = _sceneCenter.x + aLayerSize.width * relative.x;
+    y = _sceneCenter.y + aLayerSize.height * relative.y;
+    _walkingLineEnd = Point(x,y);
+
+}
+
+
+WalkingGnome* GameModel::initNewCarrier()
+{
+    
+    WalkingGnome* newCarrier = nullptr;
+    
+    // get next id from level data
+    int carrierTypeID = _levelData->getNextCarrierType();
+    // create and return new carrier by actorFactory
+    newCarrier = _actorFactory->getActorByType(carrierTypeID);
+    _gameLayer->addChild(newCarrier);
+    return newCarrier;
+}
+
+WalkingGnome* GameModel::getNextIdleCarrier()
+{
+    WalkingGnome* nextCarrierGnome = nullptr;
+
+    std::vector<WalkingGnome*>::iterator itCarrier = _carriers.begin();
+    
+    // initials
+    if (_lastUsed == -1) {
+        _firstUsed = 0;
+        _lastUsed = 0;
+        
+        if (_lastUsed >= _carriers.size()) {  // run out of available gnomes
+            _lastUsed = _carriers.size();
+            nextCarrierGnome = this->initNewCarrier();
+            _carriers.push_back(nextCarrierGnome);
+        }
+        else{
+            nextCarrierGnome = _carriers.at(_lastUsed);
+        }
+    }
+    else{ // regular loop
+    
+        _lastUsed++;
+        if (_lastUsed >= _carriers.size()) {
+            _lastUsed = 0; // circuled index
+        }
+        
+        if (_lastUsed == _firstUsed) {
+            // run out of capacity, need more carriers
+            nextCarrierGnome = this->initNewCarrier();
+            if (_lastUsed == 0) {
+                _lastUsed = _carriers.size();
+                _carriers.push_back(nextCarrierGnome);
+            }
+            else{
+                _carriers.insert(itCarrier+_lastUsed, nextCarrierGnome);
+            }
+        }
+        else{
+            nextCarrierGnome = _carriers.at(_lastUsed);
+        }
+    }
+    
+    nextCarrierGnome->setPosition(_walkingLineStart);
+    
+    return nextCarrierGnome;
+}
+
+// check the index of most oldest
+// walking carrier and shift the index
+// if required
+bool GameModel::checkUpdateArrived()
+{
+    bool ret = false;
+    
+    if (_firstUsed == -1) {
+        return ret;
+    }
+    
+    WalkingGnome* carrier = _carriers[_firstUsed];
+    float posX = carrier->getPositionX();
+    
+    if (posX >= _walkingLineEnd.x) {
+        _firstUsed++;
+        if (_firstUsed >= _carriers.size()) {
+            _firstUsed = 0; // circuled index
+            ret = true;
+        }
+        
+        carrier->stopAllActions();
+    }
+
+    return ret;
+}
+
+float GameModel::getWalkDuration()
+{
+    float durationInSec = 0.0f;
+    float walkDistance = _walkingLineStart.getDistance(_walkingLineEnd);
+    float speed = _levelData->getWalkingSpeed();
+    
+    durationInSec = walkDistance / speed;
+    
+    return durationInSec;
+    
+}
+
+cocos2d::Point GameModel::getWalkLineEnd()
+{
+    return _walkingLineEnd;
+}
+
+float GameModel::getCarrierIntervalInSec()
+{
+    return getWalkDuration()/_levelData->getCarrierPerScreen();
+}
+
+
+
 
 
 
