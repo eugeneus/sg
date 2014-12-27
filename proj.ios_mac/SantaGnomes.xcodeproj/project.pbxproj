@@ -115,6 +115,8 @@
 		E03FBA9A1A4CA66A00715601 /* a1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E03FBA991A4CA66A00715601 /* a1.plist */; };
 		E03FBA9C1A4CA7DA00715601 /* Actors1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E03FBA9B1A4CA7DA00715601 /* Actors1.plist */; };
 		E08B79CE1A4E054900FED156 /* Level_1.plist in Resources */ = {isa = PBXBuildFile; fileRef = E08B79CD1A4E054900FED156 /* Level_1.plist */; };
+		E08B79D11A4EED3E00FED156 /* WalkingGnome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E08B79CF1A4EED3E00FED156 /* WalkingGnome.cpp */; };
+		E08B79D41A4F1E6B00FED156 /* AnimationFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E08B79D21A4F1E6B00FED156 /* AnimationFactory.cpp */; };
 		E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DC1A15502B005A9FD0 /* MainMenu.cpp */; };
 		E09460E11A155093005A9FD0 /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */; };
 		E09460E41A1550B8005A9FD0 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E09460E21A1550B8005A9FD0 /* GameScene.cpp */; };
@@ -285,6 +287,10 @@
 		E03FBA991A4CA66A00715601 /* a1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = a1.plist; sourceTree = "<group>"; };
 		E03FBA9B1A4CA7DA00715601 /* Actors1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Actors1.plist; sourceTree = "<group>"; };
 		E08B79CD1A4E054900FED156 /* Level_1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level_1.plist; sourceTree = "<group>"; };
+		E08B79CF1A4EED3E00FED156 /* WalkingGnome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WalkingGnome.cpp; sourceTree = "<group>"; };
+		E08B79D01A4EED3E00FED156 /* WalkingGnome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkingGnome.h; sourceTree = "<group>"; };
+		E08B79D21A4F1E6B00FED156 /* AnimationFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationFactory.cpp; sourceTree = "<group>"; };
+		E08B79D31A4F1E6B00FED156 /* AnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFactory.h; sourceTree = "<group>"; };
 		E09460DC1A15502B005A9FD0 /* MainMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
 		E09460DD1A15502B005A9FD0 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		E09460DF1A155093005A9FD0 /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
@@ -554,6 +560,8 @@
 				E0BE9D4A1A4B3C420078489E /* PlistHelper.h */,
 				E03FBA961A4BF67E00715601 /* ProductFactory.cpp */,
 				E03FBA971A4BF67E00715601 /* ProductFactory.h */,
+				E08B79D21A4F1E6B00FED156 /* AnimationFactory.cpp */,
+				E08B79D31A4F1E6B00FED156 /* AnimationFactory.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -617,6 +625,8 @@
 				AA090DEF1A499B11000D8559 /* FlashLights.h */,
 				AA090DF11A49AA83000D8559 /* FlachLightsModeFactory.cpp */,
 				AA090DF21A49AA83000D8559 /* FlachLightsModeFactory.h */,
+				E08B79CF1A4EED3E00FED156 /* WalkingGnome.cpp */,
+				E08B79D01A4EED3E00FED156 /* WalkingGnome.h */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -844,6 +854,7 @@
 				E02DA5EE1A279EBB00696BDA /* GameState.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				E08B79D11A4EED3E00FED156 /* WalkingGnome.cpp in Sources */,
 				E02DA5E51A279A5600696BDA /* GameController.cpp in Sources */,
 				AA090DF31A49AA83000D8559 /* FlachLightsModeFactory.cpp in Sources */,
 				E01284351A42A56100190502 /* Heap.cpp in Sources */,
@@ -861,6 +872,7 @@
 				E09460DE1A15502B005A9FD0 /* MainMenu.cpp in Sources */,
 				E02DA5E81A279DDD00696BDA /* GameModel.cpp in Sources */,
 				AA02F0301A4B0C8700A2DD41 /* PausePopup.cpp in Sources */,
+				E08B79D41A4F1E6B00FED156 /* AnimationFactory.cpp in Sources */,
 				AA090E001A49C2D2000D8559 /* PopupControl.cpp in Sources */,
 				AA090DF01A499B11000D8559 /* FlashLights.cpp in Sources */,
 			);

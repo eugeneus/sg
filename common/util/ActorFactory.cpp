@@ -2,6 +2,8 @@
 #include "ActorFactory.h"
 
 #include "GameObjectBase.h"
+#include "WalkingGnome.h"
+
 
 USING_NS_CC;
 
@@ -32,7 +34,7 @@ bool ActorFactory::init()
    return true;
 }
 
-GameObjectBase* ActorFactory::getActorByType(int aTypeID)
+WalkingGnome* ActorFactory::getActorByType(int aTypeID)
 {
     
     ValueVector actorsArray = _actorsDB.at("Array").asValueVector();
@@ -45,7 +47,9 @@ GameObjectBase* ActorFactory::getActorByType(int aTypeID)
     float posY = actorMap.at("PosY").asFloat();
     float size = actorMap.at("Size").asFloat();
     
-    GameObjectBase* actor = GameObjectBase::create(baseFrameName, cocos2d::Point(posX,posY), size);
+    WalkingGnome* actor = WalkingGnome::create(baseFrameName, cocos2d::Point(posX,posY), size);
+    
+    actor->setTypeID(aTypeID);
     
     //// under construction
     // may create frame animation
@@ -63,6 +67,8 @@ GameObjectBase* ActorFactory::getActorByType(int aTypeID)
     
     return actor;
 }
+
+
 
 
 

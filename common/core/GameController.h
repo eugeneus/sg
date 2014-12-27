@@ -14,6 +14,9 @@ class GameState;
 class TouchController;
 class GameModel;
 class GameObjectBase;
+//class ActorFactory;
+//class ProductFactory;
+class AnimationFactory;
 
 class GameController : public cocos2d::Ref {
 
@@ -33,6 +36,9 @@ protected:
     PlayerData* _playerData;
     GameModel* _theModel;
     TouchController* _touchCtl;
+    //ActorFactory* _actorFactory;
+    //ProductFactory* _productFactory;
+    AnimationFactory* _animationFactory;
     
     float _launchCountDown;
 

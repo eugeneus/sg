@@ -5,6 +5,7 @@
 #include "LevelDataProvider.h"
 
 class GameObjectBase;
+class WalkingGnome;
 class Heap;
 class ActorFactory;
 class ProductFactory;
@@ -33,15 +34,23 @@ public:
 	
 	void arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::Size aLayerSize, cocos2d::Point aLayerCenter);
     
-    GameObjectBase* getNextIdleCarrier();
+    WalkingGnome* getNextIdleCarrier();
+    
+    bool checkUpdateArrived();
+    
+    float getNextLaunchInterval();
+    
+    float getWalkDuration();
+    
+    cocos2d::Point getWalkLineEnd();
     
 protected:
     
     //
-    void loadActors(LevelDataProvider* levelData, cocos2d::Layer* aLayer);
+    void loadActors();
     
     //
-    GameObjectBase* initNewCarrier();
+    WalkingGnome* initNewCarrier();
     
     //converts relative coordinates/sizes according to
     //current screen
@@ -62,6 +71,9 @@ protected:
     // curretnSF = max(sprite->getContentSize()) / max(director::screen::size())
     // actual scale factor = 1 + (currentSF - desidnedSF);
     
+    
+    cocos2d::Layer* _gameLayer;
+    
     LevelDataProvider* _levelData;
     ActorFactory* _actorFactory;
     ProductFactory* _productFactory;
@@ -75,7 +87,7 @@ protected:
     cocos2d::Point _sceneCenter;
     cocos2d::Point _walkingLineStart;
     cocos2d::Point _walkingLineEnd;
-
+    
 	// visible game objects
 	GameObjectBase* _background;
     
@@ -83,7 +95,7 @@ protected:
     //GameObjectBase* _gnome;
     
     // carrier support
-    std::vector<GameObjectBase*> _carriers;
+    std::vector<WalkingGnome*> _carriers;
     int _lastUsed;
     int _firstUsed;
     //

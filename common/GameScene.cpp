@@ -107,3 +107,16 @@ void GameScene::shopCallbackPaymentComplete() {
 void GameScene::shopCallbackResume() {
 
 }
+
+void GameScene::update(float delta)
+{
+    _theGameController->update(delta);
+}
+
+void GameScene::onEnterTransitionDidFinish()
+{
+    Node::onEnterTransitionDidFinish();
+    
+    this->scheduleUpdate();
+}
+
