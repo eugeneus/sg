@@ -41,6 +41,10 @@ protected:
     AnimationFactory* _animationFactory;
     
     float _launchCountDown;
+    float _tossCountDown;
+    float _tossCountCountDown;
+    
+    
 
 private:
     

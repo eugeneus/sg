@@ -44,6 +44,10 @@ public:
     
     float getCarrierIntervalInSec();
     
+    float getTossIntervalInSec();
+    
+    int getTossesPerCarrier();
+    
 protected:
     
     //

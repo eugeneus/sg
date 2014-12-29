@@ -1,6 +1,7 @@
 
 #include "ProductFactory.h"
 #include "GameObjectBase.h"
+#include "Product.h"
 
 USING_NS_CC;
 
@@ -18,7 +19,7 @@ ProductFactory* ProductFactory::create() {
     return pRet;
 }
 
-GameObjectBase* ProductFactory::getProductByType(int aTypeID)
+Product* ProductFactory::getProductByType(int aTypeID)
 {
     
     
@@ -37,7 +38,8 @@ GameObjectBase* ProductFactory::getProductByType(int aTypeID)
     float size = 0.0f;
     updateFloatValue(size, "Size", &productMap);
     
-    GameObjectBase* product = GameObjectBase::create(baseFrameName, cocos2d::Point(posX,posY), size);
+    Product* product = Product::create(baseFrameName, cocos2d::Point(posX,posY), size);
+    product->setTypeID(aTypeID);
     
     //// under construction
     // may create frame animation

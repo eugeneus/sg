@@ -51,6 +51,11 @@ public:
     
     float getCarrierPerScreen();
     
+    std::vector<int> getGiftsList();
+    
+    std::vector<int> getRandomProductList();
+    
+    
     
 protected:
     

@@ -271,5 +271,14 @@ float LevelDataProvider::getCarrierPerScreen()
     return _carrierPerScreen;
 }
 
+std::vector<int> LevelDataProvider::getGiftsList()
+{
+    return _giftsQueue;
+}
+
+std::vector<int> LevelDataProvider::getRandomProductList()
+{
+    return _randomProductsQueue;
+}
 
 

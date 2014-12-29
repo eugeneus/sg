@@ -35,6 +35,8 @@ bool GameController::init(cocos2d::Layer* aLayer)
     _animationFactory = AnimationFactory::create();
     
     _launchCountDown = 0.0f;
+    _tossCountDown = 0.0f;
+    _tossCountCountDown = 0.0f;
     
    return true;
 }
@@ -49,6 +51,7 @@ void GameController::update(float dt)
     if (_launchCountDown <= 0.0f) {
         
         _launchCountDown = _theModel->getCarrierIntervalInSec();
+        _tossCountCountDown += _theModel->getTossesPerCarrier();
         
         WalkingGnome* gnome = _theModel->getNextIdleCarrier();
         int typeId = gnome->getTypeID();
@@ -60,6 +63,16 @@ void GameController::update(float dt)
     }
     else{
         _launchCountDown -= dt;
+    }
+    
+    if (_tossCountCountDown > 0) {
+        if (_tossCountDown <=0.0f) {
+            _tossCountDown = _theModel->getTossIntervalInSec();
+            _tossCountCountDown--;
+        }
+        else{
+            _tossCountDown -= dt;
+        }
     }
 
 }
