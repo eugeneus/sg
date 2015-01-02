@@ -7,6 +7,7 @@
 
 #include "GameObjectBase.h"
 #include "WalkingGnome.h"
+#include "TossingGnome.h"
 #include "AnimationFactory.h"
 
 
@@ -35,7 +36,7 @@ bool GameController::init(cocos2d::Layer* aLayer)
     _animationFactory = AnimationFactory::create();
     
     _launchCountDown = 0.0f;
-    _tossCountDown = 0.0f;
+    _tossCountDown = _theModel->getTossIntervalInSec() * 2.0f;
     _tossCountCountDown = 0.0f;
     
    return true;
@@ -55,6 +56,11 @@ void GameController::update(float dt)
         
         WalkingGnome* gnome = _theModel->getNextIdleCarrier();
         int typeId = gnome->getTypeID();
+        //TODO:
+        //  get and assign GiftID
+        //  fill tossing dequeue for given carrier by required number of products
+        //
+        
         float walkDuration = _theModel->getWalkDuration();
         Point endPoint = _theModel->getWalkLineEnd();
         FiniteTimeAction* walkAction = _animationFactory->getWalkingActionByType(typeId, walkDuration, endPoint);
@@ -69,9 +75,27 @@ void GameController::update(float dt)
         if (_tossCountDown <=0.0f) {
             _tossCountDown = _theModel->getTossIntervalInSec();
             _tossCountCountDown--;
+            
+            // push tossing action:
+            // determine tossing point
+            TossingGnome* tossingGnome = _theModel->getNextTossingGnome();
+            Point pos1 = tossingGnome->getTossingPos();
+            Point pos2 = Point(pos1.x, pos1.y+60.0);
+            FiniteTimeAction* action = _animationFactory->getJumpActionByType(1, 1, pos1,pos2);
+
+            tossingGnome->runAction(action);
+            
+            // get next pop next product from
+            // tossing dequeue
+            // get corresponding animation
+            // run tossing animation
+            // run gnome-tosser animation
+            
+            
         }
         else{
             _tossCountDown -= dt;
+            //log("_tossCountDown %f", _tossCountDown);
         }
     }
 

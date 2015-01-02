@@ -11,6 +11,8 @@
 	<key>TossingActors</key>
 	<array>
 		<integer>1</integer>
+		<integer>1</integer>
+		<integer>1</integer>
 	</array>
 	<key>CarrierActors</key>
 	<array>
@@ -41,25 +43,25 @@
 		<key>x</key>
 		<real>0</real>
 	</dict>
-	<key>TossingPos</key>
+	<key>TossingPositionList</key>
 	<array>
 		<dict>
 			<key>y</key>
-			<integer>0</integer>
+			<real>-0.1</real>
+			<key>x</key>
+			<real>-0.1</real>
+		</dict>
+		<dict>
+			<key>y</key>
+			<real>-0.1</real>
 			<key>x</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>y</key>
-			<integer>0</integer>
+			<real>-0.1</real>
 			<key>x</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>y</key>
-			<integer>0</integer>
-			<key>x</key>
-			<integer>0</integer>
+			<real>0.1</real>
 		</dict>
 	</array>
 	<key>WalkingLinePos</key>

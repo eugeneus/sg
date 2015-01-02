@@ -3,6 +3,7 @@
 
 #include "GameObjectBase.h"
 #include "WalkingGnome.h"
+#include "TossingGnome.h"
 
 
 USING_NS_CC;
@@ -34,10 +35,10 @@ bool ActorFactory::init()
    return true;
 }
 
-WalkingGnome* ActorFactory::getActorByType(int aTypeID)
+WalkingGnome* ActorFactory::getWalkingGnomeByType(int aTypeID)
 {
     
-    ValueVector actorsArray = _actorsDB.at("Array").asValueVector();
+    ValueVector actorsArray = _actorsDB.at("Carriers").asValueVector();
     
     ValueMap actorMap = actorsArray.at(aTypeID).asValueMap();
     
@@ -67,6 +68,43 @@ WalkingGnome* ActorFactory::getActorByType(int aTypeID)
     
     return actor;
 }
+
+
+
+TossingGnome* ActorFactory::getTossingGnomeByType(int aTypeID)
+{
+    ValueVector actorsArray = _actorsDB.at("Tossers").asValueVector();
+    
+    ValueMap actorMap = actorsArray.at(aTypeID).asValueMap();
+    
+    std::string baseFrameName = actorMap.at("BaseFrameName").asString();
+    
+    float posX = actorMap.at("PosX").asFloat();
+    float posY = actorMap.at("PosY").asFloat();
+    float size = actorMap.at("Size").asFloat();
+    
+    TossingGnome* actor = TossingGnome::create(baseFrameName, cocos2d::Point(posX,posY), size);
+    
+    //actor->setTypeID(aTypeID);
+    
+    //// under construction
+    // may create frame animation
+    int frames = actorMap.at("countFrames").asInt();
+    if (frames) {
+        // create frame animation
+    }
+    
+    ValueMap headMap = actorMap.at("Head").asValueMap();
+    ValueMap bodyMap = actorMap.at("Body").asValueMap();
+    ValueMap handsMap = actorMap.at("Hands").asValueMap();
+    ValueMap legsMap = actorMap.at("Legs").asValueMap();
+    
+    //// under construction
+    
+    return actor;
+
+}
+
 
 
 

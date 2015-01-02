@@ -119,14 +119,25 @@ void LevelDataProvider::updateValues()
 //    cocos2d::Size  _carpetSz;
 //    
 //    std::vector<cocos2d::Point> _tossingActorPositionList; // list relative position for given tossing Actor
-//    
+    ValueVector tossingPoints;
+    if(updateValueVectorValue(tossingPoints, "TossingPositionList", nullptr)){
+        for (int iVal = 0; iVal < tossingPoints.size(); iVal++) {
+            if (_tossingActorPositionList.size() < tossingPoints.size()) {
+                _tossingActorPositionList.push_back(getPointFromPointMap(tossingPoints[iVal].asValueMap()));
+            }
+            else{
+                _tossingActorPositionList[iVal] = getPointFromPointMap(tossingPoints[iVal].asValueMap());
+            }
+        }
+//        for (const Value& position : tossingPoints) {
+//            
+//        }
+    }
+    
 //    cocos2d::Point _walkingLineStartPos;
 //    cocos2d::Point _walkingLineEndPos;
   
     ValueVector walkingLine;
-    //WalkingLinePos
-    //WalkingLinePos
-    
     if(updateValueVectorValue(walkingLine, "WalkingLinePos", nullptr)){
         ValueMap position = walkingLine[0].asValueMap();
         _walkingLineStartPos = getPointFromPointMap(position);
@@ -166,6 +177,8 @@ void LevelDataProvider::updateValues()
 //point map should have 2 keys (x,y)
 cocos2d::Point LevelDataProvider::getPointFromPointMap(cocos2d::ValueMap aPointMap)
 {
+    float  x = aPointMap.at("x").asFloat();
+    float  y = aPointMap.at("y").asFloat();
     return Point(aPointMap.at("x").asFloat(),
                  aPointMap.at("y").asFloat()
                  );
@@ -243,6 +256,11 @@ cocos2d::Point LevelDataProvider::getProductHeapPos()
 float LevelDataProvider::getProductHeapSize()
 {
     return _productHeapSz;
+}
+
+std::vector<Point> LevelDataProvider::getTossingActorPositionList()
+{
+    return _tossingActorPositionList;
 }
 
 cocos2d::Point LevelDataProvider::getWalkingLineStart()

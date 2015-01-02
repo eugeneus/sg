@@ -33,7 +33,7 @@
 		<key>x</key>
 		<integer>0</integer>
 	</dict>
-	<key>TossingPos</key>
+	<key>TossingPositionList</key>
 	<array>
 		<dict>
 			<key>y</key>
