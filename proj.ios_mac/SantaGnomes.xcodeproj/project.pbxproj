@@ -544,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1B59321A5714D600E0B62E /* Santa's Air Mail.ttf */,
+E036B2D31A545ED600B497E4 /* Level_1.plist */,
 				AA57080E1A4F6E5800B35DF9 /* SH */,
 				AA95AF511A2E67F1009EFEDC /* level_960x640.plist */,
 				AA95AF521A2E67F1009EFEDC /* level_960x640.png */,
@@ -1122,6 +1123,7 @@
 				E08B79D11A4EED3E00FED156 /* WalkingGnome.cpp in Sources */,
 				AA02F0431A4B1A7600A2DD41 /* SlidePanel.cpp in Sources */,
 				AABE74871A5738A90088C4D0 /* MenuItemSpriteTTF.cpp in Sources */,
+E018416C1A5090EC00791F30 /* Product.cpp in Sources */,
 				E02DA5E51A279A5600696BDA /* GameController.cpp in Sources */,
 				AA090DF31A49AA83000D8559 /* FlachLightsModeFactory.cpp in Sources */,
 				E01284351A42A56100190502 /* Heap.cpp in Sources */,
