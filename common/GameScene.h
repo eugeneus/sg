@@ -8,8 +8,9 @@
 #include "PopupControl.h"
 #include "ShopPopupCallback.h"
 #include "SlidePanel.h"
+#include "BonusPanelCallback.h"
 
-class GameScene : public cocos2d::Layer, public PausePopupCallback, public ShopPopupCallback {
+class GameScene : public cocos2d::Layer, public PausePopupCallback, public ShopPopupCallback, public BonusPanelCallback {
 
 public:
     GameScene();
@@ -31,15 +32,20 @@ public:
     
 #pragma mark - Pause popup callback
     
-    void pauseCallbackResume();
-    void pauseCallbackReplay();
-    void pauseCallbackSound(bool isOff);
-    void pauseCallbackMainMenu();
+    virtual void pauseCallbackResume();
+    virtual void pauseCallbackReplay();
+    virtual void pauseCallbackSound(bool isOff);
+    virtual void pauseCallbackMainMenu();
     
 #pragma mark - Pause popup callback
     
-    void shopCallbackPaymentComplete();
-    void shopCallbackResume();
+    virtual void shopCallbackPaymentComplete();
+    virtual void shopCallbackResume();
+    virtual void shopCallbackCancel();
+
+#pragma mark - Bonus slide panel callback
+    
+    virtual void onShowShopPopup(int pageType, int bonusType);
     
 protected:
     

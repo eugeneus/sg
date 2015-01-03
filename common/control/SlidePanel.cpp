@@ -116,7 +116,7 @@ void SlidePanel::drawItems() {
     scrollView->setDirection(ScrollView::Direction::HORIZONTAL);
     scrollView->setTouchEnabled(true);
     scrollView->setBounceable(true);
-    scrollView->setContentSize(Size(_config->getPanelWidth(), _btnNormal->getContentSize().height));
+    scrollView->setViewSize(Size(_config->getPanelWidth(), _btnNormal->getContentSize().height));
     scrollView->setPosition(Vec2(scrollView->getPosition().x + (_config->isLeft() ? - _btnNormal->getContentSize().width : _btnNormal->getContentSize().width), _btnNormal->getPosition().y));
 
     _btn->addChild(scrollView);
@@ -131,6 +131,8 @@ void SlidePanel::drawItems() {
         item->setPosition(Vec2(item->getPosition().x + (i - 1) * item->getContentSize().width + item->getContentSize().width/2, item->getPosition().y + item->getContentSize().height/2)); //TODO: is left
         menu->addChild(item);
     }
+    
+    scrollView->setContentSize(Size(menu->getContentSize().width, _btnNormal->getContentSize().height));
 }
 
 

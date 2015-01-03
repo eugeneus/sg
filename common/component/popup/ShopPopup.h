@@ -8,14 +8,14 @@
 class ShopPopup : public PopupRenderer {
     
 public:
-    static ShopPopup *create();
+    static ShopPopup *create(int pageType, int bonusType, ShopPopupCallback *callback);
     
     void onPaymentComplete(cocos2d::Ref *pSender);
     void onResumeGame(cocos2d::Ref *pSender);
     
     void initButtons(cocos2d::Layer *pTarget);
 protected:
-    bool init();
+    bool init(int pageType, int bonusType, ShopPopupCallback *callback);
     ShopPopup();
     ~ShopPopup();
     
@@ -23,6 +23,9 @@ protected:
     cocos2d::Sprite* createContentBg();
     
 private:
+    int _pageType;
+    int _bonusType;
+    ShopPopupCallback *_callback;
 };
 
 #endif /* defined(__SantaGnomes__ShopPopup__) */

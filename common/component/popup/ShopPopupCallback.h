@@ -7,6 +7,7 @@ class ShopPopupCallback {
 public:
     virtual void shopCallbackPaymentComplete() = 0;
     virtual void shopCallbackResume() = 0;
+    virtual void shopCallbackCancel() = 0;
 };
 
 

@@ -30,7 +30,7 @@ void PopupControl::showPopup(PopupRenderer *pRenderer, cocos2d::Layer *pTarget) 
     _renderer = pRenderer;
     _target = pTarget;
     
-    _target->addChild(_renderer);
+    _target->addChild(_renderer, 1000);
     
     Sprite *contentBg = _renderer->getContentBg();
     if (contentBg && contentBg != nullptr) {

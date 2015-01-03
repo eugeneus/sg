@@ -7,6 +7,7 @@
 #include "SimpleAudioEngine.h"
 #include "BonusSlidePanelItems.h"
 #include "BonusPanelConfig.h"
+#include "ShopPopup.h"
 
 USING_NS_CC;
 
@@ -51,7 +52,7 @@ bool GameScene::init()
     _btnsHolder = Menu::create();
     this->addChild(_btnsHolder, 100);
     
-    _bonusPanel = SlidePanel::create(BonusSlidePanelItems::create(), BonusPanelConfig::create());
+    _bonusPanel = SlidePanel::create(BonusSlidePanelItems::create(this), BonusPanelConfig::create());
     this->addChild(_bonusPanel, 100);
    return true;
 }
@@ -103,7 +104,8 @@ void GameScene::pauseCallbackMainMenu() {
     Director::getInstance()->replaceScene(MainMenuScene::createScene());
 }
 
-#pragma mark - Pause popup callback
+#pragma mark - End Pause popup callback
+#pragma mark - Shop popup callback
 
 void GameScene::shopCallbackPaymentComplete() {
 
@@ -112,6 +114,19 @@ void GameScene::shopCallbackPaymentComplete() {
 void GameScene::shopCallbackResume() {
 
 }
+
+void GameScene::shopCallbackCancel() {
+    _popupController->hidePopup();
+}
+
+#pragma mark - End Shop popup callback
+#pragma mark - Bonus slide panel callback
+
+void GameScene::onShowShopPopup(int pageType, int bonusType) {
+    _popupController->showPopup(ShopPopup::create(pageType, bonusType, this), this);
+}
+
+#pragma mark - End Bonus slide panel callback
 
 void GameScene::update(float delta)
 {
