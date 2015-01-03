@@ -46,7 +46,7 @@
 
 
 
-#define FONT_MAIN "main1.ttf"
+#define FONT_MAIN "main.ttf"
 #define FONT_TEXT "main2.ttf"
 
 #endif
