@@ -365,6 +365,8 @@
 		AABE748C1A5759330088C4D0 /* ShopBonusSelectorCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopBonusSelectorCallback.h; sourceTree = "<group>"; };
 		AABE748E1A57733B0088C4D0 /* ShopTabPanelPage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopTabPanelPage.cpp; sourceTree = "<group>"; };
 		AABE748F1A57733B0088C4D0 /* ShopTabPanelPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTabPanelPage.h; sourceTree = "<group>"; };
+		AABE74931A5791290088C4D0 /* SoundsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundsConstants.h; sourceTree = "<group>"; };
+		AABE74941A5791730088C4D0 /* UIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIConstants.h; sourceTree = "<group>"; };
 		AACD897B1A503D8600F69445 /* TabPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TabPanel.cpp; sourceTree = "<group>"; };
 		AACD897C1A503D8600F69445 /* TabPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabPanel.h; sourceTree = "<group>"; };
 		AACD897E1A5073A000F69445 /* TabPanelConfig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TabPanelConfig.cpp; sourceTree = "<group>"; };
@@ -544,7 +546,7 @@
 			isa = PBXGroup;
 			children = (
 				AA1B59321A5714D600E0B62E /* Santa's Air Mail.ttf */,
-E036B2D31A545ED600B497E4 /* Level_1.plist */,
+				E036B2D31A545ED600B497E4 /* Level_1.plist */,
 				AA57080E1A4F6E5800B35DF9 /* SH */,
 				AA95AF511A2E67F1009EFEDC /* level_960x640.plist */,
 				AA95AF521A2E67F1009EFEDC /* level_960x640.png */,
@@ -838,6 +840,8 @@ E036B2D31A545ED600B497E4 /* Level_1.plist */,
 		E0CC7F8A1A107EE300A591A7 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				AABE74931A5791290088C4D0 /* SoundsConstants.h */,
+				AABE74941A5791730088C4D0 /* UIConstants.h */,
 				AA090DFB1A49C2D2000D8559 /* control */,
 				AA090DF71A49C260000D8559 /* component */,
 				E0FD39881A41F95E00C98623 /* GameObjects */,
@@ -1005,7 +1009,6 @@ E036B2D31A545ED600B497E4 /* Level_1.plist */,
 				AA5708511A4F6E5800B35DF9 /* btn_show_bonus_01.png in Resources */,
 				AABE74791A5735AF0088C4D0 /* shop_btn_cancel.png in Resources */,
 				AABE74771A5735AF0088C4D0 /* shop_bg.png in Resources */,
-				AA02F03C1A4B1A4700A2DD41 /* bonus_item_3.png in Resources */,
 				AA5708451A4F6E5800B35DF9 /* bonus_item_3.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				AAE0B0221A29459000019985 /* Images.xcassets in Resources */,
@@ -1039,7 +1042,6 @@ E036B2D31A545ED600B497E4 /* Level_1.plist */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
 				AA5708611A4F6E5800B35DF9 /* candy4.png in Resources */,
 				AABE747D1A5735AF0088C4D0 /* shop_btn.png in Resources */,
-				AA02F03E1A4B1A4700A2DD41 /* bonus_item_bg.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				AA1B59331A5714D600E0B62E /* Santa's Air Mail.ttf in Resources */,
@@ -1123,7 +1125,7 @@ E036B2D31A545ED600B497E4 /* Level_1.plist */,
 				E08B79D11A4EED3E00FED156 /* WalkingGnome.cpp in Sources */,
 				AA02F0431A4B1A7600A2DD41 /* SlidePanel.cpp in Sources */,
 				AABE74871A5738A90088C4D0 /* MenuItemSpriteTTF.cpp in Sources */,
-E018416C1A5090EC00791F30 /* Product.cpp in Sources */,
+				E018416C1A5090EC00791F30 /* Product.cpp in Sources */,
 				E02DA5E51A279A5600696BDA /* GameController.cpp in Sources */,
 				AA090DF31A49AA83000D8559 /* FlachLightsModeFactory.cpp in Sources */,
 				E01284351A42A56100190502 /* Heap.cpp in Sources */,

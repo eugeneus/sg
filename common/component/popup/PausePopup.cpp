@@ -1,5 +1,6 @@
 #include "PausePopup.h"
 #include "GameScene.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -35,18 +36,18 @@ bool PausePopup::init(PausePopupCallback *callback) {
 }
 
 void PausePopup::initButtons(cocos2d::Layer *pTarget) {
-    this->addButton("btn_resume.png", "btn_resume_sel.png", CC_CALLBACK_1(PausePopup::onResumeClicked, this), Vec2(-175, 110));
-    this->addButton("btn_replay.png", "btn_replay_sel.png", CC_CALLBACK_1(PausePopup::onReplayClicked, this), Vec2(-340, -40));
-    this->addButton("btn_sound.png", "btn_sound_sel.png", CC_CALLBACK_1(PausePopup::onSoundClicked, this), Vec2(-10, -40));
-    this->addButton("btn_main_menu.png", "btn_main_menu_sel.png", CC_CALLBACK_1(PausePopup::onMainMenuClicked, this), Vec2(-175, -190));
+    this->addButton(PAUSE_RESUME_BTN, PAUSE_RESUME_BTN_SEL, CC_CALLBACK_1(PausePopup::onResumeClicked, this), Vec2(-175, 110));
+    this->addButton(PAUSE_REPLAY_BTN, PAUSE_REPLAY_BTN_SEL, CC_CALLBACK_1(PausePopup::onReplayClicked, this), Vec2(-340, -40));
+    this->addButton(PAUSE_SOUND_BTN, PAUSE_SOUND_BTN_SEL, CC_CALLBACK_1(PausePopup::onSoundClicked, this), Vec2(-10, -40));
+    this->addButton(PAUSE_MENU_BTN, PAUSE_MENU_BTN_SEL, CC_CALLBACK_1(PausePopup::onMainMenuClicked, this), Vec2(-175, -190));
 }
 
 cocos2d::Sprite* PausePopup::createPopupBg() {
-    return Sprite::createWithSpriteFrameName("popup_bg.png");
+    return POPUP_BG;
 }
 
 cocos2d::Sprite* PausePopup::createContentBg() {
-    return Sprite::createWithSpriteFrameName("pause_bg.png");
+    return Sprite::createWithSpriteFrameName(POPUP_PAUSE_BG);
 }
 
 void PausePopup::onResumeClicked(cocos2d::Ref *pSender) {

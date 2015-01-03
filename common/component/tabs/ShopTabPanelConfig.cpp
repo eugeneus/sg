@@ -3,6 +3,7 @@
 #include "ShopBonusLayer.h"
 #include "ShopCookiesLayer.h"
 #include "ShopMoneyLayer.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -46,13 +47,13 @@ void ShopTabPanelConfig::changeBtnState(cocos2d::MenuItem *tabBtn, bool isVisibl
 }
 
 void ShopTabPanelConfig::initTabItems() {
-    MenuItem *tabBtn1 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("shop_tab_btn_1.png"), Sprite::createWithSpriteFrameName("shop_tab_btn_1_sel.png"));
+    MenuItem *tabBtn1 = MenuItemSprite::create(Sprite::createWithSpriteFrameName(SHOP_TAB_BTN1), Sprite::createWithSpriteFrameName(SHOP_TAB_BTN1_SEL));
     this->createTabItem(tabBtn1, ShopMoneyLayer::create());
     
-    MenuItem *tabBtn2 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("shop_tab_btn_2.png"), Sprite::createWithSpriteFrameName("shop_tab_btn_2_sel.png"));
+    MenuItem *tabBtn2 = MenuItemSprite::create(Sprite::createWithSpriteFrameName(SHOP_TAB_BTN2), Sprite::createWithSpriteFrameName(SHOP_TAB_BTN2_SEL));
     this->createTabItem(tabBtn2, ShopCookiesLayer::create());
     
-    MenuItem *tabBtn3 = MenuItemSprite::create(Sprite::createWithSpriteFrameName("shop_tab_btn_3.png"), Sprite::createWithSpriteFrameName("shop_tab_btn_3_sel.png"));
+    MenuItem *tabBtn3 = MenuItemSprite::create(Sprite::createWithSpriteFrameName(SHOP_TAB_BTN3), Sprite::createWithSpriteFrameName(SHOP_TAB_BTN3_SEL));
     this->createTabItem(tabBtn3, ShopBonusLayer::create(_pageInfo->getPageItem(), _callback));
 }
 

@@ -2,6 +2,7 @@
 #include "LoadingScene.h"
 #include "ResourcesManager.h"
 #include "MainMenuScene.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -43,13 +44,13 @@ bool LoadingScene::init()
 {
     Size winSize = Director::getInstance()->getWinSize();
     
-    Sprite *bg = Sprite::create("loading_bg.png");
+    Sprite *bg = Sprite::create(LOADING_BG);
     bg->setAnchorPoint(Vec2(0,0));
     bg->setPosition(Vec2(0,0));
     this->addChild(bg, -1001);
     numberOfLoadedRes = 0;
     
-    spin = Sprite::create("CloseNormal.png");
+    spin = Sprite::create(LOADING_SPINNER);
     spin->setPosition(Vec2(winSize.width/2, winSize.height/2));
     this->addChild(spin, 1001);
     spin->runAction(RepeatForever::create(RotateBy::create(1.0f, 20)));

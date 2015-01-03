@@ -2,6 +2,7 @@
 #include "ShopBonusLayer.h"
 #include "MenuItemSpriteTTF.h"
 #include "ShopBonusSelector.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -35,17 +36,17 @@ bool ShopBonusLayer::init(int selected, ShopPopupCallback *callback)
     Size winSize = Director::getInstance()->getWinSize();
     
     //TODO: create separated components
-    Sprite *bg = Sprite::createWithSpriteFrameName("bonus_bg.png");
+    Sprite *bg = Sprite::createWithSpriteFrameName(SHOP_BONUS_BG);
     bg->setPosition(Vec2(winSize.width/2 - 50, winSize.height/2 - 30));
     this->addChild(bg);
     
    // MenuItemSprite *cancel =
     
-    MenuItemSprite *cancel = MenuItemSpriteTTF::create("CANCEL", "Santa's Air Mail.ttf", 24, Sprite::createWithSpriteFrameName("shop_btn.png"), Sprite::createWithSpriteFrameName("shop_btn_sel.png"), CC_CALLBACK_1(ShopBonusLayer::onCancelClicked, this));
+    MenuItemSprite *cancel = MenuItemSpriteTTF::create("CANCEL", "Santa's Air Mail.ttf", 24, Sprite::createWithSpriteFrameName(SHOP_BTN), Sprite::createWithSpriteFrameName(SHOP_BTN_SEL), CC_CALLBACK_1(ShopBonusLayer::onCancelClicked, this));
     cancel->setAnchorPoint(Vec2(0, 0));
     cancel->setPosition(Vec2(winSize.width/2 + 100, 40));
     
-    MenuItemSprite *buy = MenuItemSpriteTTF::create("BUY", "Santa's Air Mail.ttf", 24, Sprite::createWithSpriteFrameName("shop_btn.png"), Sprite::createWithSpriteFrameName("shop_btn_sel.png"), CC_CALLBACK_1(ShopBonusLayer::onBuyClicked, this));
+    MenuItemSprite *buy = MenuItemSpriteTTF::create("BUY", "Santa's Air Mail.ttf", 24, Sprite::createWithSpriteFrameName(SHOP_BTN), Sprite::createWithSpriteFrameName(SHOP_BTN_SEL), CC_CALLBACK_1(ShopBonusLayer::onBuyClicked, this));
     buy->setAnchorPoint(Vec2(1, 0));
     buy->setPosition(Vec2(winSize.width/2 - 100, 40));
     
@@ -99,7 +100,7 @@ void ShopBonusLayer::onBuyClicked(Ref *pSender) {
 }
 
 void ShopBonusLayer::onBonusSelected(int bonusType) {
-    SpriteFrame *spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(CCString::createWithFormat("bonus_item_%i.png", bonusType)->getCString());
+    SpriteFrame *spriteFrame = SpriteFrameCache::getInstance()->getSpriteFrameByName(CCString::createWithFormat(BONUS_ITEM_MASK, bonusType)->getCString());
     _bonusThumb->setSpriteFrame(spriteFrame);
     
     _bonusName->setString(CCString::createWithFormat("BONUS %i", bonusType)->getCString());

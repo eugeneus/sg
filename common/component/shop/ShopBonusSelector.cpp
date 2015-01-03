@@ -1,6 +1,7 @@
 
 #include "ShopBonusSelector.h"
 #include "extensions/cocos-ext.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -40,7 +41,7 @@ bool ShopBonusSelector::init(ShopBonusSelectorCallback *callback, int bonusType)
     
     //TODO: bonus load
     for (int i=1; i <= 4; i++) {
-        const char *frameName = CCString::createWithFormat("bonus_item_%i.png", i)->getCString();
+        const char *frameName = CCString::createWithFormat(BONUS_ITEM_MASK, i)->getCString();
         MenuItem *item = MenuItemSprite::create(Sprite::createWithSpriteFrameName(frameName), Sprite::createWithSpriteFrameName(frameName));
         item->setTag(i);
         item->setCallback(CC_CALLBACK_1(ShopBonusSelector::onItemSelected,this));

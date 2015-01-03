@@ -3,6 +3,7 @@
 #include "TabPanel.h"
 #include "ShopTabPanelConfig.h"
 #include "ShopTabPanelPage.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -81,11 +82,11 @@ void ShopPopup::initButtons(cocos2d::Layer *pTarget) {
 }
 
 cocos2d::Sprite* ShopPopup::createPopupBg() {
-    return Sprite::createWithSpriteFrameName("popup_bg.png");
+    return POPUP_BG;//Sprite::createWithSpriteFrameName(POPUP_BG);
 }
 
 cocos2d::Sprite* ShopPopup::createContentBg() {
-    return Sprite::createWithSpriteFrameName("shop_bg.png");
+    return Sprite::createWithSpriteFrameName(POPUP_SHOP_BG);
 }
 
 void ShopPopup::onPaymentComplete(cocos2d::Ref *pSender) {

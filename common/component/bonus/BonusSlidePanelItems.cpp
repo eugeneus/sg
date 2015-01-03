@@ -1,5 +1,6 @@
 
 #include "BonusSlidePanelItems.h"
+#include "UIConstants.h"
 USING_NS_CC;
 
 BonusSlidePanelItems::BonusSlidePanelItems() {}
@@ -40,7 +41,7 @@ int createItemFrameNameIndex(int i) {
 
 std::string createItemFrameName(int i) {
     int val = createItemFrameNameIndex(i);
-    return CCString::createWithFormat("bonus_item_%i.png", val)->getCString();
+    return CCString::createWithFormat(BONUS_ITEM_MASK, val)->getCString();
 }
 
 void BonusSlidePanelItems::initItems() {
@@ -48,8 +49,8 @@ void BonusSlidePanelItems::initItems() {
         std::string frameName = createItemFrameName(i);
         Sprite *itemImg = Sprite::createWithSpriteFrameName(frameName);
         
-        Sprite *normal = Sprite::createWithSpriteFrameName("bonus_item_bg.png");
-        Sprite *selected = Sprite::createWithSpriteFrameName("bonus_item_bg.png");
+        Sprite *normal = Sprite::createWithSpriteFrameName(BONUS_ITEM_BG);
+        Sprite *selected = Sprite::createWithSpriteFrameName(BONUS_ITEM_BG);
         MenuItem *item = MenuItemSprite::create(normal, selected, CC_CALLBACK_1(BonusSlidePanelItems::onItemClicked, this));
         item->setTag(i + 1);
         item->setContentSize(Size(item->getContentSize().width, item->getContentSize().height + itemImg->getContentSize().height));

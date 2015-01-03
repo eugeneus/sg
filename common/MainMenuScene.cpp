@@ -3,6 +3,7 @@
 #include "MainMenu.h"
 #include "SimpleAudioEngine.h"
 #include "ResourcesManager.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -66,7 +67,7 @@ bool MainMenuScene::init()
     pMenu->setPosition(Point::ZERO);
     this->addChild(pMenu, 1);
     
-    Sprite *bg = Sprite::createWithSpriteFrameName("menu_bg.png");
+    Sprite *bg = Sprite::createWithSpriteFrameName(MENU_BG);
     bg->setPosition(Vec2(0,0));
     bg->setAnchorPoint(Vec2(0,0));
     this->addChild(bg, -1001);

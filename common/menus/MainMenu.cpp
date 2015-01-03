@@ -57,7 +57,7 @@ bool MainMenu::init()
     this->addChild(pItem);
 
 
-    pItem = MenuItemFont::create("Select", CC_CALLBACK_1(MainMenu::menuCallback,this));
+    pItem = MenuItemFont::create("Casino", CC_CALLBACK_1(MainMenu::menuCallback,this));
     pItem->setTag(2);
     pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
     this->addChild(pItem);
