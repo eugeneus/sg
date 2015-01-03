@@ -69,7 +69,6 @@
 		AA090E041A49C384000D8559 /* PopupRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA090E021A49C384000D8559 /* PopupRenderer.cpp */; };
 		AA1B592E1A57122400E0B62E /* ShopBonusLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1B592C1A57122400E0B62E /* ShopBonusLayer.cpp */; };
 		AA1B59311A5713C000E0B62E /* ShopCookiesLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1B592F1A5713C000E0B62E /* ShopCookiesLayer.cpp */; };
-		AA1B59331A5714D600E0B62E /* Santa's Air Mail.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA1B59321A5714D600E0B62E /* Santa's Air Mail.ttf */; };
 		AA1B59361A5716B400E0B62E /* ShopMoneyLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1B59341A5716B400E0B62E /* ShopMoneyLayer.cpp */; };
 		AA5708401A4F6E5800B35DF9 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA57080F1A4F6E5800B35DF9 /* bg.jpg */; };
 		AA5708421A4F6E5800B35DF9 /* bg_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = AA5708111A4F6E5800B35DF9 /* bg_floor.png */; };
@@ -124,6 +123,10 @@
 		AA95AF541A2E67F1009EFEDC /* level_960x640.png in Resources */ = {isa = PBXBuildFile; fileRef = AA95AF521A2E67F1009EFEDC /* level_960x640.png */; };
 		AA95AF581A2E685C009EFEDC /* ResourcesManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA95AF561A2E685C009EFEDC /* ResourcesManager.cpp */; };
 		AA95AF5B1A2E6F72009EFEDC /* LoadingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA95AF591A2E6F72009EFEDC /* LoadingScene.cpp */; };
+		AABCAEB71A58128000FF388B /* ScoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AABCAEB51A58128000FF388B /* ScoreLayer.cpp */; };
+		AABCAEBD1A58182100FF388B /* main2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AABCAEB91A58182100FF388B /* main2.ttf */; };
+		AABCAEBE1A58182100FF388B /* main3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AABCAEBA1A58182100FF388B /* main3.ttf */; };
+		AABCAEBF1A58182100FF388B /* main4.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AABCAEBB1A58182100FF388B /* main4.ttf */; };
 		AABE74761A5735AF0088C4D0 /* bonus_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AABE74681A5735AF0088C4D0 /* bonus_bg.png */; };
 		AABE74771A5735AF0088C4D0 /* shop_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = AABE74691A5735AF0088C4D0 /* shop_bg.png */; };
 		AABE74781A5735AF0088C4D0 /* shop_btn_cancel_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = AABE746A1A5735AF0088C4D0 /* shop_btn_cancel_sel.png */; };
@@ -284,7 +287,6 @@
 		AA1B592D1A57122400E0B62E /* ShopBonusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopBonusLayer.h; sourceTree = "<group>"; };
 		AA1B592F1A5713C000E0B62E /* ShopCookiesLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopCookiesLayer.cpp; sourceTree = "<group>"; };
 		AA1B59301A5713C000E0B62E /* ShopCookiesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopCookiesLayer.h; sourceTree = "<group>"; };
-		AA1B59321A5714D600E0B62E /* Santa's Air Mail.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Santa's Air Mail.ttf"; sourceTree = "<group>"; };
 		AA1B59341A5716B400E0B62E /* ShopMoneyLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShopMoneyLayer.cpp; sourceTree = "<group>"; };
 		AA1B59351A5716B400E0B62E /* ShopMoneyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopMoneyLayer.h; sourceTree = "<group>"; };
 		AA57080F1A4F6E5800B35DF9 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
@@ -346,6 +348,11 @@
 		AA95AF571A2E685C009EFEDC /* ResourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourcesManager.h; sourceTree = "<group>"; };
 		AA95AF591A2E6F72009EFEDC /* LoadingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScene.cpp; sourceTree = "<group>"; };
 		AA95AF5A1A2E6F72009EFEDC /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
+		AABCAEB51A58128000FF388B /* ScoreLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreLayer.cpp; sourceTree = "<group>"; };
+		AABCAEB61A58128000FF388B /* ScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLayer.h; sourceTree = "<group>"; };
+		AABCAEB91A58182100FF388B /* main2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = main2.ttf; sourceTree = "<group>"; };
+		AABCAEBA1A58182100FF388B /* main3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = main3.ttf; sourceTree = "<group>"; };
+		AABCAEBB1A58182100FF388B /* main4.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = main4.ttf; sourceTree = "<group>"; };
 		AABE74681A5735AF0088C4D0 /* bonus_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bonus_bg.png; sourceTree = "<group>"; };
 		AABE74691A5735AF0088C4D0 /* shop_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_bg.png; sourceTree = "<group>"; };
 		AABE746A1A5735AF0088C4D0 /* shop_btn_cancel_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_btn_cancel_sel.png; sourceTree = "<group>"; };
@@ -545,7 +552,9 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AA1B59321A5714D600E0B62E /* Santa's Air Mail.ttf */,
+				AABCAEB91A58182100FF388B /* main2.ttf */,
+				AABCAEBA1A58182100FF388B /* main3.ttf */,
+				AABCAEBB1A58182100FF388B /* main4.ttf */,
 				E036B2D31A545ED600B497E4 /* Level_1.plist */,
 				AA57080E1A4F6E5800B35DF9 /* SH */,
 				AA95AF511A2E67F1009EFEDC /* level_960x640.plist */,
@@ -642,6 +651,7 @@
 		AA090DF71A49C260000D8559 /* component */ = {
 			isa = PBXGroup;
 			children = (
+				AABCAEB41A58128000FF388B /* score */,
 				AA1B592B1A57120400E0B62E /* shop */,
 				AACD89841A5093A400F69445 /* tabs */,
 				AA6E0BD71A4F36F500952849 /* bonus */,
@@ -769,6 +779,15 @@
 				AA95AF571A2E685C009EFEDC /* ResourcesManager.h */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		AABCAEB41A58128000FF388B /* score */ = {
+			isa = PBXGroup;
+			children = (
+				AABCAEB51A58128000FF388B /* ScoreLayer.cpp */,
+				AABCAEB61A58128000FF388B /* ScoreLayer.h */,
+			);
+			path = score;
 			sourceTree = "<group>";
 		};
 		AABE74841A5738820088C4D0 /* button */ = {
@@ -1012,6 +1031,7 @@
 				AA5708451A4F6E5800B35DF9 /* bonus_item_3.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				AAE0B0221A29459000019985 /* Images.xcassets in Resources */,
+				AABCAEBF1A58182100FF388B /* main4.ttf in Resources */,
 				AA5708431A4F6E5800B35DF9 /* bonus_item_1.png in Resources */,
 				AABE747E1A5735AF0088C4D0 /* shop_tab_btn_1_sel.png in Resources */,
 				AA57084A1A4F6E5800B35DF9 /* btn_main_menu_sel.png in Resources */,
@@ -1022,6 +1042,7 @@
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				E03FBA921A4BF47F00715601 /* Products.plist in Resources */,
 				AA5708441A4F6E5800B35DF9 /* bonus_item_2.png in Resources */,
+				AABCAEBE1A58182100FF388B /* main3.ttf in Resources */,
 				E0A4E9121A4A0E36005FCEFD /* Level.plist in Resources */,
 				AA5708631A4F6E5800B35DF9 /* candy6.png in Resources */,
 				AA5708601A4F6E5800B35DF9 /* candy3.png in Resources */,
@@ -1044,7 +1065,6 @@
 				AABE747D1A5735AF0088C4D0 /* shop_btn.png in Resources */,
 				521A8EA919F11F5000D177D7 /* fonts in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
-				AA1B59331A5714D600E0B62E /* Santa's Air Mail.ttf in Resources */,
 				AA57085C1A4F6E5800B35DF9 /* candy12.png in Resources */,
 				AA5708661A4F6E5800B35DF9 /* candy9.png in Resources */,
 				AA95AF531A2E67F1009EFEDC /* level_960x640.plist in Resources */,
@@ -1056,6 +1076,7 @@
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				E036B2D41A545ED600B497E4 /* Level_1.plist in Resources */,
 				E03FBA9C1A4CA7DA00715601 /* Actors1.plist in Resources */,
+				AABCAEBD1A58182100FF388B /* main2.ttf in Resources */,
 				AA5708401A4F6E5800B35DF9 /* bg.jpg in Resources */,
 				AA57085B1A4F6E5800B35DF9 /* candy11.png in Resources */,
 				AA57085F1A4F6E5800B35DF9 /* candy2.png in Resources */,
@@ -1158,6 +1179,7 @@
 				AA02F0461A4B1C5E00A2DD41 /* SlidePanelItemsController.cpp in Sources */,
 				AACD89801A5073A000F69445 /* TabPanelConfig.cpp in Sources */,
 				AA090E001A49C2D2000D8559 /* PopupControl.cpp in Sources */,
+				AABCAEB71A58128000FF388B /* ScoreLayer.cpp in Sources */,
 				AA090DF01A499B11000D8559 /* FlashLights.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,10 +47,13 @@ void ShopPopup::initButtons(cocos2d::Layer *pTarget) {
     
     TTFConfig ttfConfig32;
     ttfConfig32.fontSize = 24;
-    ttfConfig32.fontFilePath = "Santa's Air Mail.ttf";
+    ttfConfig32.fontFilePath = FONT_MAIN;
+    ttfConfig32.outlineSize = 2;
     
     const cocos2d::Color3B& colorWhite = Color3B(255, 255, 255);
     const cocos2d::Color3B& colorYellow = Color3B(255, 240, 104);
+    
+    const cocos2d::Color4B& colorShadow = Color4B(123,90,69,255);
     
     Size winSize = Director::getInstance()->getWinSize();
     
@@ -60,24 +63,28 @@ void ShopPopup::initButtons(cocos2d::Layer *pTarget) {
     moneyLabel->setColor(colorYellow);
     moneyLabel->setAnchorPoint(Vec2(0, 1));
     moneyLabel->setPosition(Vec2(winSize.width/2 - 400, height));
+    moneyLabel->enableOutline(colorShadow);
     _contentBg->addChild(moneyLabel, 1001);
     
     Label *moneyText = Label::createWithTTF(ttfConfig32, "10300");
     moneyText->setColor(colorWhite);
     moneyText->setAnchorPoint(Vec2(0, 1));
     moneyText->setPosition(Vec2(moneyLabel->getPosition().x + moneyLabel->getContentSize().width + 10, height));
+    moneyText->enableOutline(colorShadow);
     _contentBg->addChild(moneyText, 1001);
     
     Label *cookiesText = Label::createWithTTF(ttfConfig32, "12");
     cookiesText->setColor(colorWhite);
     cookiesText->setAnchorPoint(Vec2(1, 1));
     cookiesText->setPosition(Vec2(winSize.width/2 + 400, height));
+    cookiesText->enableOutline(colorShadow);
     _contentBg->addChild(cookiesText, 1001);
     
     Label *cookiesLabel = Label::createWithTTF(ttfConfig32, "COOKIES:");
     cookiesLabel->setColor(colorYellow);
     cookiesLabel->setAnchorPoint(Vec2(1, 1));
     cookiesLabel->setPosition(Vec2(cookiesText->getPosition().x - cookiesText->getContentSize().width - 10, height));
+    cookiesLabel->enableOutline(colorShadow);
     _contentBg->addChild(cookiesLabel, 1001);
 }
 

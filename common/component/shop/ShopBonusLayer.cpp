@@ -29,7 +29,7 @@ bool ShopBonusLayer::init(int selected, ShopPopupCallback *callback)
     
     _callback = callback;
 
-    auto *label1 = Label::createWithTTF("BONUS", "Santa's Air Mail.ttf", 24);
+    auto *label1 = Label::createWithTTF("BONUS", FONT_MAIN, 24);
     label1->setAnchorPoint(Point(0.0f, 0.0f));
     this->addChild(label1);
     
@@ -40,13 +40,13 @@ bool ShopBonusLayer::init(int selected, ShopPopupCallback *callback)
     bg->setPosition(Vec2(winSize.width/2 - 50, winSize.height/2 - 30));
     this->addChild(bg);
     
-   // MenuItemSprite *cancel =
+    const cocos2d::Color4B& colorOutline = Color4B(123,90,69,255);
     
-    MenuItemSprite *cancel = MenuItemSpriteTTF::create("CANCEL", "Santa's Air Mail.ttf", 24, Sprite::createWithSpriteFrameName(SHOP_BTN), Sprite::createWithSpriteFrameName(SHOP_BTN_SEL), CC_CALLBACK_1(ShopBonusLayer::onCancelClicked, this));
+    MenuItemSprite *cancel = MenuItemSpriteTTF::create("CANCEL", FONT_MAIN, 24, Sprite::createWithSpriteFrameName(SHOP_BTN), Sprite::createWithSpriteFrameName(SHOP_BTN_SEL), CC_CALLBACK_1(ShopBonusLayer::onCancelClicked, this), colorOutline, 2);
     cancel->setAnchorPoint(Vec2(0, 0));
     cancel->setPosition(Vec2(winSize.width/2 + 100, 40));
     
-    MenuItemSprite *buy = MenuItemSpriteTTF::create("BUY", "Santa's Air Mail.ttf", 24, Sprite::createWithSpriteFrameName(SHOP_BTN), Sprite::createWithSpriteFrameName(SHOP_BTN_SEL), CC_CALLBACK_1(ShopBonusLayer::onBuyClicked, this));
+    MenuItemSprite *buy = MenuItemSpriteTTF::create("BUY", FONT_MAIN, 24, Sprite::createWithSpriteFrameName(SHOP_BTN), Sprite::createWithSpriteFrameName(SHOP_BTN_SEL), CC_CALLBACK_1(ShopBonusLayer::onBuyClicked, this), colorOutline, 2);
     buy->setAnchorPoint(Vec2(1, 0));
     buy->setPosition(Vec2(winSize.width/2 - 100, 40));
     
@@ -61,25 +61,31 @@ bool ShopBonusLayer::init(int selected, ShopPopupCallback *callback)
     
     TTFConfig ttfConfigName;
     ttfConfigName.fontSize = 24;
-    ttfConfigName.fontFilePath = "Santa's Air Mail.ttf";
+    ttfConfigName.fontFilePath = FONT_MAIN;
+    ttfConfigName.outlineSize = 2;
     
     TTFConfig ttfConfigDescr;
     ttfConfigDescr.fontSize = 16;
-    ttfConfigDescr.fontFilePath = "Santa's Air Mail.ttf";
+    ttfConfigDescr.fontFilePath = FONT_MAIN;
+    ttfConfigDescr.outlineSize = 2;
     
     const Color3B &colorYellow = Color3B(255, 240, 104);
-    const Color3B &colorBlack = Color3B(0, 0, 0);
+    const Color3B &colorBlack = Color3B(255, 255, 255);
+    
+    const cocos2d::Color4B& colorShadow = Color4B(123,90,69,255);
     
     _bonusName = Label::createWithTTF(ttfConfigName, "");
     _bonusName->setColor(colorYellow);
     _bonusName->setPosition(Vec2(400, 400));
     _bonusName->setAnchorPoint(Vec2(0, 0));
+    _bonusName->enableOutline(colorShadow);
     this->addChild(_bonusName);
     
     _bonusDescr = Label::createWithTTF(ttfConfigDescr, "");
     _bonusDescr->setColor(colorBlack);
     _bonusDescr->setPosition(Vec2(400, 350));
     _bonusDescr->setAnchorPoint(Vec2(0, 0));
+    _bonusDescr->enableOutline(colorShadow);
     this->addChild(_bonusDescr);
     
     this->onBonusSelected(selected);

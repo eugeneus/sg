@@ -43,4 +43,10 @@
 #define BONUS_ITEM_MASK "bonus_item_%i.png"
 #define BONUS_ITEM_BG "bonus_item_bg.png"
 
+
+
+
+#define FONT_MAIN "main1.ttf"
+#define FONT_TEXT "main2.ttf"
+
 #endif
