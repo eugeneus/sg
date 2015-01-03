@@ -6,6 +6,7 @@
 
 class GameObjectBase;
 class WalkingGnome;
+class TossingGnome;
 
 class ActorFactory : public cocos2d::Ref {
 
@@ -18,7 +19,9 @@ public:
     
     bool init();
     
-    WalkingGnome* getActorByType(int aTypeID);
+    WalkingGnome* getWalkingGnomeByType(int aTypeID);
+    
+    TossingGnome* getTossingGnomeByType(int aTypeID);
     
     
 protected:

@@ -5,6 +5,7 @@
 #include "LevelDataProvider.h"
 
 class GameObjectBase;
+class TossingGnome;
 class WalkingGnome;
 class Heap;
 class ActorFactory;
@@ -36,6 +37,8 @@ public:
     
     WalkingGnome* getNextIdleCarrier();
     
+    TossingGnome* getNextTossingGnome();
+    
     bool checkUpdateArrived();
     
     float getWalkDuration();
@@ -43,6 +46,10 @@ public:
     cocos2d::Point getWalkLineEnd();
     
     float getCarrierIntervalInSec();
+    
+    float getTossIntervalInSec();
+    
+    int getTossesPerCarrier();
     
 protected:
     
@@ -54,6 +61,7 @@ protected:
     
     //converts relative coordinates/sizes according to
     //current screen
+    cocos2d::Point arrangePointInScene(cocos2d::Point aRelativePoint, cocos2d::Size aLayerSize);
     void arrangeSceneCoordinates(cocos2d::Size aLayerSize);
     
     // we are going to use centered positioning
@@ -93,6 +101,8 @@ protected:
     
 	Heap* _heap;
     //GameObjectBase* _gnome;
+    
+    std::vector<TossingGnome*> _tossers;
     
     // carrier support
     std::vector<WalkingGnome*> _carriers;

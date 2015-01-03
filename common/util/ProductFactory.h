@@ -5,6 +5,7 @@
 #include "PlistHelper.h"
 
 class GameObjectBase;
+class Product;
 
 class ProductFactory : public PlistHelper {
 
@@ -15,7 +16,7 @@ public:
     
     static ProductFactory* create();
     
-    GameObjectBase* getProductByType(int aTypeID);
+    Product* getProductByType(int aTypeID);
     
 protected:
     

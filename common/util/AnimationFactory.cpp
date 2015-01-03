@@ -47,5 +47,35 @@ cocos2d::FiniteTimeAction* AnimationFactory::getWalkingActionByType(int aTypeID,
 }
 
 
+cocos2d::FiniteTimeAction* AnimationFactory::getJumpActionByType(int aTypeID, float aDuration, cocos2d::Point aStartPoint,cocos2d::Point anEndPoint)
+{
+
+    FiniteTimeAction* combinedAction = nullptr;
+    
+    switch (aTypeID) {
+        case 1:
+            
+            cocos2d::FiniteTimeAction* mF = cocos2d::MoveTo::create(aDuration/2.0f, anEndPoint);
+            cocos2d::FiniteTimeAction* mD = cocos2d::MoveTo::create(aDuration/2.0f, aStartPoint);
+            combinedAction = cocos2d::Sequence::create(
+                                                       mF,
+                                                       cocos2d::DelayTime::create(0.5),
+                                                       mD,
+                                                       NULL);
+            break;
+            
+//        default:
+//            combinedAction = cocos2d::Sequence::create(
+//                                                       cocos2d::MoveTo::create(aDuration/2.0f, anEndPoint),
+//                                                       cocos2d::DelayTime::create(0.5),
+//                                                       cocos2d::MoveTo::create(aDuration/2.0f, aStartPoint),
+//                                                       NULL);
+//            break;
+    }
+    
+    
+    return combinedAction;
+}
+
 
 

@@ -8,6 +8,7 @@
 #include "ProductFactory.h"
 
 #include "GameObjectBase.h"
+#include "TossingGnome.h"
 #include "WalkingGnome.h"
 #include "Heap.h"
 #include "FlashLights.h"
@@ -82,17 +83,18 @@ bool GameModel::init(cocos2d::Layer* aLayer)
     return true;
 }
 
+// TODO: it may be obsolete, as far as using lazy loading
 void GameModel::loadActors()
 {
-    std::vector<int> carriers  = _levelData->getCarrierActorTypes();
-    
-    WalkingGnome* actor;
-    for(int nType : carriers){
-        actor = _actorFactory->getActorByType(nType);
-        _carriers.push_back(actor);
-        _gameLayer->addChild(actor);
-     
-    }
+//    std::vector<int> carriers  = _levelData->getCarrierActorTypes();
+//    
+//    WalkingGnome* actor;
+//    for(int nType : carriers){
+//        actor = _actorFactory->getActorByType(nType);
+//        _carriers.push_back(actor);
+//        _gameLayer->addChild(actor);
+//     
+//    }
     
     //_gnome = GameObjectBase::create("gnow.png", Point(-0.06, -0.35), 0.18);
     //aLayer->addChild(_gnome);
@@ -201,18 +203,21 @@ void GameModel::arrangeGameObjectForLayer(GameObjectBase* aGameObject, cocos2d::
 
 }
 
+cocos2d::Point GameModel::arrangePointInScene(cocos2d::Point aRelativePoint, cocos2d::Size aLayerSize)
+{
+    float x = _sceneCenter.x + aLayerSize.width * aRelativePoint.x;
+    float y = _sceneCenter.y + aLayerSize.height * aRelativePoint.y;
+    return Point(x,y);
+
+}
 void GameModel::arrangeSceneCoordinates(cocos2d::Size aLayerSize)
 {
     Point relative = _levelData->getWalkingLineStart();
-    float x = _sceneCenter.x + aLayerSize.width * relative.x;
-    float y = _sceneCenter.y + aLayerSize.height * relative.y;
-    _walkingLineStart = Point(x,y);
+    _walkingLineStart = arrangePointInScene(relative, aLayerSize);
     
     relative = _levelData->getWalkingLineEnd();
-    x = _sceneCenter.x + aLayerSize.width * relative.x;
-    y = _sceneCenter.y + aLayerSize.height * relative.y;
-    _walkingLineEnd = Point(x,y);
-
+    _walkingLineEnd = arrangePointInScene(relative, aLayerSize);
+    
 }
 
 
@@ -224,9 +229,49 @@ WalkingGnome* GameModel::initNewCarrier()
     // get next id from level data
     int carrierTypeID = _levelData->getNextCarrierType();
     // create and return new carrier by actorFactory
-    newCarrier = _actorFactory->getActorByType(carrierTypeID);
+    newCarrier = _actorFactory->getWalkingGnomeByType(carrierTypeID);
     _gameLayer->addChild(newCarrier);
     return newCarrier;
+}
+
+TossingGnome* GameModel::getNextTossingGnome()
+{
+    TossingGnome* nextGnome = nullptr;
+    
+    std::vector<Point> points = _levelData->getTossingActorPositionList();
+    std::vector<int> types = _levelData->getTossingActorTypes();
+    Point point;
+    int tosserTypeID;
+    if (points.size() > _tossers.size()) { //lazy loading
+        int nextID = _tossers.size();
+        
+        cocos2d::Size layerSize = cocos2d::Director::getInstance()->getVisibleSize();
+        point = arrangePointInScene(points[nextID], layerSize);
+        
+        tosserTypeID = types[nextID];
+        nextGnome = _actorFactory->getTossingGnomeByType(tosserTypeID);
+        nextGnome->setPosition(point);
+        nextGnome->setTossingPos(point);
+        _gameLayer->addChild(nextGnome);
+        _tossers.push_back(nextGnome);
+        
+        float maxScreenDimention = layerSize.width >= layerSize.height ? layerSize.width : layerSize.height;
+        
+        Size  actualSize = nextGnome->getContentSize();
+        float maxDimention = actualSize.width >= actualSize.height ? actualSize.width : actualSize.height;
+        float sizeFactor = nextGnome->getRelativeSizeFactor();
+        
+        float actualScale = (maxScreenDimention * sizeFactor) / maxDimention;
+        
+        nextGnome->setScale(actualScale);
+
+    }
+    else{
+        int randId = rand()%_tossers.size();
+        nextGnome = _tossers[randId];
+    }
+    
+    return nextGnome;
 }
 
 WalkingGnome* GameModel::getNextIdleCarrier()
@@ -324,6 +369,20 @@ cocos2d::Point GameModel::getWalkLineEnd()
 float GameModel::getCarrierIntervalInSec()
 {
     return getWalkDuration()/_levelData->getCarrierPerScreen();
+}
+
+float GameModel::getTossIntervalInSec()
+{
+    float walkInterval = getWalkDuration();
+    
+    float tossInterval = (walkInterval* 0.8) / (_levelData->getCarrierPerScreen() * _levelData->getTossingFreq());
+    //float tossInterval = (walkInterval) / (_levelData->getTossingFreq());
+    return tossInterval;
+}
+
+int GameModel::getTossesPerCarrier()
+{
+    return _levelData->getTossingFreq();
 }
 
 

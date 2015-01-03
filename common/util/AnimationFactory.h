@@ -22,6 +22,8 @@ public:
     bool init();
     
     cocos2d::FiniteTimeAction* getWalkingActionByType(int aTypeID, float aDuration, cocos2d::Point anEndPoint);
+    
+    cocos2d::FiniteTimeAction* getJumpActionByType(int aTypeID, float aDuration, cocos2d::Point aStartPoint,cocos2d::Point anEndPoint);
 
     
 protected:

@@ -41,6 +41,8 @@ public:
     
     float getProductHeapSize();
     
+    std::vector<cocos2d::Point> getTossingActorPositionList();
+    
     cocos2d::Point getWalkingLineStart();
     
     cocos2d::Point getWalkingLineEnd();
@@ -50,6 +52,11 @@ public:
     float getTossingFreq();
     
     float getCarrierPerScreen();
+    
+    std::vector<int> getGiftsList();
+    
+    std::vector<int> getRandomProductList();
+    
     
     
 protected:
