@@ -9,6 +9,7 @@
 #include "WalkingGnome.h"
 #include "TossingGnome.h"
 #include "AnimationFactory.h"
+#include "Product.h"
 
 
 USING_NS_CC;
@@ -48,7 +49,8 @@ void GameController::update(float dt)
     // ask model to check if there are gnomes
     // finished walking line and then do corresponding updates
     _theModel->checkUpdateArrived();
-    
+
+    // launch carrier section
     if (_launchCountDown <= 0.0f) {
         
         _launchCountDown = _theModel->getCarrierIntervalInSec();
@@ -71,33 +73,47 @@ void GameController::update(float dt)
         _launchCountDown -= dt;
     }
     
-    if (_tossCountCountDown > 0) {
-        if (_tossCountDown <=0.0f) {
-            _tossCountDown = _theModel->getTossIntervalInSec();
-            _tossCountCountDown--;
-            
-            // push tossing action:
-            // determine tossing point
-            TossingGnome* tossingGnome = _theModel->getNextTossingGnome();
-            Point pos1 = tossingGnome->getTossingPos();
-            Point pos2 = Point(pos1.x, pos1.y+60.0);
-            FiniteTimeAction* action = _animationFactory->getJumpActionByType(1, 1, pos1,pos2);
-
-            tossingGnome->runAction(action);
-            
-            // get next pop next product from
-            // tossing dequeue
-            // get corresponding animation
-            // run tossing animation
-            // run gnome-tosser animation
-            
-            
-        }
-        else{
-            _tossCountDown -= dt;
-            //log("_tossCountDown %f", _tossCountDown);
-        }
+    // toss products section
+    
+    //Product* nextProd = nullptr;
+    int nextProd = _theModel->getNextTossingProd(dt);
+    if (nextProd) {
+        TossingGnome* tossingGnome = _theModel->getNextTossingGnome();
+        Point pos1 = tossingGnome->getTossingPos();
+        Point pos2 = Point(pos1.x, pos1.y+60.0);
+        FiniteTimeAction* action = _animationFactory->getJumpActionByType(1, 1, pos1,pos2);
+        
+        tossingGnome->runAction(action);
     }
+    
+//    // old version
+//    if (_tossCountCountDown > 0) {
+//        if (_tossCountDown <=0.0f) {
+//            _tossCountDown = _theModel->getTossIntervalInSec();
+//            _tossCountCountDown--;
+//            
+//            // push tossing action:
+//            // determine tossing point
+//            TossingGnome* tossingGnome = _theModel->getNextTossingGnome();
+//            Point pos1 = tossingGnome->getTossingPos();
+//            Point pos2 = Point(pos1.x, pos1.y+60.0);
+//            FiniteTimeAction* action = _animationFactory->getJumpActionByType(1, 1, pos1,pos2);
+//
+//            tossingGnome->runAction(action);
+//            
+//            // get next pop next product from
+//            // tossing dequeue
+//            // get corresponding animation
+//            // run tossing animation
+//            // run gnome-tosser animation
+//            
+//            
+//        }
+//        else{
+//            _tossCountDown -= dt;
+//            //log("_tossCountDown %f", _tossCountDown);
+//        }
+//    }
 
 }
 

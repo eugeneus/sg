@@ -72,8 +72,12 @@ bool GameModel::init(cocos2d::Layer* aLayer)
     }
     _productFactory = ProductFactory::create();
 
-    _firstUsed = -1;
-    _lastUsed = -1;
+    _firstUsed = 0;
+    _lastUsed = 0;
+    
+    _lastGift = 0;
+    _lastProd = 0;
+
     
 	int levelToLoad = PlayerData::getInstance()->getCurrentLevel();
 	
@@ -280,45 +284,55 @@ WalkingGnome* GameModel::getNextIdleCarrier()
     WalkingGnome* nextCarrierGnome = nullptr;
 
     std::vector<WalkingGnome*>::iterator itCarrier = _carriers.begin();
+    std::vector<CarrierData*>::iterator itCarrierData = _carrierData.begin();
     
-    // initials
-    if (_lastUsed == -1) {
-        _firstUsed = 0;
-        _lastUsed = 0;
-        
-        if (_lastUsed >= _carriers.size()) {  // run out of available gnomes
-            _lastUsed = _carriers.size();
-            nextCarrierGnome = this->initNewCarrier();
-            _carriers.push_back(nextCarrierGnome);
-        }
-        else{
-            nextCarrierGnome = _carriers.at(_lastUsed);
-        }
-    }
-    else{ // regular loop
-    
-        _lastUsed++;
+    _lastUsed++;
         if (_lastUsed >= _carriers.size()) {
-            _lastUsed = 0; // circuled index
+            _lastUsed = 0; // cycled index
         }
         
         if (_lastUsed == _firstUsed) {
             // run out of capacity, need more carriers
-            nextCarrierGnome = this->initNewCarrier();
             if (_lastUsed == 0) {
                 _lastUsed = _carriers.size();
-                _carriers.push_back(nextCarrierGnome);
+                _carriers.push_back(this->initNewCarrier());
+                _carrierData.push_back(new CarrierData());
             }
             else{
-                _carriers.insert(itCarrier+_lastUsed, nextCarrierGnome);
+                _carriers.insert(itCarrier+_lastUsed, this->initNewCarrier());
+                _carrierData.insert(itCarrierData+_lastUsed, new CarrierData());
             }
         }
-        else{
-            nextCarrierGnome = _carriers.at(_lastUsed);
-        }
-    }
+    
+    nextCarrierGnome = _carriers.at(_lastUsed);
     
     nextCarrierGnome->setPosition(_walkingLineStart);
+    
+    //prepare carrierData
+    CarrierData* cdt = _carrierData.at(_lastUsed);
+    float walkDuration = this->getWalkDuration();
+    int prodCount = this->getTossesPerCarrier();
+    int giftIDX = arc4random()%prodCount;
+    // 1. add products to queue (suffle gift with random products)
+    cdt->_products.clear();
+    for(int iProd = 0; iProd < prodCount;iProd++){
+        if (iProd == giftIDX) {
+            cdt->_products.push_back(getNextGiftID()); // may be here we should have product object instead of its ID
+        }
+        else{
+            cdt->_products.push_back(getNextRandomProdID());
+        }
+    }
+    // 2. calcualte inital delay based on % of walkingDuration
+    cdt->_firstTossDelay = arc4random()%3 + 1; // this time for simplisity without walkingDuration
+    // 3. calculate last time point (shfted from walkingDuration end, based of toss speed:
+    //    lastTImeToss = walkingDuration - tossFlightDuration)
+    float lastTimeToss = 1; // just for now, no sientific calculations
+    // 4. actualTossingTime = walkingDuration - (initialDelay + (walkingDuration-lastTimeToss))
+    float actualTossingDuration = getWalkDuration() - (cdt->_firstTossDelay + lastTimeToss);
+    // 5. tossingInterval = actualTossingTime/prodQueue.size()
+    cdt->_tossInterval = actualTossingDuration / prodCount;
+    cdt->_countDown = cdt->_tossInterval;
     
     return nextCarrierGnome;
 }
@@ -330,7 +344,7 @@ bool GameModel::checkUpdateArrived()
 {
     bool ret = false;
     
-    if (_firstUsed == -1) {
+    if (_carriers.size() == 0) {
         return ret;
     }
     
@@ -385,6 +399,69 @@ int GameModel::getTossesPerCarrier()
 {
     return _levelData->getTossingFreq();
 }
+
+int GameModel::getNextGiftID()
+{
+    int gifts = _levelData->getGiftsList().size();
+    
+    if (_lastGift >= gifts) {
+        _lastGift = 0;
+    }
+
+    int nextGift = _levelData->getGiftsList().at(_lastGift);
+    
+    _lastGift++;
+    
+    return nextGift;
+}
+
+int GameModel::getNextRandomProdID()
+{
+    int prods = _levelData->getRandomProductList().size();
+    
+    if (_lastProd >= prods) {
+        _lastProd = 0;
+    }
+    
+    int nextProd = _levelData->getRandomProductList().at(_lastProd);
+    
+    _lastProd++;
+    
+    return nextProd;
+
+}
+
+int GameModel::getNextTossingProd(float dt)
+{
+    int nextProd = 0;
+    
+    int iData = 0;
+    int countData = _carrierData.size();
+    
+    while (!nextProd && iData < countData) {
+        CarrierData* cdt = _carrierData.at(iData);
+        iData++;
+
+        if (cdt->_countDown <= 0.0 && cdt->_products.size() > 0) {
+            nextProd = cdt->_products.front();
+            cdt->_products.pop_front();
+            cdt->_countDown = cdt->_tossInterval;
+        }
+        else{
+            if (cdt->_firstTossDelay > 0.0 ) {
+                cdt->_firstTossDelay -= dt;
+            }
+            else{
+                cdt->_countDown -= dt;
+            }
+        }
+        
+    }
+    
+    return nextProd;
+}
+
+
 
 
 

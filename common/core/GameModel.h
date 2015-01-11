@@ -11,6 +11,13 @@ class Heap;
 class ActorFactory;
 class ProductFactory;
 
+struct CarrierData{
+    std::deque<int> _products; // id's of products wchich will be tossed for carrier
+    float            _tossInterval;  // interval in sec
+    float            _countDown;
+    float            _firstTossDelay; // first toss daley in sec
+};
+
 class GameModel : public cocos2d::Node {
 
 public:
@@ -51,6 +58,8 @@ public:
     
     int getTossesPerCarrier();
     
+    int getNextTossingProd(float dt);
+    
 protected:
     
     //
@@ -58,6 +67,12 @@ protected:
     
     //
     WalkingGnome* initNewCarrier();
+    
+    int getNextGiftID();
+    int _lastGift;
+    int getNextRandomProdID();
+    int _lastProd;
+
     
     //converts relative coordinates/sizes according to
     //current screen
@@ -106,8 +121,11 @@ protected:
     
     // carrier support
     std::vector<WalkingGnome*> _carriers;
-    int _lastUsed;
-    int _firstUsed;
+    int _lastUsed;  // updated by getNextIdleCarrier
+    int _firstUsed; //updated by checkUpdateArrived
+    
+    std::vector<CarrierData*> _carrierData; //contains lists of products, intervas for each _carrier
+                                   // carrier and carrierData linked by vactor's index
     //
     std::vector<GameObjectBase*> _walkers;
     
