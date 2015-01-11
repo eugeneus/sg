@@ -12,6 +12,7 @@
 #include "WalkingGnome.h"
 #include "Heap.h"
 #include "FlashLights.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -116,16 +117,16 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     _background = GameObjectBase::create(bkgImg,Point(0.0, 0.0), 1.0);
     _gameLayer->addChild(_background);
 	
-	_heap = Heap::create("bg_floor.png", Point(0.0, -0.16), 0.48);
+	_heap = Heap::create(GAME_BG_FLOOR, Point(0.0, -0.16), 0.48);
 	_gameLayer->addChild(_heap);
     
     this->loadActors();
     
-    FlashLights *topLights = FlashLights::create("top_lights_0%i.png", 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
+    FlashLights *topLights = FlashLights::create(GAME_LIGHTS_TOP_MASK, 2, 1.0f, Point(_background->getContentSize().width/2 - 10, _background->getContentSize().height - 34), 1.0);
     _gameLayer->addChild(topLights);
 
     
-    FlashLights *treeLights = FlashLights::create("tree_lights_0%i.png", 3, 2.0f, Point(180, 400), 1.0);
+    FlashLights *treeLights = FlashLights::create(GAME_LIGHTS_TREE_MASK, 3, 2.0f, Point(180, 400), 1.0);
     _gameLayer->addChild(treeLights);
     
     
@@ -134,7 +135,7 @@ void GameModel::loadLevel(cocos2d::Layer* aLayer, int aLevel)
     //_btnsHolder->setContentSize(aLayer->getContentSize());
     _gameLayer->addChild(_btnsHolder);
     
-    this->addButton("btn_pause.png", "btn_pause_sel.png", CC_CALLBACK_1(GameScene::onPauseCliked, (GameScene *)aLayer), Vec2(0, _background->getContentSize().height), Vec2(0, 1));
+    this->addButton(GAME_PAUSE_BTN, GAME_PAUSE_BTN_SEL, CC_CALLBACK_1(GameScene::onPauseCliked, (GameScene *)aLayer), Vec2(0, _background->getContentSize().height), Vec2(0, 1));
     
 }
 

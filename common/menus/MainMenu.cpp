@@ -1,6 +1,7 @@
 
 #include "MainMenu.h"
 #include "GameScene.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -51,18 +52,29 @@ bool MainMenu::init()
 */
     int i =0;
     
-    MenuItemFont *pItem = MenuItemFont::create("Continue", CC_CALLBACK_1(MainMenu::menuCallback,this));
+    TTFConfig ttfConfig;
+    ttfConfig.fontSize = 24;
+    ttfConfig.fontFilePath = FONT_TEXT;
+    
+    //const Color3B &colorWhite = Color3B(255, 255, 255);
+    
+    Label *continueLabel = Label::createWithTTF(ttfConfig, "Continue");
+    
+    MenuItem *pItem = MenuItemLabel::create(continueLabel, CC_CALLBACK_1(MainMenu::menuCallback,this));
     pItem->setTag(0);
     pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
     this->addChild(pItem);
 
+    Label *casinoLabel = Label::createWithTTF(ttfConfig, "Casino");
 
-    pItem = MenuItemFont::create("Select", CC_CALLBACK_1(MainMenu::menuCallback,this));
+    pItem = MenuItemLabel::create(casinoLabel, CC_CALLBACK_1(MainMenu::menuCallback,this));
     pItem->setTag(2);
     pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
     this->addChild(pItem);
     
-    pItem = MenuItemFont::create("Close", CC_CALLBACK_1(MainMenu::menuCallback, this));
+    Label *closeLabel = Label::createWithTTF(ttfConfig, "Close");
+    
+    pItem = MenuItemLabel::create(closeLabel, CC_CALLBACK_1(MainMenu::menuCallback, this));
     pItem->setTag(1);
     pItem->setPosition(Point(beginPos.x, beginPos.y - i++ * step));
     this->addChild(pItem);

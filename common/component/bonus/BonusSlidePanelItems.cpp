@@ -1,14 +1,15 @@
 
 #include "BonusSlidePanelItems.h"
+#include "UIConstants.h"
 USING_NS_CC;
 
 BonusSlidePanelItems::BonusSlidePanelItems() {}
 BonusSlidePanelItems::~BonusSlidePanelItems() {}
 
-BonusSlidePanelItems *BonusSlidePanelItems::create() {
+BonusSlidePanelItems *BonusSlidePanelItems::create(BonusPanelCallback *callback) {
     BonusSlidePanelItems* pRet = new BonusSlidePanelItems();
     
-    if (!pRet->init())
+    if (!pRet->init(callback))
     {
         delete pRet;
         pRet = nullptr;
@@ -17,10 +18,12 @@ BonusSlidePanelItems *BonusSlidePanelItems::create() {
     return pRet;
 }
 
-bool BonusSlidePanelItems::init() {
+bool BonusSlidePanelItems::init(BonusPanelCallback *callback) {
     if (!SlidePanelItemsController::init()) {
         return false;
     }
+    
+    _callback = callback;
     
     return true;
 }
@@ -38,7 +41,7 @@ int createItemFrameNameIndex(int i) {
 
 std::string createItemFrameName(int i) {
     int val = createItemFrameNameIndex(i);
-    return CCString::createWithFormat("bonus_item_%i.png", val)->getCString();
+    return CCString::createWithFormat(BONUS_ITEM_MASK, val)->getCString();
 }
 
 void BonusSlidePanelItems::initItems() {
@@ -46,10 +49,10 @@ void BonusSlidePanelItems::initItems() {
         std::string frameName = createItemFrameName(i);
         Sprite *itemImg = Sprite::createWithSpriteFrameName(frameName);
         
-        Sprite *normal = Sprite::createWithSpriteFrameName("bonus_item_bg.png");
-        Sprite *selected = Sprite::createWithSpriteFrameName("bonus_item_bg.png");
+        Sprite *normal = Sprite::createWithSpriteFrameName(BONUS_ITEM_BG);
+        Sprite *selected = Sprite::createWithSpriteFrameName(BONUS_ITEM_BG);
         MenuItem *item = MenuItemSprite::create(normal, selected, CC_CALLBACK_1(BonusSlidePanelItems::onItemClicked, this));
-        item->setTag(i);
+        item->setTag(i + 1);
         item->setContentSize(Size(item->getContentSize().width, item->getContentSize().height + itemImg->getContentSize().height));
         
         itemImg->setPosition(Vec2(itemImg->getPosition().x + normal->getContentSize().width/2, itemImg->getPosition().y + normal->getContentSize().height/2 + itemImg->getContentSize().height/2));
@@ -62,4 +65,8 @@ void BonusSlidePanelItems::initItems() {
 void BonusSlidePanelItems::onItemClicked(Ref *pSender) {
     MenuItem *item = (MenuItem *) pSender;
     CCLOG("--- bonus item %i clicked. ----", item->getTag());
+    
+    // if no bonus
+    _callback->onShowShopPopup(2, item->getTag()); //TODO: bonusPageType & itemType
+    
 }

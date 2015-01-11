@@ -1,5 +1,6 @@
 
 #include "BonusPanelConfig.h"
+#include "UIConstants.h"
 
 USING_NS_CC;
 
@@ -36,7 +37,7 @@ float BonusPanelConfig::getYPos() {
 }
 
 std::string BonusPanelConfig::getButtonMaskNormal() {
-    return "btn_show_bonus_wait_0%i.png";
+    return BONUS_SHOW_BTN_WAIT_MASK;
 }
 
 int BonusPanelConfig::getButtonFrameCountNormal() {
@@ -44,7 +45,7 @@ int BonusPanelConfig::getButtonFrameCountNormal() {
 }
 
 std::string BonusPanelConfig::getButtonMaskShow() {
-    return "btn_show_bonus_0%i.png";
+    return BONUS_SHOW_BTN_NORMAL_MASK;
 }
 
 int BonusPanelConfig::getButtonFrameCountShow() {
@@ -52,7 +53,7 @@ int BonusPanelConfig::getButtonFrameCountShow() {
 }
 
 std::string BonusPanelConfig::getButtonMaskHide() {
-    return "btn_show_bonus_0%i.png";
+    return BONUS_SHOW_BTN_NORMAL_MASK;
 }
 
 int BonusPanelConfig::getButtonFrameCountHide() {
@@ -60,7 +61,7 @@ int BonusPanelConfig::getButtonFrameCountHide() {
 }
 
 std::string BonusPanelConfig::getButtonMaskWait() {
-    return "btn_show_bonus_wait_0%i.png";
+    return BONUS_SHOW_BTN_WAIT_MASK;
 }
 
 int BonusPanelConfig::getButtonFrameCountWait() {
