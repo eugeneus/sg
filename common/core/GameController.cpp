@@ -46,7 +46,7 @@ void GameController::update(float dt)
 {
     
     // ask model to check if there are gnomes
-    // finished walking line ad do corresponding updates
+    // finished walking line and then do corresponding updates
     _theModel->checkUpdateArrived();
     
     if (_launchCountDown <= 0.0f) {

@@ -375,7 +375,7 @@ float GameModel::getTossIntervalInSec()
 {
     float walkInterval = getWalkDuration();
     
-    float tossInterval = (walkInterval* 0.8) / (_levelData->getCarrierPerScreen() * _levelData->getTossingFreq());
+    float tossInterval = (walkInterval) / (_levelData->getCarrierPerScreen() * (_levelData->getTossingFreq()));
     //float tossInterval = (walkInterval) / (_levelData->getTossingFreq());
     return tossInterval;
 }
